@@ -7,7 +7,7 @@ Jennifer Nguyen 40178603 jenniferngu
 Jack Di Spirito 40287812          
 Robin Petrogiannis 40172920 RobinP457  
 Kailee Santucci 40296552 KaileeSantucci       
-Osamah Atrach 40224562      
+Osamah Atrach 40224562   Osama-Atrach   
 Riad Rakan 40264879       
 
 
