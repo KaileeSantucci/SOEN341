@@ -3,7 +3,7 @@ SOEN341 Winter 2025 semester project
 
 Team members:
 
-Jennifer Nguyen 40178603      
+Jennifer Nguyen 40178603 jenniferngu
 Jack Di Spirito 40287812          
 Robin Petrogiannis 40172920 RobinP457  
 Kailee Santucci 40296552       
