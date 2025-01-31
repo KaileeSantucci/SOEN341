@@ -3,9 +3,10 @@ SOEN341 Winter 2025 Project
 
 
 ## Description
-This website (**find a name for the website**) serves as a learning tool for students. It allows students to post their lecture notes in class-specific channels such that other students can view and access them easily. The website also allows for them to upload their class schedules so that their peers can view their availabilities, thus encouraging group studying. 
+This website (**find a name for the website, maybe StudySync?**) serves as a learning tool for students. It allows students to post their lecture notes in class-specific channels such that other students can view and access them easily. The website also allows for them to upload their class schedules so that their peers can view their availabilities, thus encouraging group studying. 
 
-
+## Objective
+The primary goal of **StudySync???** is to enhance collaborative learning by providing an organized space for students to share knowledge and coordinate their study efforts. By offering structured class channels, direct messaging, and role-based permissions, the platform fosters an interactive and supportive academic environment.
 
 
 ## Core Features
