@@ -34,3 +34,4 @@ The primary goal of **StudySync???** is to enhance collaborative learning by pro
 - **Backend**: Java
 - **Frontend**: HTML and CSS
 - **Database**: SQL
+**Note**: Frameworks are still being determined by the team
