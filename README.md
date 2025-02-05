@@ -22,12 +22,12 @@ The primary goal of **StudySync???** is to enhance collaborative learning by pro
 - **Class Schedule Upload**: Users can upload their class schedules so that their peers can view their availabilities and organize group studying.
 
 ## Team Members
-**Jennifer Nguyen** (40178603) - jenniferngu  
-**Jack Di Spirito** (40287812) - JackDiSpirito   
-**Robin Petrogiannis** (40172920) - RobinP457  
-**Kailee Santucci** (40296552) - KaileeSantucci       
-**Osamah Atrach** (40224562) -  Osama-Atrach   
-**Riad Rakan** (40264879)  -    Riad-Rakan
+**Jennifer Nguyen** (40178603) - jenniferngu - itsjen_ng@hotmail.com
+**Jack Di Spirito** (40287812) - JackDiSpirito - jackdisp@gmail.com
+**Robin Petrogiannis** (40172920) - RobinP457 - robinpetrogiannis@gmail.com
+**Kailee Santucci** (40296552) - KaileeSantucci - Kailee.santucci@gmail.com
+**Osamah Atrach** (40224562) -  Osama-Atrach - atrach.osama@kells.ca
+**Riad Rakan** (40264879)  -    Riad-Rakan - rakanrriad@gmail.com
 
 
 ## Programming Tools
