@@ -31,11 +31,11 @@ The primary goal of **StudySync???** is to enhance collaborative learning by pro
 
 
 ## Programming Tools
-HTML (code language for application structure)
-CSS (web application styling)
-Javascript (Programming langauge)
-Node.js (for WebSocket and server programming)
-Firebase OR phpMyAdmin (database depending on if using WebSockets)
-WebSockets (if bidirectional communication is required or else Firebase should be sufficient)
-Heroku (cloud platform for hosting WebSockets)
-Socket.io (open-source library for WebSockets)
+HTML (code language for application structure)  
+CSS (web application styling)  
+Javascript (Programming langauge)  
+Node.js (for WebSocket and server programming)  
+Firebase OR phpMyAdmin (database depending on if using WebSockets)  
+WebSockets (if bidirectional communication is required or else Firebase should be sufficient)  
+Heroku (cloud platform for hosting WebSockets)  
+Socket.io (open-source library for WebSockets)  
