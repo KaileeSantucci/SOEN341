@@ -1,0 +1,40 @@
+/*centering the body*/
+body{
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    margin: 0;
+    background-color: #403b71;
+}
+
+/*centering the main box*/
+.MainBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    width: 1000px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+/* From Uiverse.io by kamehame-ha */ 
+.userinput {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: static;
+    max-width: 240px;
+  }
+  
+  .userinput input[type=text].input {
+    padding: 11px 10px;
+    font-size: 0.75rem;
+    border: 2px #000000 solid;
+    border-radius: 5px;
+    background: #ffffff;
+  }
+  
+  .userinput input[type=text].input:focus {
+    outline: none;
+  }
