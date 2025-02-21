@@ -2,8 +2,8 @@
 
 SOEN341 Winter 2025 Project 
 
-
-
+Zoom link for lab meetings:
+https://us05web.zoom.us/j/86478671843?pwd=skOHtzc6dVK2cCifWbzLCyHWxd2jMh.1
 
 
 
