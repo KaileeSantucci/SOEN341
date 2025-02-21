@@ -1,0 +1,142 @@
+/* Global styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+/* Container to manage layout */
+.container {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    width: 60px;
+    height: 100vh;
+}
+
+/* Icon styles */
+.icon {
+    color: white;
+    font-size: 24px;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Active and hover states for icons */
+.icon.active, .icon:hover {
+    background-color: white;  /* White background */
+    color: #2c3e50;  /* Dark color for text */
+    border-radius: 10px;
+}
+
+/* Channel Join Section */
+.channel-join-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+/* Channel Section Title */
+.channel-join-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Search Bar */
+.search-bar {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
+
+.search-bar:focus {
+    border-color: #e74c3c;
+}
+
+/* Channel List */
+.channel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual Channel Styles */
+.channel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.channel:hover {
+    background-color: #f9f9f9;
+    transform: translateY(-5px);
+}
+
+/* Channel Text */
+.channel span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Join Button Styling */
+.join-button {
+    padding: 10px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.join-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .sidebar {
+        width: 60px;
+    }
+
+    .channel-join-section {
+        margin: 10px;
+    }
+}
+
