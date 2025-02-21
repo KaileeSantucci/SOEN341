@@ -20,7 +20,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 */
-
+//jsscript for messaging html
 
 // Get elements
 const searchBar = document.getElementById('search-bar');

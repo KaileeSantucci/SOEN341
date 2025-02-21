@@ -1,4 +1,5 @@
 // Get elements
+//Joinjs
 const searchBar = document.getElementById('search-bar');
 const channelsList = document.getElementById('channel-list');
 const chatMessagesContainer = document.querySelector('.chat-messages');
