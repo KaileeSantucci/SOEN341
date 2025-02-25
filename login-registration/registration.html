@@ -24,8 +24,10 @@
                 <h3>Tell us about yourself...</h3>
             </div>
 
-            <div class="div3"> <!--Registration form -->
-                <form class="loginForm" id="registerForm">                    
+            <form class="loginForm" id="registerFormStep1">  
+
+                <div class="div3"> <!--Registration form -->    
+
                     <div class="input-group">
                         <input required="" type="text" name="firstName" autocomplete="off" class="input" id="firstName">
                         <label class="user-label" for="firstName">First Name</label>
@@ -42,21 +44,23 @@
                         <input required="" type="phone" name="phone" autocomplete="off" class="input" id="phone">
                         <label class="user-label" for="phone">Phone Number</label>
                     </div><br>
-                </form>
-            </div>
 
-            <div class="div4"> <!--Button div-->
-                <button type="submit" class="registration-btn" id="registerBtn" onclick="window.location.href='registration2.html'">Next</button>
-            </div>
+                </div>
+
+                <div class="div4"> <!--Button div-->
+                    <button type="submit" class="registration-btn" id="nextBtn">Next</button>
+                </div>
+
+            </form>
+            
+
+            
             <div class="div5"> </div>
         </div>
     </div>
 
         <!--Linking JS files-->
-        <script src="firebase-config.js"></script>
-        <script src="authService.js"></script>
-        <script src="userService.js"></script>
-        <script src="app.js"></script>
+        <script src="multiStepForm.js"></script>
 
 </body>
 

@@ -1,12 +1,13 @@
 import { auth, db } from "./FirebaseConfiguration.js";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { doc, setDoc } from firebase/firestore;
+import { doc, setDoc } from "firebase/firestore";
+import { loginUser } from "./authentication.js";
 
 // Get elements from HTML
 const registerForm = document.getElementById("registrationForm");
 const registerBtn = document.getElementById("registerBtn");
 //double check this section--> not sure if i should use POST or id 
-const loginIn = document.getElementById("login-btn")
+const loginForm = document.getElementById("loginForm")
 
 //Handeling form submission
 registerForm.addEventListener("submit", async (event) => {
@@ -52,5 +53,21 @@ registerForm.addEventListener("submit", async (event) => {
         console.error("Error registering user:", error.message);
         alert("Error: " + error.message);
     }
+});
+//end of event listener for NEW user registration 
 
-})
+//Login Form even listener 
+loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault(); //prevents default form submission
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try {
+        await loginUser(email, password);
+        alert("Login successful!");
+    } catch (error) {
+        console.error("Login error:", error.message);
+        alert("Error: " + error.message);
+    }
+});

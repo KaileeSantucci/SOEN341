@@ -23,8 +23,9 @@
                 <h2>Let's finish setting up your account...</h2>
             </div>
             
-            <div class="div6"> <!--Registration form -->
-                <form id="registerForm" class="loginForm">                    
+            
+                <form id="registerFormStep2" class="loginForm">    
+                    <div class="div6"> <!--Registration form -->                
                     <div class="input-group">
                         <input required="" type="text" name="userName" autocomplete="off" class="input" id="userName">
                         <label class="user-label" for="userName">User Name</label>
@@ -37,23 +38,22 @@
                         <input required="" type="password" name="confirmed-password" autocomplete="off" class="input" id="confirmed-password">
                         <label class="user-label" for="confirmed-password">Confirm Password</label>
                     </div><br>
+                    </div>
+
+                    <div class="div4"> <!--Button div-->
+                        <button class="registration-btn">Register!</button>
+                    </div>
+                    
                 </form>
-            </div>
+           
 
             <div class="div7">
                 <checkbox>
                     <input type="checkbox" id="terms" name="terms">
                     <label for="terms">I agree to the terms and conditions</label>
                 </checkbox>
-                <checkbox>
-                    <input type="checkbox" id="robot" name="robot">
-                    <label for="robot">I pinky promise I am not a robot.</label>
-                </checkbox>
             </div>
 
-            <div class="div4"> <!--Button div-->
-                <button class="registration-btn">Register!</button>
-            </div>
             <div class="div5"> 
                 <button class="registration-btn" id="registerBtn" onclick="window.location.href='registration.html'">Back</button>
             </div>
@@ -61,10 +61,8 @@
     </div>
 
     <!--Linking JS files-->
-    <script src="firebase-config.js"></script>
-    <script src="authService.js"></script>
-    <script src="userService.js"></script>
-    <script src="app.js"></script>
+    <script src="multiStepForm.js"></script>
+
 
 </body>
 

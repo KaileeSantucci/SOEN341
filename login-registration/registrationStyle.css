@@ -67,7 +67,7 @@ body{
     line-height: 1;
 }
 .div3 { 
-    grid-area: 4 / 1 / 11 / 7; 
+    grid-area: 6 / 1 / 11 / 7; 
     display: flex;
     text-align: center;
     justify-content: center;

@@ -1,5 +1,5 @@
 import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "FireBaseConfiguration.js";
+import { db } from "./FirebaseConfiguration.js";
 
 /**
  * Saves a new user's profile to Firestore

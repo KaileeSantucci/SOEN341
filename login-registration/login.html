@@ -22,7 +22,7 @@
                 <p style="font-family: 'Habibi';">(we missed you)</p>
             </div>
             <div class="div2"> <!-- login form -->
-                <form action="/login" class="loginForm" method="POST">                    
+                <form class="loginForm" id="loginForm">                    
                     <div class="input-group">
                         <input required="" type="email" name="email" autocomplete="off" class="input" id="email">
                         <label class="user-label" for="email">Email</label>
@@ -31,9 +31,9 @@
                         <input required="" type="password" name="password" autocomplete="off" class="input" id="password">
                         <label class="user-label" for="password">Password</label>
                     </div><br
+                </div>
+                    <button type="submit" id="login-btn">Sign In</button>
                 </form>
-                <button type="submit" id="login-btn">Sign In</button>
-
             </div>
             <div class="div3"> <!-- StudySpace logo area -->
                 <img src="../StudySpace (1).png" alt="StudySpace Logo" style="max-width: 100%; height: auto;">

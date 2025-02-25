@@ -1,7 +1,5 @@
-import { auth } from "FirebaseConfiguration.js";
+import { auth } from "./FirebaseConfiguration.js";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-
-const auth = getAuth(app); //Initialize the authentication service from Firebase
 
 //Creating a new user
 const registerUser = async (email, password) => {
