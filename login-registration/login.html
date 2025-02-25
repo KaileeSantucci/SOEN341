@@ -40,22 +40,16 @@
             </div>
             <div class="div4"> <!-- First time/Registration redirection button -->
                 <h1>First time?</h1><br>
-                <button class="registration-btn" onclick="window.location.href='registration.html'">Register Now</button>
+                <button class="registration-btn" id ="registration-btn" onclick="window.location.href='registration.html'">Register Now</button>
             </div>
         </div>
+    </div>
+    <!--Linking JS files-->
+    <script src="firebase-config.js"></script>
+    <script src="authService.js"></script>
+    <script src="userService.js"></script>
+    <script src="app.js"></script>
+
 </body>
 
-<script>
-    import { registerUser, loginUser, logoutUser } from "../firebase/auth.js";
-    document.getElementById("registerBtn").addEventListener("click", async () => {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        try {
-            await registerUser(email, password);
-            console.log("Registration successful"); 
-        }catch (error) {
-            console.log("Error:", error.message);
-        }
-    });
-</script>
 </html>

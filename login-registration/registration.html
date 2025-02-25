@@ -25,7 +25,7 @@
             </div>
 
             <div class="div3"> <!--Registration form -->
-                <form action="/register" class="loginForm" method="POST">                    
+                <form class="loginForm" id="registerForm">                    
                     <div class="input-group">
                         <input required="" type="text" name="firstName" autocomplete="off" class="input" id="firstName">
                         <label class="user-label" for="firstName">First Name</label>
@@ -46,11 +46,18 @@
             </div>
 
             <div class="div4"> <!--Button div-->
-                <button type="submit" class="registration-btn" onclick="window.location.href='registration2.html'">Next</button>
+                <button type="submit" class="registration-btn" id="registerBtn" onclick="window.location.href='registration2.html'">Next</button>
             </div>
             <div class="div5"> </div>
         </div>
     </div>
+
+        <!--Linking JS files-->
+        <script src="firebase-config.js"></script>
+        <script src="authService.js"></script>
+        <script src="userService.js"></script>
+        <script src="app.js"></script>
+
 </body>
 
 </html>
