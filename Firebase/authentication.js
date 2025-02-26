@@ -1,5 +1,5 @@
 import { auth } from "./FirebaseConfiguration.js";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 //Creating a new user
 const registerUser = async (email, password) => {
@@ -12,16 +12,24 @@ const registerUser = async (email, password) => {
   }
 };
 
-//Function to login a user 
-const loginUser = async (email, password) => {
+// Function to login a user 
+export const loginUser = async (email, password) => {
   try {
+    if (!auth) {
+      throw new Error("Firebase Auth is not initialized.");
+    }
+
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     console.log("User logged in:", user);
+
+    return user; // Return user object
   } catch (error) {
-    console.log("Error loggin in:", error);
+    console.error("Error logging in:", error.message);
+    throw error; // Re-throw for `app.js` to catch it
   }
 };
+
   
 //Function to logout a user
 const logoutUser = async () => {
@@ -33,4 +41,4 @@ const logoutUser = async () => {
   }
 };
 
-export { auth, registerUser, loginUser, logoutUser }; //Export the functions to be used in other files
+export { auth, registerUser, logoutUser }; //Export the functions to be used in other files

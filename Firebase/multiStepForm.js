@@ -63,7 +63,7 @@ if (step2Form) {
 
             alert("Registration successful!");
             sessionStorage.clear(); // Clear temporary storage
-            window.location.href = "login.html"; // Redirect to login page
+            window.location.href = "testHome.html"; // Redirect to login page
 
         } catch (error) {
             console.error("Error registering user:", error.message);

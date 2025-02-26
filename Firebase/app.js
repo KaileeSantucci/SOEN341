@@ -7,7 +7,7 @@ import { loginUser } from "./authentication.js";
 const registerForm = document.getElementById("registrationForm");
 const registerBtn = document.getElementById("registerBtn");
 //double check this section--> not sure if i should use POST or id 
-const loginForm = document.getElementById("loginForm")
+const loginForm = document.getElementById("loginForm");
 
 //Handeling form submission
 registerForm.addEventListener("submit", async (event) => {
@@ -47,7 +47,7 @@ registerForm.addEventListener("submit", async (event) => {
         });
 
         alert("Registration successful!");
-        registerForm.reset(); // Clear form fields
+        window.location.href = "./testHome.html" //Redirect users to the home page after successfully creating an account
 
     } catch (error) {
         console.error("Error registering user:", error.message);
@@ -57,17 +57,22 @@ registerForm.addEventListener("submit", async (event) => {
 //end of event listener for NEW user registration 
 
 //Login Form even listener 
-loginForm.addEventListener("submit", async (event) => {
-    event.preventDefault(); //prevents default form submission
+if (loginForm) {  // Ensure login form exists before adding event listener
+    loginForm.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent default form submission
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
 
-    try {
-        await loginUser(email, password);
-        alert("Login successful!");
-    } catch (error) {
-        console.error("Login error:", error.message);
-        alert("Error: " + error.message);
-    }
-});
+        try {
+            await loginUser(email, password);
+            alert("Login successful!");
+            window.location.href = "testHome.html"; // Redirect user to home page
+        } catch (error) {
+            console.error("Login error:", error.message);
+            alert("Error: " + error.message);
+        }
+    });
+} else {
+    console.error("Login form not found!");
+}

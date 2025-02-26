@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="loginStyle.css">
+    
     <title>StudySpace</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,17 +25,18 @@
             <div class="div2"> <!-- login form -->
                 <form class="loginForm" id="loginForm">                    
                     <div class="input-group">
-                        <input required="" type="email" name="email" autocomplete="off" class="input" id="email">
-                        <label class="user-label" for="email">Email</label>
+                        <input required type="email" name="email" autocomplete="off" class="input" id="loginEmail">
+                        <label class="user-label" for="loginEmail">Email</label>
                     </div><br>
                     <div class="input-group">
-                        <input required="" type="password" name="password" autocomplete="off" class="input" id="password">
-                        <label class="user-label" for="password">Password</label>
-                    </div><br
-                </div>
+                        <input required type="password" name="password" autocomplete="off" class="input" id="loginPassword">
+                        <label class="user-label" for="loginPassword">Password</label>
+                    </div><br> <!-- Fixed closing ">" -->
                     <button type="submit" id="login-btn">Sign In</button>
                 </form>
             </div>
+            
+
             <div class="div3"> <!-- StudySpace logo area -->
                 <img src="../StudySpace (1).png" alt="StudySpace Logo" style="max-width: 100%; height: auto;">
             </div>
@@ -45,11 +47,11 @@
         </div>
     </div>
     <!--Linking JS files-->
-    <script src="firebase-config.js"></script>
-    <script src="authService.js"></script>
-    <script src="userService.js"></script>
-    <script src="app.js"></script>
-
+    <script type="module" src="../Firebase/FirebaseConfiguration.js"></script>
+    <script type="module" src="../Firebase/authentication.js"></script>
+    <script type="module" src="../Firebase/userProfile.js"></script>
+    <script type="module" src="../Firebase/app.js"></script>
+    
 </body>
 
 </html>
