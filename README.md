@@ -24,9 +24,9 @@ The primary goal of **StudySpace** is to enhance collaborative learning by provi
 ## Team Members
 **Jennifer Nguyen** (40178603) - jenniferngu - itsjen_ng@hotmail.com        
 **Robin Petrogiannis** (40172920) - RobinP457 - robinpetrogiannis@gmail.com    
-**Kailee Santucci** (40296552) - KaileeSantucci - Kailee.santucci@gmail.com    
-**Riad Rakan** (40264879)  -    Riad-Rakan - rakanrriad@gmail.com    
-**Jack Di Spirito** (40287812) - JackDiSpirito - jackdisp@gmail.com
+**Kailee Santucci** (40296552) - KaileeSantucci - Kailee.santucci@gmail.com        
+**Riad Rakan** (40264879)  -    Riad-Rakan - rakanrriad@gmail.com        
+**Jack Di Spirito** (40287812) - JackDiSpirito - jackdisp@gmail.com        
 **Osamah Atrach** (40224562) -  Osama-Atrach - atrach.osama@kells.ca    
 
 
@@ -35,5 +35,5 @@ HTML (code language for application structure)
 CSS (web application styling)  
 Javascript (Programming langauge)  
 Node.js (for WebSocket and server programming)  
-Firebase and Firestore
+Firebase and Firestore        
 React
