@@ -117,27 +117,27 @@ body{
   transition: 100ms;
 }
 
-#login-btn {
+#loginBtn {
   padding: 17px 40px;
   border-radius: 50px;
   cursor: pointer;
   border: 0;
   color: #ffffff;
-  background-color: #f37e9a;
+  background-color: #e1f37e;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-size: 15px;
   transition: all 0.5s ease;
 }
 
-#login-btn:hover {
+#loginBtn:hover {
   letter-spacing: 3px;
   background-color: #ffffff;
   color: #f37e9a;
   box-shadow: #ffffff 0px 7px 29px 0px;
 }
 
-#login-btn:active {
+#loginBtn:active {
   letter-spacing: 3px;
   background-color: #ffffff;
   color: #f37e9a;
