@@ -8,10 +8,10 @@ https://us05web.zoom.us/j/86478671843?pwd=skOHtzc6dVK2cCifWbzLCyHWxd2jMh.1
 
 
 ## Description
-This website (**find a name for the website, maybe StudySync?**) serves as a learning tool for students. It allows students to post their lecture notes in class-specific channels such that other students can view and access them easily. The website also allows for them to upload their class schedules so that their peers can view their availabilities, thus encouraging group studying. 
+This website serves as a learning tool for students. It allows students to post their lecture notes in class-specific channels such that other students can view and access them easily. The website also allows for them to upload their class schedules so that their peers can view their availabilities, thus encouraging group studying. 
 
 ## Objective
-The primary goal of **StudySync???** is to enhance collaborative learning by providing an organized space for students to share knowledge and coordinate their study efforts. By offering structured class channels, direct messaging, and role-based permissions, the platform fosters an interactive and supportive academic environment.
+The primary goal of **StudySpace** is to enhance collaborative learning by providing an organized space for students to share knowledge and coordinate their study efforts. By offering structured class channels, direct messaging, and role-based permissions, the platform fosters an interactive and supportive academic environment.
 
 
 ## Core Features
@@ -22,12 +22,12 @@ The primary goal of **StudySync???** is to enhance collaborative learning by pro
 - **Class Schedule Upload**: Users can upload their class schedules so that their peers can view their availabilities and organize group studying.
 
 ## Team Members
-**Jennifer Nguyen** (40178603) - jenniferngu - itsjen_ng@hotmail.com    
-**Jack Di Spirito** (40287812) - JackDiSpirito - jackdisp@gmail.com    
+**Jennifer Nguyen** (40178603) - jenniferngu - itsjen_ng@hotmail.com        
 **Robin Petrogiannis** (40172920) - RobinP457 - robinpetrogiannis@gmail.com    
 **Kailee Santucci** (40296552) - KaileeSantucci - Kailee.santucci@gmail.com    
-**Osamah Atrach** (40224562) -  Osama-Atrach - atrach.osama@kells.ca    
 **Riad Rakan** (40264879)  -    Riad-Rakan - rakanrriad@gmail.com    
+**Jack Di Spirito** (40287812) - JackDiSpirito - jackdisp@gmail.com
+**Osamah Atrach** (40224562) -  Osama-Atrach - atrach.osama@kells.ca    
 
 
 ## Programming Tools
@@ -35,7 +35,5 @@ HTML (code language for application structure)
 CSS (web application styling)  
 Javascript (Programming langauge)  
 Node.js (for WebSocket and server programming)  
-Firebase OR phpMyAdmin (database depending on if using WebSockets)  
-WebSockets (if bidirectional communication is required or else Firebase should be sufficient)  
-Heroku (cloud platform for hosting WebSockets)  
-Socket.io (open-source library for WebSockets)  
+Firebase and Firestore
+React
