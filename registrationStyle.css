@@ -75,12 +75,14 @@ body{
     align-items: center;
 }
 .div4 { 
-    grid-area: 9 / 8 / 11 / 11; 
+    grid-area: 8 / 8 / 11 / 10; 
     display: flex;
     text-align: center;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    font-family: "Silkscreen", Times;
+    color:#ffffff; 
 }
 .div5 { 
     grid-area: 8 / 9 / 9 / 11; 
@@ -111,7 +113,7 @@ body{
 
 
 /*styling the registration button*/
-.registration-btn {
+#registration-btn {
     padding: 17px 40px;
     border-radius: 50px;
     cursor: pointer;
@@ -124,14 +126,14 @@ body{
     transition: all 0.5s ease;
   }
   
-  .registration-btn:hover {
+  #registration-btn:hover {
     letter-spacing: 3px;
     background-color: #ffffff;
     color: #f37e9a;
     box-shadow: #ffffff 0px 7px 29px 0px;
   }
   
-  .registration-btn:active {
+  #registration-btn:active {
     letter-spacing: 3px;
     background-color: #ffffff;
     color: #f37e9a;
