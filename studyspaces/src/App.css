@@ -1,0 +1,84 @@
+/* App.css */
+
+/* App container to hold Sidebar and main content */
+.app-container {
+  display: flex;
+  height: 100vh; /* Ensure the container takes up full height */
+  background-color: #F37E9A; /* Pastel pink background */
+  position: relative
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: #d4b0cd;
+  padding: 15px;
+  position:relative;
+  height: calc(100% - 80px); /* Reduce height to leave space at the top */
+  top: 150px; /* Add this to leave room at the top */
+  z-index: 1; /* Make sure sidebar is always on top */
+  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1); /* Horizontal, Vertical, Blur, and Color */
+  border-radius: 40px; /* Adjust this value to make the corners more rounded */
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 3px 5px rgba(126, 112, 112, 0.3);
+
+  }
+
+/* Main content area */
+.main-content {
+  margin-left: 250px; /* Space for the sidebar */
+  padding: 20px;
+  width: calc(100% - 250px); /* Ensure content doesn't overflow */
+  background-color: #F37E9A; /* Pastel pink background */
+  height: 100vh; /* Ensure content area takes full height */
+  position: relative; /* Ensure the content is positioned correctly */
+  box-sizing: border-box;
+  margin-top: 60px; /* Ensure content starts below the header */
+}
+
+/* Header - fixed position */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  z-index: 0; 
+  background-color: #F37E9A; /* Pastel pink background */
+  width: 100%; /* Ensure the header spans the width of the screen */
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 150px;
+  margin-right: 10px; /* Add spacing between the logo and title */
+}
+
+.react {
+  width: 50px;
+}
+
+.card {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+.read-the-docs {
+  margin-top: 20px;
+  color: #007BFF;
+}
+
+h1 {
+  font-size: 50px;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: bold;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+
+  color: #f5f0f2; /* Adjust title color if needed */
+  margin: 0;
+  
+}
