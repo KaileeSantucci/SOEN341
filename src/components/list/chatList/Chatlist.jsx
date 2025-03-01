@@ -21,7 +21,7 @@ const Chatlist = () => {
             <div className="item">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <span>Big Cheese</span>
+                    <span>Big Cheese1</span>
                     <p>Hello</p>
                 </div>
             </div>
