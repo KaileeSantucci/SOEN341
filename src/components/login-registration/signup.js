@@ -1,4 +1,4 @@
-import { firebaseConfig } from '../../lib/firebase';
+import { firebaseConfig } from '../../lib/firebase.js';
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
