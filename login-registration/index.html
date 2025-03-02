@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="loginStyle.css">
+    <title>StudySpace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Habibi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="MainBox">
+        <div class="parent">
+            <div class="div1"> <!-- Welcome back message div -->
+                <h1>Welcome Back!</h1>
+                <p style="font-family: 'Habibi';">(we missed you)</p>
+            </div>
+            <div class="div2"> <!-- login form -->
+
+                <form action="#" class="login form">                    
+                    <div class="input-group">
+                        <input required="" type="email" name="email" class="input" id="inUsr">
+                        <label class="user-label" for="email">Email</label>
+                    </div><br>
+                    <div class="input-group">
+                        <input required="" type="password" name="password" autocomplete="off" class="input" id="inPass">
+                        <label class="user-label" for="password">Password</label>
+                    </div><br
+                    <span><button type="submit" id="loginBtn" class="loginbtn">Sign In</button></span>
+                </form>
+
+            </div>
+            <div class="div3"> <!-- StudySpace logo area -->
+                <img src="../StudySpace (1).png" alt="StudySpace Logo" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="div4"> <!-- First time/Registration redirection button -->
+                <h1>First time?</h1><br>
+                <button class="registration-btn" onclick="window.location.href='registration.html'">Register Now</button>
+            </div>
+        </div>
+</body>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="login.js" type="module"></script>
+    <script src="signup.js" type="module"></script>
+</html>

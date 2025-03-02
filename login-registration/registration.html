@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySpace</title>
+    <link rel="stylesheet" href="registrationStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Habibi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="MainBox">
+        <div class="parent">
+            <div class="div1"> <!--Logo div-->
+                <img src="../StudySpace (1).png" alt="StudySpace Logo" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="div2"> <!--Big message at the top of the page-->
+                <h1>First time?<br>Don't be shy!</h1>
+                <h3>Tell us about yourself...</h3>
+            </div>
+
+            <div class="div3"> <!--Registration form -->
+                <form action="#" class="registration form">                    
+                    <div class="input-group">
+                        <input required="" type="text" name="firstName" class="input" id="firstName">
+                        <label class="user-label" for="firstName">First Name</label>
+                    </div><br>
+                    <div class="input-group">
+                        <input required="" type="text" name="lastName" class="input" id="lastName">
+                        <label class="user-label" for="lastName">Last Name</label>
+                    </div><br>
+                    <div class="input-group">
+                        <input required="" type="text" name="userName" class="input" id="userName">
+                        <label class="user-label" for="userName">User Name</label>
+                    </div><br>
+                    <div class="input-group">
+                        <input required="" type="email" name="email" class="input" id="email">
+                        <label class="user-label" for="email">Email</label>
+                    </div><br>
+                    <div class="input-group">
+                        <input required="" type="password" name="password" class="input" id="password">
+                        <label class="user-label" for="password">Password</label>
+                    </div><br>
+
+                   <span class="div4"> <button type="submit" id="registration-btn" class="signupbtn">Register Now!</button></span>
+                </form>
+            </div>
+
+            <div class="div4">
+                Already have an account? <a href="index.html">Sign in</a>
+            </div>
+            <div class="div5"> </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="signup.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+/*centering the body*/
+body{
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+/*centering the main box*/
+.MainBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+  width: 1000px;
+  border-radius: 30px;
+  background-color: #f37e9a;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  padding: 2px;
+  width: 100%;
+  height:100%;
+  }
+  
+.div1 { 
+  grid-area: 2 / 1 / 5 / 7; 
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color:#ffffff; 
+  font-family: "Bungee Shade", "Silkscreen", Times;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+}
+/* Styling for h1 */
+.div1 h1 {
+  margin-bottom: 5px; /* Reduce spacing below the heading */
+  line-height: 1.1; /* Adjust line height to reduce space */
+}
+
+/* Styling for the text below h1 */
+.div1 p {
+  font-size: 1.5vw; /* Adjust text size */
+  margin-top: 0; /* Remove extra space above the text */
+  padding: 0; /* Ensure no padding is causing extra space */
+  line-height: 1; /* Reduce space inside text */
+}
+
+.div2 { 
+  grid-area: 6 / 1 / 10 / 7; 
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.div3 { 
+  border-radius: 30px;
+  padding-right: 15px;
+  grid-area: 1 / 7 / 7 / 11; 
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.div4 { 
+  grid-area: 7 / 7 / 10 / 11; 
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Bungee Shade", "Silkscreen", Times;
+  color:#ffffff; 
+}
+
+/*styling the registration button*/
+.registration-btn {
+  padding: 17px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  color: #ffffff;
+  background-color: #f37e9a;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+.registration-btn:hover {
+  letter-spacing: 3px;
+  background-color: #ffffff;
+  color: #f37e9a;
+  box-shadow: #ffffff 0px 7px 29px 0px;
+}
+
+.registration-btn:active {
+  letter-spacing: 3px;
+  background-color: #ffffff;
+  color: #f37e9a;
+  box-shadow: #ffffff 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+#loginBtn {
+  padding: 17px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  color: #ffffff;
+  background-color: #f37e9a;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+#loginBtn:hover {
+  letter-spacing: 3px;
+  background-color: #ffffff;
+  color: #f37e9a;
+  box-shadow: #ffffff 0px 7px 29px 0px;
+}
+
+#loginBtn:active {
+  letter-spacing: 3px;
+  background-color: #ffffff;
+  color: #f37e9a;
+  box-shadow: #ffffff 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+
+
+/*styling the login inputs*/ 
+.input-group {
+  position: relative;
+}
+ 
+.input {
+  width: 400px;
+  border: solid 1.5px #ffffff;
+  border-radius: 1rem;
+  background: none;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #000000;
+  transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+}
+ 
+.user-label {
+  position: absolute;
+  left: 15px;
+  color: #ffe4f0;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4,0,0.2,1);
+}
+ 
+.input:focus, input:valid {
+  outline: none;
+  border: 1.5px solid #000000;
+  background-color: #ffdae8;
+}
+ 
+.input:focus ~ label, input:valid ~ label {
+  transform: translateY(-50%) scale(0.8);
+  background-color: #000000;
+  border-radius: 15px;
+  padding: 0 .5em;
+  color: #ffffff;
+}
