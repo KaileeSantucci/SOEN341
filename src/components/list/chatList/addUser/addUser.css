@@ -2,7 +2,7 @@
     width: max-content;
     height: max-content;
     padding: 30px;
-    background-color: black;
+    background-color:  rgba(25, 57, 133, 0.248);
     border-radius: 10px;
     position: absolute;
     top: 0;
@@ -10,4 +10,53 @@
     left: 0;
     right: 0;
     margin: auto;
+
+    form{
+        display: flex;
+        gap: 20px;
+        
+        input{
+            padding: 20px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+        button{
+            padding: 20px;
+            border-radius: 10px;
+            background-color:  rgba(255, 93, 166, 0.731);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    .user{
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .detail{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+        button{
+            padding: 20px;
+            border-radius: 10px;
+            background-color:  rgba(255, 93, 166, 0.731);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    }
 }

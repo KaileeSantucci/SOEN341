@@ -1,4 +1,4 @@
-import "./addUser"
+import "./addUser.css"
 
 const AddUser = () =>{
     return (
