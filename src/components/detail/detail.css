@@ -6,7 +6,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 15px;
         border-bottom: 1px solid #16161635;
 
         img{
@@ -20,7 +20,7 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 25px;
 
         .option{
             .title{
@@ -79,7 +79,7 @@
             }
         }
         button{
-            padding: 10px 20px;
+            padding: 15px;
             background-color: rgba(255, 65, 23, 0.403);
             color: white;
             border: none;
@@ -87,6 +87,10 @@
             cursor: pointer;
             &:hover{
                 background-color: rgb(255, 65, 23);
+            }
+            &.logout{
+                padding: 10px;
+                background-color:  rgb(47, 108, 252, 0.7);
             }
         }
     }
