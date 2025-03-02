@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robin Profile V2</title>
+    <link rel="stylesheet" href="RobinProfileV2.css">
+
+
+    .app-container {
+        display: flex;
+        height: 100vh; /* Ensure the container takes up full height */
+        background-color: #F37E9A; /* Pastel pink background */
+        position: relative
+      }
+
+
+      /* Main content area */
+.main-content {
+    margin-left: 250px; /* Space for the sidebar */
+    padding: 20px;
+    width: calc(100% - 250px); /* Ensure content doesn't overflow */
+    background-color: #F37E9A; /* Pastel pink background */
+    height: 100vh; /* Ensure content area takes full height */
+    position: relative; /* Ensure the content is positioned correctly */
+    box-sizing: border-box;
+    margin-top: 60px; /* Ensure content starts below the header */
+  }
+  
+</head>
+<body>
+    <!-- Your HTML content goes here -->
+</body>
+</html>
+
