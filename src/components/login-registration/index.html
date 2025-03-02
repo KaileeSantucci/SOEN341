@@ -22,21 +22,22 @@
                 <p style="font-family: 'Habibi';">(we missed you)</p>
             </div>
             <div class="div2"> <!-- login form -->
-                <form action="/login" class="loginForm" method="POST">                    
+
+                <form action="#" class="login form">                    
                     <div class="input-group">
-                        <input required="" type="email" name="email" autocomplete="off" class="input" id="email">
+                        <input required="" type="email" name="email" class="input" id="inUsr">
                         <label class="user-label" for="email">Email</label>
                     </div><br>
                     <div class="input-group">
-                        <input required="" type="password" name="password" autocomplete="off" class="input" id="password">
+                        <input required="" type="password" name="password" autocomplete="off" class="input" id="inPass">
                         <label class="user-label" for="password">Password</label>
                     </div><br
+                    <span><button type="submit" id="loginBtn" class="loginbtn">Sign In</button></span>
                 </form>
-                <button type="submit" id="login-btn">Sign In</button>
 
             </div>
             <div class="div3"> <!-- StudySpace logo area -->
-                <img src="/public/StudySpace (1).png" alt="StudySpace Logo" style="max-width: 100%; height: auto;">
+                <img src="../StudySpace (1).png" alt="StudySpace Logo" style="max-width: 100%; height: auto;">
             </div>
             <div class="div4"> <!-- First time/Registration redirection button -->
                 <h1>First time?</h1><br>
@@ -44,18 +45,9 @@
             </div>
         </div>
 </body>
-
-<script>
-    import { registerUser, loginUser, logoutUser } from "../firebase/auth.js";
-    document.getElementById("registerBtn").addEventListener("click", async () => {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        try {
-            await registerUser(email, password);
-            console.log("Registration successful"); 
-        }catch (error) {
-            console.log("Error:", error.message);
-        }
-    });
-</script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="login.js" type="module"></script>
+    <script src="signup.js" type="module"></script>
 </html>
