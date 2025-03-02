@@ -1,6 +1,6 @@
 import "./addUser"
 
-const addUser = () =>{
+const AddUser = () =>{
     return (
         <div className="addUser">
             <form>
@@ -14,9 +14,8 @@ const addUser = () =>{
                 </div>
                 <button>Add User</button>
             </div>
-
         </div>
-    )
-}
+    );
+};
 
 export default AddUser;
