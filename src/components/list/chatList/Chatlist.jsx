@@ -22,56 +22,56 @@ const Chatlist = () => {
             <div className="item">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <span>Big Cheese1</span>
+                    <span>Friend1</span>
                     <p>Hello</p>
                 </div>
             </div>
             <div className="item">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <span>Big Cheese2</span>
+                    <span>Friend2</span>
                     <p>Hello</p>
                 </div>
             </div>
             <div className="item">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <span>Big Cheese3</span>
+                    <span>Friend3</span>
                     <p>Hello</p>
                 </div>
             </div>
             <div className="item">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <span>Big Cheese4</span>
+                    <span>Friend4</span>
                     <p>Hello</p>
                 </div>
             </div>
             <div className="item">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <span>Big Cheese5</span>
+                    <span>Friend5</span>
                     <p>Hello</p>
                 </div>
             </div>
             <div className="item">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <span>Real Big Cheese</span>
+                    <span>Friend6</span>
                     <p>Hello</p>
                 </div>
             </div>
             <div className="item">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <span>Big Cheese6</span>
+                    <span>Friend7</span>
                     <p>Hello</p>
                 </div>
             </div>
             <div className="item">
                 <img src="./avatar.png" alt="" />
                 <div className="texts">
-                    <span>Big Cheese7</span>
+                    <span>Friend8</span>
                     <p>Hello</p>
                 </div>
             </div>

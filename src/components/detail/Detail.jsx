@@ -5,9 +5,9 @@ const Detail = () => {
         <div className = 'detail'>
             <div className="user">
                 <img src="./avatar.png" alt="" />
-                <h2>Big Cheese</h2>
+                <h2>Admin</h2>
                 <p>
-                    Hey bros!
+                    BIO: Hey bros!
                 </p>
             </div>
             <div className="info">

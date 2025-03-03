@@ -24,8 +24,8 @@ const Chat = () => {
                 <div className="user">
                     <img src="./avatar.png" alt=""/>
                     <div className="texts">
-                        <span>Little Cheese</span>
-                        <p>I am Big Cheese's younger brother</p>
+                        <span>Friend</span>
+                        <p>type the discription here</p>
                     </div>
                 </div>
                 <div className="icons">
