@@ -1,72 +1,57 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation
 import { FaUser, FaHome, FaEnvelope, FaBell, FaUsers, FaPlus, FaCheckCircle, FaClipboardList } from 'react-icons/fa';
 import '../styles/Sidebar.css'; // Import sidebar-specific styles
 
 const Sidebar = () => {
-  const [activePage, setActivePage] = useState('home');
+  const location = useLocation(); // Get the current location (URL path)
 
-  const handlePageClick = (page) => {
-    setActivePage(page); // Update active page when clicked
+  // Function to dynamically set the active page based on the current pathname
+  const getActiveClass = (path) => {
+    return location.pathname === path ? 'active' : '';
   };
 
   return (
     <div className="sidebar">
       <ul>
-        <li 
-          className={activePage === 'myAccount' ? 'active' : ''} 
-          onClick={() => handlePageClick('myAccount')}>
+        <li className={getActiveClass('/account')}>
           <Link to="/account">
-            <FaUser className="sidebar-icon" /> My Account
+            <FaUser className="sidebar-icon" /> <span>My Account</span>
           </Link>
         </li>
-        <li 
-          className={activePage === 'home' ? 'active' : ''} 
-          onClick={() => handlePageClick('home')}>
-          <Link to="/home">
-            <FaHome className="sidebar-icon" /> Home Page
+        <li className={getActiveClass('/')}>
+          <Link to="/">
+            <FaHome className="sidebar-icon" /> <span>Home Page</span>
           </Link>
         </li>
-        <li 
-          className={activePage === 'directMessaging' ? 'active' : ''} 
-          onClick={() => handlePageClick('directMessaging')}>
+        <li className={getActiveClass('/direct-messaging')}>
           <Link to="/direct-messaging">
-            <FaEnvelope className="sidebar-icon" /> Direct Messaging
+            <FaEnvelope className="sidebar-icon" /> <span>Direct Messaging</span>
           </Link>
         </li>
-        <li 
-          className={activePage === 'notifications' ? 'active' : ''} 
-          onClick={() => handlePageClick('notifications')}>
-          <Link to="/notifications">
-            <FaBell className="sidebar-icon" /> Activity/Notifications
+        <li className={getActiveClass('/activity-notifications')}>
+          <Link to="/activity-notifications">
+            <FaBell className="sidebar-icon" /> <span>Activity/Notifications</span>
           </Link>
         </li>
-        <li 
-          className={activePage === 'groupMessaging' ? 'active' : ''} 
-          onClick={() => handlePageClick('groupMessaging')}>
+        <li className={getActiveClass('/group-messaging')}>
           <Link to="/group-messaging">
-            <FaUsers className="sidebar-icon" /> Group Messaging
+            <FaUsers className="sidebar-icon" /> <span>Group Messaging</span>
           </Link>
         </li>
-        <li 
-          className={activePage === 'addFriends' ? 'active' : ''} 
-          onClick={() => handlePageClick('addFriends')}>
+        <li className={getActiveClass('/add-friends')}>
           <Link to="/add-friends">
-            <FaPlus className="sidebar-icon" /> Add Friends
+            <FaPlus className="sidebar-icon" /> <span>Add Friends</span>
           </Link>
         </li>
-        <li 
-          className={activePage === 'customizeBackground' ? 'active' : ''} 
-          onClick={() => handlePageClick('customizeBackground')}>
+        <li className={getActiveClass('/customize-background')}>
           <Link to="/customize-background">
-            <FaCheckCircle className="sidebar-icon" /> Customize Background
+            <FaCheckCircle className="sidebar-icon" /> <span>Customize Background</span>
           </Link>
         </li>
-        <li 
-          className={activePage === 'toDoList' ? 'active' : ''} 
-          onClick={() => handlePageClick('toDoList')}>
+        <li className={getActiveClass('/to-do-list')}>
           <Link to="/to-do-list">
-            <FaClipboardList className="sidebar-icon" /> To-Do List
+            <FaClipboardList className="sidebar-icon" /> <span>To-Do List</span>
           </Link>
         </li>
       </ul>
