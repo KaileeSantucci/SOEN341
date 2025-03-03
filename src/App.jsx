@@ -6,6 +6,8 @@ import "./index.css"
 
 import { onAuthStateChanged } from "firebase/auth";
 
+import { onAuthStateChanged } from "firebase/auth";
+
 const App = () => {
     const user = false;
 
