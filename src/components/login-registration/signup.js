@@ -27,13 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
       auth.createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          return firestore.collection('users').doc(user.uid).set({
-            firstname: firstName,
-            lastname: lastName,
-            username: userName,
-            email: email,
-            createdAt: new Date() 
-          });
+          
+          return Promise.all([
+            firestore.collection('users').doc(user.uid).set({
+                firstname: firstName,
+                lastname: lastName,
+                username: userName,
+                email: email,
+                id: user.uid,
+                createdAt: new Date(),
+            }),
+            firestore.collection('userchats').doc(user.uid).set({
+                chats: [],
+            })
+          ]);
         })
         .then(() => {
           alert("Signup successful! You can now log in.");
