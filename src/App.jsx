@@ -1,10 +1,10 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Chat from "./components/chat/Chat";
 import Detail from "./components/detail/Detail";
 import List from "./components/list/List";
-import "./index.css"
 
-import { onAuthStateChanged } from "firebase/auth";
+import "./index.css"
 
 import { onAuthStateChanged } from "firebase/auth";
 
