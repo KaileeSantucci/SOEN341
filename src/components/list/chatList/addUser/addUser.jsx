@@ -1,21 +1,21 @@
 import "./addUser.css"
 
-const AddUser = () =>{
+const AddUser = () => {
     return (
         <div className="addUser">
             <form>
-                <input type="text" placeholder="Username" name="username"/>
+                <input type="text" placeholder="Username" name="username" />
                 <button>Search</button>
             </form>
             <div className="user">
                 <div className="detail">
-                    <img src="./avatar.png" alt="" />
-                    <span>Medium Cheese</span>
+                    <img src="./avatar.png" alt=""/>
+                    <span>A Friend To Add</span>
                 </div>
                 <button>Add User</button>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default AddUser;
+export default AddUser

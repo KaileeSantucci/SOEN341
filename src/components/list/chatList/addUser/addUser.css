@@ -1,20 +1,17 @@
 .addUser{
     width: max-content;
     height: max-content;
-    padding: 30px;
-    background-color:  rgba(25, 57, 133, 0.248);
+    padding: 20px;
+    background-color:  rgba(90, 94, 137, 0.5);
     border-radius: 10px;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: 0;bottom: 0;left: 0;right: 0;
     margin: auto;
 
     form{
         display: flex;
         gap: 20px;
-        
+
         input{
             padding: 20px;
             border-radius: 10px;
@@ -25,8 +22,8 @@
         button{
             padding: 20px;
             border-radius: 10px;
-            background-color:  rgba(255, 93, 166, 0.731);
-            color: white;
+            background-color: rgb(47, 108, 252, 0.7);
+            color: aliceblue;
             border: none;
             cursor: pointer;
         }
@@ -44,17 +41,16 @@
             gap: 20px;
 
             img{
-                width: 50px;
-                height: 50px;
+                width: 50px;height: 50px;
                 border-radius: 50%;
                 object-fit: cover;
             }
         }
         button{
-            padding: 20px;
+            padding: 10px;
             border-radius: 10px;
-            background-color:  rgba(255, 93, 166, 0.731);
-            color: white;
+            background-color: rgb(47, 108, 252, 0.7);
+            color: aliceblue;
             border: none;
             cursor: pointer;
         }
