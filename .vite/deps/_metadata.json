@@ -1,25 +1,31 @@
 {
-  "hash": "8693dcc7",
-  "configHash": "fd8f73a7",
-  "lockfileHash": "4d96418f",
-  "browserHash": "26d9ee87",
+  "hash": "ed6016df",
+  "configHash": "fd3c8726",
+  "lockfileHash": "8bc984af",
+  "browserHash": "44210ffc",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "4bb43bc8",
+      "fileHash": "202232da",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "c3562469",
+      "fileHash": "82783aaa",
       "needsInterop": true
+    },
+    "react-toastify": {
+      "src": "../../node_modules/react-toastify/dist/index.mjs",
+      "file": "react-toastify.js",
+      "fileHash": "9c0d0405",
+      "needsInterop": false
     },
     "emoji-picker-react": {
       "src": "../../node_modules/emoji-picker-react/dist/emoji-picker-react.esm.js",
       "file": "emoji-picker-react.js",
-      "fileHash": "7e352655",
+      "fileHash": "67eec37f",
       "needsInterop": false
     }
   },

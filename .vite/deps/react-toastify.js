@@ -1,10 +1,8 @@
 "use client";
 import {
+  __toESM,
   require_react
-} from "./chunk-CANBAPAS.js";
-import {
-  __toESM
-} from "./chunk-5WRI5ZAA.js";
+} from "./chunk-UTEJFLXC.js";
 
 // node_modules/react-toastify/dist/index.mjs
 var import_react = __toESM(require_react(), 1);
