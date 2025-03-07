@@ -3,6 +3,7 @@ import { db } from "../../../../lib/firebase";
 import { arrayUnion, collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where,} from "firebase/firestore";
 import { useState } from "react";
 import { useUserStore } from "../../../../lib/userStore";
+import { auth } from "../../../../lib/firebase";
 
 const AddUser = () => {
     const [user, setUser] = useState(null);
@@ -68,6 +69,7 @@ const AddUser = () => {
         <form onSubmit={handleSearch}>
           <input type="text" placeholder="Username" name="username" />
           <button>Search</button>
+          <button className="logout" onClick={()=> auth.signOut()}>Logut</button>
         </form>
         {user && (
           <div className="user">
