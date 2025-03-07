@@ -6,7 +6,7 @@ import Login from "./components/login/login";
 import Notification from "./components/notification/notification";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./lib/firebase";
-import { useUserStore } from "./components/lib/userStore";
+import { useUserStore } from "./lib/userStore";
 
 const App = () => {
 
