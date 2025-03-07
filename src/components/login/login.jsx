@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import "./login.css"
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../lib/firebase";
 
 
 const Login = () => {
@@ -32,7 +33,7 @@ const Login = () => {
                 <h2>WELCOME BACK!</h2>
                 <form onSubmit={handleLogin}>
                     <input type="text" placeholder="Email" name="email" />
-                    <input type="password" placeholder="Password" name="passowrd" />
+                    <input type="password" placeholder="Password" name="password" />
                     <button>Sign In</button>
                 </form>
             </div>
