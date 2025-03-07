@@ -8,6 +8,7 @@ import { doc, setDoc } from "firebase/firestore";
 
 
 const Login = () => {
+    const [loading, setLoading] = useState(false);
     
     const handleRegister = async e =>{
         e.preventDefault()
