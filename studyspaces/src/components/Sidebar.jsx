@@ -29,6 +29,13 @@ const Sidebar = () => {
             <FaEnvelope className="sidebar-icon" /> <span>Direct Messaging</span>
           </Link>
         </li>
+
+        <li className={getActiveClass('/studyrooms')}>
+          <Link to="/studyrooms">
+            <FaBell className="sidebar-icon" /> <span>Study Rooms</span>
+          </Link>
+        </li>
+
         <li className={getActiveClass('/activity-notifications')}>
           <Link to="/activity-notifications">
             <FaBell className="sidebar-icon" /> <span>Activity/Notifications</span>

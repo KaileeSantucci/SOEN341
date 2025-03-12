@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; 
+import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'; 
 import Sidebar from './components/Sidebar'; // Import Sidebar
 import MyAccount from './pages/MyAccount';
 import HomePage from './pages/HomePage';
 import DirectMessaging from './pages/DirectMessaging';
+import Studyrooms from '../../StudyRooms/studyrooms';
 import Activity from './pages/Activity';
 import GroupMessaging from './pages/GroupMessaging';
 import AddFriends from './pages/AddFriends';
@@ -12,16 +13,27 @@ import FAQ from './pages/FAQ';
 import AboutUs from './pages/AboutUs'; 
 import Logo from './assets/logo.png';
 import './App.css';
+import { useLocation } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
-      <div className="app-container">
-        {/* Sidebar component */}
-        <Sidebar />
+      <MainLayout />
+    </Router>
+  ); 
+}
 
+function MainLayout(){
+  const location = useLocation(); // Get current path
+  const isStudyRooms = location.pathname === "/studyrooms"; //checks if the current path is /studyrooms
+
+  return (
+    <div className="app-container">
+      {/* Hide sidebar and header on StudyRooms page */}
+      {!isStudyRooms && <Sidebar />}
+      {!isStudyRooms && (
         <div className="header">
-        <Link to="/" className="logo-link" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <Link to="/" className="logo-link" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img src={Logo} alt="StudySpaces Logo" className="logo" />
           </Link>
 
@@ -33,29 +45,25 @@ function App() {
             <Link to="/faq" className="header-button">FAQ</Link>
             <Link to="/about-us" className="header-button">About Us</Link>
           </div>
-
         </div>
-
-
-        {/* Main content area */}
-        <div className="main-content">
+      )}
+    
+      <div className={isStudyRooms ? "studyrooms-main-content" : "main-content"}>
         <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/account" element={<MyAccount />} />
-            <Route path="/direct-messaging" element={<DirectMessaging />} />
-            <Route path="/activity-notifications" element={<Activity />} />
-            <Route path="/group-messaging" element={<GroupMessaging />} />
-            <Route path="/add-friends" element={<AddFriends />} />
-            <Route path="/customize-background" element={<CustomizeBackground />} />
-            <Route path="/to-do-list" element={<ToDoList />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/about-us" element={<AboutUs />} />
-          </Routes>
-
-          {/* Custom content goes here*/}
-        </div>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/account" element={<MyAccount />} />
+          <Route path="/direct-messaging" element={<DirectMessaging />} />
+          <Route path="/studyrooms" element={<Studyrooms />} />
+          <Route path="/activity-notifications" element={<Activity />} />
+          <Route path="/group-messaging" element={<GroupMessaging />} />
+          <Route path="/add-friends" element={<AddFriends />} />
+          <Route path="/customize-background" element={<CustomizeBackground />} />
+          <Route path="/to-do-list" element={<ToDoList />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/about-us" element={<AboutUs />} />
+        </Routes>
       </div>
-    </Router>
+    </div>
   );
 }
 
