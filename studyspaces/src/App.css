@@ -1,0 +1,107 @@
+/* App container to hold Sidebar and main content */
+.app-container {
+  display: flex;
+  height: 100vh;  /* Full height of the viewport */
+  width: 100vw;   /* Full width of the viewport */
+  background-color: #F37E9A; /* Pastel pink background */
+  position: relative; /* Makes the container fixed in place */
+  box-sizing: border-box; /* Include padding and border in the total width/height */
+
+}
+
+.sidebar {
+  width: 50px; 
+  background-color: #d4b0cd;
+  padding: 15px;
+  position: fixed;
+  height: calc(100vh - 300px); 
+  top: 150px;
+  z-index: 1;
+  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 40px;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 3px 5px rgba(126, 112, 112, 0.3);
+  transition: width 0.3s ease; /* Add smooth transition when expanding the sidebar */
+
+  }
+
+.main-content {
+ 
+  margin-top: 90px;
+  padding-left: 150px;
+  padding-top: 40px;
+  width: calc(100% - 10px); /* Ensure content doesn't overflow */
+  background-color: #F37E9A; /* Pastel pink background */
+  height: calc(100vh); /* Ensure content area takes full height */
+  position: relative; /* Ensure the content is positioned correctly */
+  box-sizing: border-box; 
+  
+}
+
+/* Header */
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  z-index: 2; 
+  background-color: #F37E9A; /* Pastel pink background */
+  width: 100%; /* Ensure the header spans the width of the screen */
+  height: 90px;
+  box-sizing: border-box;
+  background-image: none;
+  
+}
+
+.logo {
+  width: 80px;
+  margin-right: 10px; /* Add spacing between the logo and title */
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 50px;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: bold;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+
+  color: #f5f0f2; /* Adjust title color if needed */
+  margin: 0;
+  
+}
+
+h2 {
+  font-size: 40px;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: bold;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  color: #f5f0f2; /* Adjust title color if needed */
+  margin: 0;
+  
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px; /* Spacing between the buttons */
+  position: absolute;
+  top: 50%; /* Vertically center */
+  right: 20px; /* Position to the right */
+  transform: translateY(-50%); /* Adjust for exact centering */
+}
+
+.header-button {
+  color: #f5f0f2;
+  background-color: #F37E9A;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+  background-color: #d4b0cd;
+}
+
