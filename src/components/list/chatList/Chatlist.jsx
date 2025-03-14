@@ -5,10 +5,12 @@ import { useUserStore } from "../../../lib/userStore";
 import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
 import { useChatStore } from "../../../lib/chatStore";
+import CreateGroup from "./createGroup/createGroup";
 
 const ChatList = () => {
   const [chats, setChats] = useState([]);
   const [addMode, setAddMode] = useState(false);
+  const [addModeGroup, setAddModeGroup] = useState(false);
   const [input, setInput] = useState("");
 
   const { currentUser } = useUserStore();
@@ -69,6 +71,7 @@ const ChatList = () => {
   );
 
   return (
+    
     <div className="chatList">
       <div className="search">
         <div className="searchBar">
@@ -85,7 +88,14 @@ const ChatList = () => {
           className="add"
           onClick={() => setAddMode((prev) => !prev)}
         />
+        <img
+          src={addModeGroup ? "./minus.png" : "./plus.png"}
+          alt=""
+          className="add"
+          onClick={() => setAddModeGroup((prev) => !prev)}
+        />
       </div>
+      {addModeGroup && <CreateGroup />}
       {filteredChats.map((chat) => (
         <div
           className="item"
