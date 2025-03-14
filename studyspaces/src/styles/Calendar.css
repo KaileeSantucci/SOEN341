@@ -1,0 +1,41 @@
+/* Styling for the calendar container */
+.calendar-container {
+    position: relative;
+    width: 390px;  /* Set a fixed width */
+    max-height: 600px;  /* Set a fixed height */
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  
+  /* Wrapping the calendar for Draggable */
+  .calendar-wrapper {
+    width: 100%;
+    max-width: 400px;  /* Set max width to control the size */
+    max-height: 400px; /* Set max height */
+    overflow: visible;
+  }
+  
+  /* If you need to adjust calendar's size further */
+  .react-calendar {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 12px; /* Adjust font size */
+  background-color: #d4b0cd; /* White background */
+  border-radius: 5px; /* Slight round corners */
+  padding: 20px; /* Padding to space out the days */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+  }
+  
+  .react-calendar__tile {
+    border-radius: 0; /* Make sure the tiles have square corners */
+    padding: 5px;
+  }
+  .react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .react-calendar__month-view__weekdays {
+    font-weight: bold;
+    text-align: center;
+  }
