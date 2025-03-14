@@ -10,19 +10,61 @@
   padding: 20px;
   box-sizing: border-box;
 }
-.back-home-button {
-  background-color: #ff6b6b;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s;
+
+.studyrooms-topper, backHomeBtn{
+  position: top-aligned, left-aligned;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  width: 100%; /* Ensure the header spans the width of the screen */
+  height: 90px;
+  box-sizing: border-box;
+  background-image: none;
+  
 }
 
-.back-home-button:hover {
-  background-color: #e63946;
+.topRight {
+  position: top-aligned, right-aligned;
+  display: flex;
+  align-items: right;
+}
+
+#loginBtn {
+  padding: 17px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  color: #ffffff;
+  background-color: #f37e9a;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+#loginBtn:hover {
+  letter-spacing: 3px;
+  background-color: #ffffff;
+  color: #f37e9a;
+  box-shadow: #ffffff 0px 7px 29px 0px;
+}
+
+#loginBtn:active {
+  letter-spacing: 3px;
+  background-color: #ffffff;
+  color: #f37e9a;
+  box-shadow: #ffffff 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+
+.clock-display{
+  font-size: 9rem; /* Large numbers */
+  font-weight: 700; /* Bold */
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); /* Soft glow effect */
+  background: transparent; /* No background color */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
 }
