@@ -1,19 +1,49 @@
+//import required for direct messaging feature 
+import {useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; 
-import Sidebar from './components/Sidebar'; // Import Sidebar
-import MyAccount from './pages/MyAccount';
-import HomePage from './pages/HomePage';
-import DirectMessaging from './pages/DirectMessaging';
-import Activity from './pages/Activity';
-import GroupMessaging from './pages/GroupMessaging';
-import AddFriends from './pages/AddFriends';
-import CustomizeBackground from './pages/CustomizeBackground';
-import ToDoList from './pages/ToDoList';
-import FAQ from './pages/FAQ';  
-import AboutUs from './pages/AboutUs'; 
-import Logo from './assets/logo.png';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './DirectMessaging/lib/firebase';
+import { useUserStore } from './DirectMessaging/lib/userStore';
+import { useChatStore } from './DirectMessaging/lib/chatStore';
+import chat from './DirectMessaging/components/chat/Chat';
+import Detail from "./DirectMessaging/components/detail/Detail";
+import List from "./DirectMessaging/components/list/List";
+import Login from "./DirectMessaging/components/login/login";
+import Notification from "./DirectMessaging/components/notification/notification";
+
+//imports required for hompage functionality
+import Sidebar from './HomePage/components/Sidebar'; // Import Sidebar
+import MyAccount from './HomePage/pages/MyAccount';
+import HomePage from './HomePage/pages/HomePage';
+import Activity from './HomePage/pages/Activity';
+import GroupMessaging from './HomePage/pages/GroupMessaging';
+import AddFriends from './HomePage/pages/AddFriends';
+import CustomizeBackground from './HomePage/pages/CustomizeBackground';
+import ToDoList from './HomePage/pages/ToDoList';
+import FAQ from './HomePage/pages/FAQ';  
+import AboutUs from './HomePage/pages/AboutUs'; 
+import Logo from './HomePage/assets/logo.png';
 import './App.css';
 
 function App() {
+
+  const {currentUser, isLoading, fetchUserInfo} = useUserStore();
+  const {chatId} = useChatStore();
+
+  useEffect(() => {
+    const unSub = onAuthStateChanged(auth, (user) => {
+      fetchUserInfo(user?.uid);
+    });
+
+    return () => {
+      unSub();
+    };
+  },[fetchUserInfo])
+
+  console.log(currentUser);
+
+  if (isLoading) return <div className="loading">Loading...</div>;
+
   return (
     <Router>
       <div className="app-container">
@@ -42,17 +72,31 @@ function App() {
         <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/account" element={<MyAccount />} />
-            <Route path="/direct-messaging" element={<DirectMessaging />} />
             <Route path="/activity-notifications" element={<Activity />} />
             <Route path="/group-messaging" element={<GroupMessaging />} />
             <Route path="/add-friends" element={<AddFriends />} />
             <Route path="/customize-background" element={<CustomizeBackground />} />
             <Route path="/to-do-list" element={<ToDoList />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/about-us" element={<AboutUs />} />
-          </Routes>
+            <Route path="/about-us" element={<AboutUs />} />     
 
-          {/* Custom content goes here*/}
+            { /* Add a new route for the DirectMessaging feature and include custom styling*/}  
+            <Route path="/DirectMessaging" element={
+            <div className='container'>
+            {currentUser ? (
+                <>
+                <List/>
+                {chatId && <Chat/>}
+                {chatId && <Detail/>}
+                </>
+              ) : (
+                <Login/>
+              )}
+              <Notification/>
+            
+            </div>
+            }/>
+          </Routes>
         </div>
       </div>
     </Router>

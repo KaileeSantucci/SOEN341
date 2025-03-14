@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "emoji-picker": "^0.0.7",
+    "emoji-picker-react": "^4.12.2",
+    "react-emoji-picker": "^1.0.13",
+    "react-toastify": "^11.0.5",
+    "zustand": "^5.0.3"
+  }
+}
