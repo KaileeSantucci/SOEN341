@@ -29,10 +29,15 @@ const CustomizeBackground = () => {
   const handleApplyBackground = () => {
     if (selectedImage) {
       // Set the background of the main content area
-      const mainContent = document.querySelector('.main-content');
-      mainContent.style.backgroundImage = `url(${selectedImage})`;
-      mainContent.style.backgroundSize = 'cover';
-      mainContent.style.backgroundPosition = 'center';
+      const appContainer = document.querySelector('.app-container');
+    appContainer.style.backgroundImage = `url(${selectedImage})`;
+    appContainer.style.backgroundSize = 'cover';
+    appContainer.style.backgroundPosition = 'center';
+    appContainer.style.backgroundColor = 'transparent';  // Ensure no pink background
+
+    // Optionally, clear the background in other elements like main content
+    const mainContent = document.querySelector('.main-content');
+    mainContent.style.backgroundImage = 'non';
     }
   };
 

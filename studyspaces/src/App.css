@@ -3,7 +3,7 @@
   display: flex;
   height: 100vh;  /* Full height of the viewport */
   width: 100vw;   /* Full width of the viewport */
-  background-color: #F37E9A; /* Pastel pink background */
+  background-color: transparent; 
   position: relative; /* Makes the container fixed in place */
   box-sizing: border-box; /* Include padding and border in the total width/height */
 
@@ -14,7 +14,7 @@
   background-color: #d4b0cd;
   padding: 15px;
   position: fixed;
-  height: calc(100vh - 300px); 
+  height: calc(100vh - 250px); 
   top: 150px;
   z-index: 1;
   box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
@@ -28,14 +28,15 @@
 
 .main-content {
  
-  margin-top: 90px;
-  padding-left: 150px;
-  padding-top: 40px;
-  width: calc(100% - 10px); /* Ensure content doesn't overflow */
-  background-color: #F37E9A; /* Pastel pink background */
-  height: calc(100vh); /* Ensure content area takes full height */
+  margin-top: 150px;
+  padding-left: 100px;
+  padding-right: 20px;
+  width: 100%; /* Ensure content doesn't overflow */
+  background-color: transparent; /* Make sure it starts without a pink background */
+  height: calc(100vh-150px); /* Ensure content area takes full height */
   position: relative; /* Ensure the content is positioned correctly */
   box-sizing: border-box; 
+  overflow: hidden;
   
 }
 
@@ -44,20 +45,24 @@
   position: fixed;
   display: flex;
   align-items: center;
-  padding: 0px;
+  top: 0;
+  left: 0;
   z-index: 2; 
-  background-color: #F37E9A; /* Pastel pink background */
-  width: 100%; /* Ensure the header spans the width of the screen */
-  height: 90px;
-  box-sizing: border-box;
-  background-image: none;
+  background-color: transparent; 
+  width: 100%; 
+  justify-content: flex-start;
+  padding: 10px;
+  
+  
   
 }
 
 .logo {
   width: 80px;
+  height: 80px;
   margin-right: 10px; /* Add spacing between the logo and title */
   margin-top: 10px;
+  border-radius: 50%;
 }
 
 h1 {
@@ -65,9 +70,14 @@ h1 {
   font-family: 'Baloo 2', sans-serif;
   font-weight: bold;
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-
-  color: #f5f0f2; /* Adjust title color if needed */
+  color: #f5f0f2; 
   margin: 0;
+  margin-left: 20px; /* Adjust margin to the left of the logo */
+  display: inline-block;  /* Align the title to the left of the logo */
+  line-height: 1;  /* Ensure the title is vertically centered with the logo */
+ 
+  
+  
   
 }
 
@@ -87,7 +97,7 @@ h2 {
   gap: 10px; /* Spacing between the buttons */
   position: absolute;
   top: 50%; /* Vertically center */
-  right: 20px; /* Position to the right */
+  right: 30px; /* Position to the right */
   transform: translateY(-50%); /* Adjust for exact centering */
 }
 

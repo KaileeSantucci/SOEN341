@@ -4,7 +4,7 @@
   background-color: #d4b0cd;
   padding: 15px;
   position: fixed;
-  height: calc(100vh - 300px); 
+  height: calc(100vh - 250px); 
   top: 150px;
   z-index: 1;
   box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
@@ -29,9 +29,9 @@
 
 /* Sidebar items */
 .sidebar li {
-  margin-bottom: 5px;
+  margin-top: 5px;
   display: flex;
-  padding: 10px;
+  padding: 12px;
   align-items: center;
   opacity: 1;
   transition: opacity 0.5s ease, background-color 0.3s ease;
