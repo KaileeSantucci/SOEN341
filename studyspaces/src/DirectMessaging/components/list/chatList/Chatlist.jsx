@@ -47,27 +47,18 @@ const ChatList = () => {
     console.log("Selected Chat ID:", chat.chatId);  // Log chat ID
     console.log("Selected User:", chat.user);  // Log selected user
 
-    const userChats = chats.map((item) => {
-      const { user, ...rest } = item;
-      return rest;
-    });
-
-    const chatIndex = userChats.findIndex(
-      (item) => item.chatId === chat.chatId
-    );
-
-    userChats[chatIndex].isSeen = true;
-
-    const userChatsRef = doc(db, "userchats", currentUser.id);
-
     try {
-      await updateDoc(userChatsRef, {
-        chats: userChats,
+      await updateDoc(doc(db, "userchats", currentUser.id), {
+          chats: chats.map((item) =>
+              item.chatId === chat.chatId ? { ...item, isSeen: true } : item
+          ),
       });
-      changeChat(chat.chatId, chat.user);
-    } catch (err) {
-      console.log(err);
-    }
+
+      useChatStore.getState().changeChat(chat.chatId, chat.user);
+      console.log("Chat updated in Zustand store");
+  } catch (err) {
+      console.error("Error updating chat:", err);
+  }
   };
 
   const filteredChats = chats.filter((c) =>

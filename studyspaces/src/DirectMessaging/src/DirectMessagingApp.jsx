@@ -8,6 +8,7 @@ import Detail from "../components/detail/Detail";
 import List from "../components/list/List";
 import Login from "../components/login/login";
 import Notification from "../components/notification/notification";
+import "./DirectMessagingIndex.css"
 
 const DirectMessagingApp = () => {
   console.log("DirectMessagingApp is rendering...");
@@ -35,6 +36,9 @@ const DirectMessagingApp = () => {
 
   return (
   <div className='container'>
+    {console.log("Rendering DirectMessagingApp...")}
+    {console.log("Current chatId:", chatId)}
+
     {currentUser ? (
         <>
         <List/>
@@ -47,6 +51,8 @@ const DirectMessagingApp = () => {
       <Notification/>
   </div>
   );
+  console.log("Rendering DirectMessagingApp...");
+console.log("chatId before rendering Chat.jsx:", chatId);
 };
 
 export default DirectMessagingApp;

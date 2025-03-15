@@ -1,13 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./chat.css";
 import EmojiPicker from "emoji-picker-react";
-import {
-  arrayUnion,
-  doc,
-  getDoc,
-  onSnapshot,
-  updateDoc,
-} from "firebase/firestore";
+import { arrayUnion, doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "../../lib/firebase";
 import { useChatStore } from "../../lib/chatStore";
 import { useUserStore } from "../../lib/userStore";
@@ -15,7 +9,6 @@ import { format } from "date-fns";
 
 
 const Chat = () => {
-  console.log("listening for chat updates. Chat ID: ", chatId);
   const [chat, setChat] = useState();
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -24,12 +17,8 @@ const Chat = () => {
     url: "",
   });
 
-  if (!chatId) {
-    console.log("Chat ID is missing. Cannot fetch chat data.");
-    return;
-  }
-
   const { currentUser } = useUserStore();
+  const chatStore = useChatStore();
   const { chatId, user, isCurrentUserBlocked, isReceiverBlocked } = useChatStore();
   console.log("Chat ID in Chat.jsx:", chatId); // Debugging log
   console.log("User in Chat.jsx:", user);

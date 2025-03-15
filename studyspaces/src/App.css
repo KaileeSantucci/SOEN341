@@ -107,16 +107,17 @@ h2 {
 
 /* Hides sidebar and header when needed */
 .no-sidebar-main-content {
-  width: 100%; 
-  padding-left: 0; 
-  margin-top: 0; 
-  height: 100vh; /* Full height */
-  background-color: #ffffff50; /* Keep background consistent */
+  align-items: center;
+  display: flex;
+  padding-left: 5%;
+  padding-top: 1%;
+  height: 100vh;  /* Full height of the viewport */
+  width: 100vw;   /* Full width of the viewport */
+  position: relative; /* Makes the container fixed in place */
+  box-sizing: border-box; /* Include padding and border in the total width/height */
+
 }
 
-.hidden {
-  display: none !important; /* Completely hide elements */
-}
 
 
 

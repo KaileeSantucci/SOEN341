@@ -6,11 +6,12 @@ const CustomizeBackground = () => {
   
   // Predefined images (you can add more if needed)
   const preexistingImages = [
-    { id: 1, src: 'src/assets/darkacademia.jpg', label: 'Background 1' },
-    { id: 2, src: 'src/assets/fourthwing.jpg', label: 'Background 2' },
-    { id: 3, src: 'src/assets/harrypotter.avif', label: 'Background 3' },
-  ];
-
+    { id: 1, src: 'src/HomePage/assets/darkacademia.jpg', label: 'Background 1' },
+    { id: 2, src: 'src/HomePage/assets/fourthwing.jpg', label: 'Background 2' },
+    { id: 3, src: 'src/HomePage/assets/harrypotter.avif', label: 'Background 3' },
+    { id: 4, src: 'src/HomePage/assets/lofi.jpg', label: 'Background 4' },
+  ]; 
+  
   // Handle image selection (either preexisting or uploaded)
   const handleSelectImage = (imageUrl) => {
     setSelectedImage(imageUrl); // Save the selected image
