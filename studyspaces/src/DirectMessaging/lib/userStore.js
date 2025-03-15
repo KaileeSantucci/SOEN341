@@ -23,3 +23,4 @@ export const useUserStore = create((set) => ({
     }
   },
 }));
+console.log("User Store Loaded.");

@@ -9,7 +9,7 @@ export const useChatStore = create((set) => ({
   changeChat: (chatId, user) => {
     console.log("Changing chat ID:", chatId);
     console.log("User being set:", user);
-    
+
     const currentUser = useUserStore.getState().currentUser;
 
     // CHECK IF CURRENT USER IS BLOCKED
@@ -52,3 +52,4 @@ export const useChatStore = create((set) => ({
     });
   },
 }));
+console.log("Chat Store Loaded.");

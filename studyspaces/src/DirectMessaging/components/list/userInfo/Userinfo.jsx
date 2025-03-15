@@ -21,3 +21,4 @@ const UserInfo = () => {
 }
 
 export default UserInfo
+console.log("UserInfo is being rendered!")

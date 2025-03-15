@@ -56,3 +56,5 @@ const DirectMessagingApp = () => {
 };
 
 export default DirectMessagingApp;
+console.log("DirectMessagingApp is rendering...");
+console.log("Current Path: ", window.location.pathname);

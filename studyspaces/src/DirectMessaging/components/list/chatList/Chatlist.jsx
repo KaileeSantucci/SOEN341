@@ -134,3 +134,4 @@ const ChatList = () => {
 };
 
 export default ChatList;
+console.log("ChatList is being rendered!");
