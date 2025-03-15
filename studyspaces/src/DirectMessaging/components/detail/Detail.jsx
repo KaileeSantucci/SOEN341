@@ -84,3 +84,4 @@ const Detail = () => {
 }
 
 export default Detail
+console.log("Detail.jsx");

@@ -7,6 +7,9 @@ export const useChatStore = create((set) => ({
   isCurrentUserBlocked: false,
   isReceiverBlocked: false,
   changeChat: (chatId, user) => {
+    console.log("Changing chat ID:", chatId);
+    console.log("User being set:", user);
+    
     const currentUser = useUserStore.getState().currentUser;
 
     // CHECK IF CURRENT USER IS BLOCKED

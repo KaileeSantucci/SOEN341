@@ -29,7 +29,7 @@ function MainLayout(){
   const location = useLocation(); //Get current path or location 
   const isDirectMessaging = location.pathname === "/direct-messaging"  //check's if the current path is direct messaging
   const hideSidebarAndHeader = isDirectMessaging; //if the current path is direct messaging, hide the sidebar and header
-  
+
   return (
     <div className="app-container">
       {/* Sidebar component */}
@@ -64,7 +64,7 @@ function MainLayout(){
           <Route path="/to-do-list" element={<ToDoList />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/about-us" element={<AboutUs />} />     
-          <Route path="/direct-messaging" element={<DirectMessagingApp />} />
+          <Route path="/direct-messaging/*" element={<DirectMessagingApp />} />
         </Routes>
       </div>
     </div>

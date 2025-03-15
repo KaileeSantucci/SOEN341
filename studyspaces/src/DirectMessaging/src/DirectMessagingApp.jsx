@@ -36,9 +36,11 @@ const DirectMessagingApp = () => {
         <Route path="/direct-messaging/*"
         element={
           <div className='container'>
+            console.log(chatId, user)
             {currentUser ? (
                 <>
                 <List/>
+                console.log(chatId, user)
                 {chatId && <Chat/>}
                 {chatId && <Detail/>}
                 </>

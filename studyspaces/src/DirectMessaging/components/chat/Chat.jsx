@@ -15,6 +15,7 @@ import { format } from "date-fns";
 
 
 const Chat = () => {
+  console.log("listening for chat updates. Chat ID: ", chatId);
   const [chat, setChat] = useState();
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -23,10 +24,16 @@ const Chat = () => {
     url: "",
   });
 
-  const { currentUser } = useUserStore();
-  const { chatId, user, isCurrentUserBlocked, isReceiverBlocked } =
-    useChatStore();
+  if (!chatId) {
+    console.log("Chat ID is missing. Cannot fetch chat data.");
+    return;
+  }
 
+  const { currentUser } = useUserStore();
+  const { chatId, user, isCurrentUserBlocked, isReceiverBlocked } = useChatStore();
+  console.log("Chat ID in Chat.jsx:", chatId); // Debugging log
+  console.log("User in Chat.jsx:", user);
+  
   const endRef = useRef(null);
 
   useEffect(() => {
@@ -206,3 +213,4 @@ const Chat = () => {
 };
 
 export default Chat;
+console.log("Chat.jsx");

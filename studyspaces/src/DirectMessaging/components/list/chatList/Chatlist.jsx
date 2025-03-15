@@ -43,6 +43,10 @@ const ChatList = () => {
   }, [currentUser.id]);
 
   const handleSelect = async (chat) => {
+    console.log("Selected Chat:", chat);  // Log selected chat object
+    console.log("Selected Chat ID:", chat.chatId);  // Log chat ID
+    console.log("Selected User:", chat.user);  // Log selected user
+
     const userChats = chats.map((item) => {
       const { user, ...rest } = item;
       return rest;
