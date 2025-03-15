@@ -8,7 +8,6 @@ import Detail from "../components/detail/Detail";
 import List from "../components/list/List";
 import Login from "../components/login/login";
 import Notification from "../components/notification/notification";
-import './DirectMessagingIndex.css';
 
 const DirectMessagingApp = () => {
   console.log("DirectMessagingApp is rendering...");
