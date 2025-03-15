@@ -79,7 +79,7 @@ const ChatList = () => {
     <div className="chatList">
       <div className="search">
         <div className="searchBar">
-          <img src="./search.png" alt="" />
+          <img src="../../../../public/DirectMessaging/search.png" alt="" />
           <input
             type="text"
             placeholder="Search"
@@ -87,13 +87,13 @@ const ChatList = () => {
           />
         </div>
         <img
-          src={addMode ? "./minus.png" : "./plus.png"}
+          src={addMode ? "../../../../public/DirectMessaging/minus.png" : "../../../../public/DirectMessaging/plus.png"}
           alt=""
           className="add"
           onClick={() => setAddMode((prev) => !prev)}
         />
         <img
-          src={addModeGroup ? "./minus.png" : "./plus.png"}
+          src={addModeGroup ? "../../../../public/DirectMessaging/minus.png" : "../../../../public/DirectMessaging/plus.png"}
           alt=""
           className="add"
           onClick={() => setAddModeGroup((prev) => !prev)}
@@ -112,8 +112,8 @@ const ChatList = () => {
           <img
             src={
               chat.user.blocked.includes(currentUser.id)
-                ? "./avatar.png"
-                : chat.user.avatar || "./avatar.png"
+                ? "../../../../public/DirectMessaging/avatar.png"
+                : chat.user.avatar || "../../../../public/DirectMessaging/avatar.png"
             }
             alt=""
           />
@@ -131,7 +131,7 @@ const ChatList = () => {
       {addMode && <AddUser />}
     </div>
   );
+  console.log("ChatList is being rendered!");
 };
 
 export default ChatList;
-console.log("ChatList is being rendered!");

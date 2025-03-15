@@ -14,6 +14,4 @@ const List = () => {
         </div>
     )
 }
-
 export default List
-console.log("List is being rendered!")

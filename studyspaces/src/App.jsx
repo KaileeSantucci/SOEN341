@@ -23,6 +23,7 @@ function App() {
       <MainLayout />
     </Router>
   );
+  console.log("App.jsx");
 }
 
 function MainLayout(){
@@ -71,5 +72,4 @@ function MainLayout(){
   );
 
 }
-
 export default App;

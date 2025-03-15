@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import { useUserStore } from "../lib/userStore";
@@ -9,12 +8,16 @@ import Detail from "../components/detail/Detail";
 import List from "../components/list/List";
 import Login from "../components/login/login";
 import Notification from "../components/notification/notification";
+import './DirectMessagingIndex.css';
 
 const DirectMessagingApp = () => {
-
+  console.log("DirectMessagingApp is rendering...");
+  console.log("Current Path: ", window.location.pathname);
+  
   const {currentUser, isLoading, fetchUserInfo} = useUserStore();
   const {chatId} = useChatStore();
-
+  console.log("Current User:", currentUser);
+  console.log("Is Loading:", isLoading);
   console.log("Chat ID:", chatId);
 
   useEffect(() => {
@@ -32,29 +35,19 @@ const DirectMessagingApp = () => {
   if (isLoading) return <div className="loading">Loading...</div>;
 
   return (
-      <Routes>
-        <Route path="/direct-messaging/*"
-        element={
-          <div className='container'>
-            console.log(chatId, user)
-            {currentUser ? (
-                <>
-                <List/>
-                console.log(chatId, user)
-                {chatId && <Chat/>}
-                {chatId && <Detail/>}
-                </>
-              ) : (
-                <Login/>
-              )}
-              <Notification/>
-          </div>
-        }>
-        </Route>
-      </Routes>    
+  <div className='container'>
+    {currentUser ? (
+        <>
+        <List/>
+        {chatId && <Chat/>}
+        {chatId && <Detail/>}
+        </>
+      ) : (
+        <Login/>
+      )}
+      <Notification/>
+  </div>
   );
 };
 
 export default DirectMessagingApp;
-console.log("DirectMessagingApp is rendering...");
-console.log("Current Path: ", window.location.pathname);

@@ -125,16 +125,16 @@ const Chat = () => {
     <div className="chat">
       <div className="top">
         <div className="user">
-          <img src={user?.avatar || "./avatar.png"} alt="" />
+          <img src={user?.avatar || "../../../../public/DirectMessaging/avatar.png"} alt="" />
           <div className="texts">
             <span>{user?.username}</span>
             <p>Lorem ipsum dolor, sit amet.</p>
           </div>
         </div>
         <div className="icons">
-          <img src="./phone.png" alt="" />
-          <img src="./video.png" alt="" />
-          <img src="./info.png" alt="" />
+          <img src="../../../../public/DirectMessaging/phone.png" alt="" />
+          <img src="../../../../public/DirectMessaging/video.png" alt="" />
+          <img src="../../../../public/DirectMessaging/info.png" alt="" />
         </div>
       </div>
       <div className="center">
@@ -168,7 +168,7 @@ const Chat = () => {
       <div className="bottom">
         <div className="icons">
           <label htmlFor="file">
-            <img src="./img.png" alt="" />
+            <img src="../../../../public/DirectMessaging/img.png" alt="" />
           </label>
           <input
             type="file"
@@ -176,8 +176,8 @@ const Chat = () => {
             style={{ display: "none" }}
             onChange={handleImg}
           />
-          <img src="./camera.png" alt="" />
-          <img src="./mic.png" alt="" />
+          <img src="../../../../public/DirectMessaging/camera.png" alt="" />
+          <img src="../../../../public/DirectMessaging/mic.png" alt="" />
         </div>
         <input
           type="text"
@@ -192,7 +192,7 @@ const Chat = () => {
         />
         <div className="emoji">
           <img
-            src="./emoji.png"
+            src="../../../../public/DirectMessaging/emoji.png"
             alt=""
             onClick={() => setOpen((prev) => !prev)}
           />
@@ -210,7 +210,7 @@ const Chat = () => {
       </div>
     </div>
   );
+console.log("Chat.jsx");
 };
 
 export default Chat;
-console.log("Chat.jsx");
