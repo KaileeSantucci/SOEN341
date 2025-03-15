@@ -105,3 +105,18 @@ h2 {
   background-color: #d4b0cd;
 }
 
+/* Hides sidebar and header when needed */
+.no-sidebar-main-content {
+  width: 100%; 
+  padding-left: 0; 
+  margin-top: 0; 
+  height: 100vh; /* Full height */
+  background-color: #F37E9A; /* Keep background consistent */
+}
+
+.hidden {
+  display: none !important; /* Completely hide elements */
+}
+
+
+

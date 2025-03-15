@@ -24,10 +24,10 @@ const Sidebar = () => {
             <FaHome className="sidebar-icon" /> <span>Home Page</span>
           </Link>
         </li>
-        <li className={getActiveClass('/DirectMessaging')}>
-        <a href="/DirectMessaging/index.html">
+        <li className={getActiveClass('/direct-messaging')}>
+        <Link to="/direct-messaging">
         <FaEnvelope className="sidebar-icon" /> <span>Direct Messaging</span>
-          </a>
+          </Link>
         </li>
         <li className={getActiveClass('/activity-notifications')}>
           <Link to="/activity-notifications">

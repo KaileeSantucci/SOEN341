@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import { useUserStore } from "../lib/userStore";
@@ -14,6 +14,8 @@ const DirectMessagingApp = () => {
 
   const {currentUser, isLoading, fetchUserInfo} = useUserStore();
   const {chatId} = useChatStore();
+
+  console.log("Chat ID:", chatId);
 
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
@@ -30,9 +32,8 @@ const DirectMessagingApp = () => {
   if (isLoading) return <div className="loading">Loading...</div>;
 
   return (
-    <Router>
       <Routes>
-        <Route path="/DirectMessaging"
+        <Route path="/direct-messaging/*"
         element={
           <div className='container'>
             {currentUser ? (
@@ -48,9 +49,7 @@ const DirectMessagingApp = () => {
           </div>
         }>
         </Route>
-      </Routes>
-    </Router>
-    
+      </Routes>    
   );
 };
 
