@@ -1,15 +1,4 @@
-//import required for direct messaging feature 
-import {useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; 
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './DirectMessaging/lib/firebase';
-import { useUserStore } from './DirectMessaging/lib/userStore';
-import { useChatStore } from './DirectMessaging/lib/chatStore';
-import chat from './DirectMessaging/components/chat/Chat';
-import Detail from "./DirectMessaging/components/detail/Detail";
-import List from "./DirectMessaging/components/list/List";
-import Login from "./DirectMessaging/components/login/login";
-import Notification from "./DirectMessaging/components/notification/notification";
 
 //imports required for hompage functionality
 import Sidebar from './HomePage/components/Sidebar'; // Import Sidebar
@@ -25,24 +14,9 @@ import AboutUs from './HomePage/pages/AboutUs';
 import Logo from './HomePage/assets/logo.png';
 import './App.css';
 
+import DirectMessagingApp from './DirectMessaging/src/DirectMessagingApp';
+
 function App() {
-
-  const {currentUser, isLoading, fetchUserInfo} = useUserStore();
-  const {chatId} = useChatStore();
-
-  useEffect(() => {
-    const unSub = onAuthStateChanged(auth, (user) => {
-      fetchUserInfo(user?.uid);
-    });
-
-    return () => {
-      unSub();
-    };
-  },[fetchUserInfo])
-
-  console.log(currentUser);
-
-  if (isLoading) return <div className="loading">Loading...</div>;
 
   return (
     <Router>
@@ -80,22 +54,7 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/about-us" element={<AboutUs />} />     
 
-            { /* Add a new route for the DirectMessaging feature and include custom styling*/}  
-            <Route path="/DirectMessaging" element={
-            <div className='container'>
-            {currentUser ? (
-                <>
-                <List/>
-                {chatId && <Chat/>}
-                {chatId && <Detail/>}
-                </>
-              ) : (
-                <Login/>
-              )}
-              <Notification/>
-            
-            </div>
-            }/>
+            <Route path="/DirectMessaging" element={<DirectMessagingApp />} />
           </Routes>
         </div>
       </div>
