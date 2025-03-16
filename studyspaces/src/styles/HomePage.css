@@ -1,0 +1,231 @@
+
+.home-page-container {
+    display: flex;
+    justify-content: space-between; /* Spread out content horizontally */
+    align-items: flex-start; /* Align items at the top */
+    flex-wrap: wrap; /* Ensure responsiveness */
+    padding: 50px;
+  }
+
+/* To-Do List styling */
+.todo-container {
+    background-color: #d4b0cd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    margin-top: 80px;
+    position: absolute;
+    max-height: 500px;
+    overflow-y: auto;
+
+  }
+
+  .todo-wrapper {
+    flex: 1;
+    margin-left: 10px; 
+    max-width: 400px; /* Limit the width of the to-do list */
+    
+  }
+  
+  .todo-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .todo-input textarea {
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: azure;
+    color: black;
+    resize: vertical; /* Allow vertical resizing of the textarea */
+  }
+
+  
+  .todo-input button {
+    padding: 10px;
+    background-color: #f37e9a;
+    color: f37e9a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .todo-input button:hover {
+    background-color: #d4b0cd;
+  }
+  
+  .todo-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .todo-list li {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f37e9a;
+    word-wrap: break-word;
+    white-space: normal;
+
+  }
+  
+  .todo-list li.completed {
+    text-decoration: line-through;
+    background-color: #e0e0e0;
+  }
+  
+  .todo-list li button {
+    background-color: transparent;
+    border: none;
+    background-color: white;
+    color: #f37e9a;
+    cursor: pointer;
+  }
+  
+  .todo-list li button:hover {
+    text-decoration: underline;
+  }
+
+  /* Timer styling */
+.pomodoro-wrapper {
+
+    display: flex;
+    justify-content: center;  /* Align horizontally at the center */
+    align-items: center;      /* Align vertically at the center */
+    position: fixed;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    flex: 1;
+    max-width: 300px; /* Optional: Limiting the size */
+    margin-top: 40px;;
+  }
+  
+  .pomodoro-container {
+    text-align: center;
+    background-color: #d4b0cd; /* Light background for the timer box */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 300px;  /* You can adjust the width based on your preference */
+    font-family: 'Baloo 2', sans-serif;
+  }
+  
+  .time-select label {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    display: block;
+    font-family: 'Baloo 2', sans-serif;
+  }
+  
+  .time-select input {
+    font-family: 'Baloo 2', sans-serif; /* Same font */
+    font-size: 1rem; /* Set font size */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #F37E9A; /* Change input background color */
+    text-align: center;
+  }
+  
+  .timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .time {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 20px;
+    background-color: #f5f0f2;  /* Light background color */
+    border-radius: 10px;         /* Rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);  /* Shadow effect */
+    color: #333;  /* Dark color for the time text */
+  }
+  
+  button {
+    padding: 8px 15px;
+    margin: 0px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #f37e9a;
+    color: white;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);  /* Shadow effect */
+  }
+  
+  button:hover {
+    background-color: #e7dee1;
+  }
+  
+  .session-selector {
+  
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .session-selector label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f37e9a;
+    cursor: pointer;
+  }
+  
+  /* Styling for the calendar container */
+.calendar-container {
+    position: absolute;
+    width: 390px;  /* Set a fixed width */
+    max-height: 600px;  /* Set a fixed height */
+    overflow: hidden;
+    margin-top: 60px;
+    flex: 1;
+  }
+  
+
+  .calendar-wrapper {
+    width: 100%;
+    max-width: 400px;  /* Set max width to control the size */
+    max-height: 400px; /* Set max height */
+    overflow: visible;
+  }
+  
+
+  .react-calendar {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 12px; /* Adjust font size */
+  background-color: #d4b0cd; /* White background */
+  border-radius: 5px; /* Slight round corners */
+  padding: 20px; /* Padding to space out the days */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+  }
+  
+  .react-calendar__tile {
+    border-radius: 0; /* Make sure the tiles have square corners */
+    padding: 5px;
+  }
+  .react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .react-calendar__month-view__weekdays {
+    font-weight: bold;
+    text-align: center;
+  }

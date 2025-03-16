@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; 
 import Sidebar from './components/Sidebar'; // Import Sidebar
 import MyAccount from './pages/MyAccount';
@@ -7,7 +8,7 @@ import Activity from './pages/Activity';
 import GroupMessaging from './pages/GroupMessaging';
 import AddFriends from './pages/AddFriends';
 import CustomizeBackground from './pages/CustomizeBackground';
-import ToDoList from './pages/ToDoList';
+import ToDoList from './pages/AdminFlags';
 import FAQ from './pages/FAQ';  
 import AboutUs from './pages/AboutUs'; 
 import Logo from './assets/logo.png';
@@ -19,7 +20,7 @@ function App() {
       <div className="app-container">
         {/* Sidebar component */}
         <Sidebar />
-
+        
         <div className="header">
         <Link to="/" className="logo-link" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img src={Logo} alt="StudySpaces Logo" className="logo" />
