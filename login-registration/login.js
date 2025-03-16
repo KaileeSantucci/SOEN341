@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       auth.signInWithEmailAndPassword(email, password)
         .then(() => {
           console.log('User signed in successfully.');
-          window.location.href = "home.html"; // Redirect to home page
+          window.location.href = "http://localhost:5173/studyspaces/index.html"; // Redirect to home page
         })
         .catch((error) => {
           alert("Error signing in: " + error.message);

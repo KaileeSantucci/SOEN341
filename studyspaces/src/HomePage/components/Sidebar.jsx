@@ -25,8 +25,8 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className={getActiveClass('/direct-messaging')}>
-          <Link to="/direct-messaging">
-            <FaEnvelope className="sidebar-icon" /> <span>Direct Messaging</span>
+        <Link to="/direct-messaging">
+        <FaEnvelope className="sidebar-icon" /> <span>Direct Messaging</span>
           </Link>
         </li>
         <li className={getActiveClass('/activity-notifications')}>

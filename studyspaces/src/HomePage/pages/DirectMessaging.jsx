@@ -1,15 +1,14 @@
 
-import React from 'react';
-import '../App.css';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../../App.css';
 
 const DirectMessaging = () => {
-  return (
-    <div>
-      <h2>Direct Messaging</h2>
-      <p>Send and receive direct messages here.</p>
-      {/* Add components related to direct messaging */}
-    </div>
-  );
+  useEffect(() => {
+    window.location.href = '/DirectMessaging/index.html';
+  }, [navigatte]);
+
+  return null;
 };
 
 export default DirectMessaging;

@@ -85,16 +85,13 @@ h2 {
   box-sizing: border-box; /* Include padding and border in the total width/height */
 }
 
-.main-content {
- 
-
-  margin-top: 150px;
-  padding-left: 100px;
-  padding-right: 20px;
-  width: 100%; /* Ensure content doesn't overflow */
-  background-color: transparent; /* Make sure it starts without a pink background */
-  height: calc(100vh-150px); /* Ensure content area takes full height */
-  position: relative; /* Ensure the content is positioned correctly */
-  box-sizing: border-box; 
-  overflow: hidden;
+.main-content { /*updates the user background for studySpace bonus feature*/
+    margin-top: 90px;
+    padding-left: 150px;
+    padding-top: 40px;
+    width: calc(100% ); /* Ensure content doesn't overflow */
+    background-color: #f9c6d1cd; /* Pastel pink background */
+    height: calc(100vh-10px); /* Ensure content area takes full height */
+    position: relative; /* Ensure the content is positioned correctly */
+    box-sizing: border-box; 
 }

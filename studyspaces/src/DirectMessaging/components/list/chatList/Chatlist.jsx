@@ -43,27 +43,22 @@ const ChatList = () => {
   }, [currentUser.id]);
 
   const handleSelect = async (chat) => {
-    const userChats = chats.map((item) => {
-      const { user, ...rest } = item;
-      return rest;
-    });
-
-    const chatIndex = userChats.findIndex(
-      (item) => item.chatId === chat.chatId
-    );
-
-    userChats[chatIndex].isSeen = true;
-
-    const userChatsRef = doc(db, "userchats", currentUser.id);
+    console.log("Selected Chat:", chat);  // Log selected chat object
+    console.log("Selected Chat ID:", chat.chatId);  // Log chat ID
+    console.log("Selected User:", chat.user);  // Log selected user
 
     try {
-      await updateDoc(userChatsRef, {
-        chats: userChats,
+      await updateDoc(doc(db, "userchats", currentUser.id), {
+          chats: chats.map((item) =>
+              item.chatId === chat.chatId ? { ...item, isSeen: true } : item
+          ),
       });
-      changeChat(chat.chatId, chat.user);
-    } catch (err) {
-      console.log(err);
-    }
+
+      useChatStore.getState().changeChat(chat.chatId, chat.user);
+      console.log("Chat updated in Zustand store");
+  } catch (err) {
+      console.error("Error updating chat:", err);
+  }
   };
 
   const filteredChats = chats.filter((c) =>
@@ -75,7 +70,7 @@ const ChatList = () => {
     <div className="chatList">
       <div className="search">
         <div className="searchBar">
-          <img src="./search.png" alt="" />
+          <img src="../../../../public/DirectMessaging/search.png" alt="" />
           <input
             type="text"
             placeholder="Search"
@@ -83,13 +78,13 @@ const ChatList = () => {
           />
         </div>
         <img
-          src={addMode ? "./minus.png" : "./plus.png"}
+          src={addMode ? "../../../../public/DirectMessaging/minus.png" : "../../../../public/DirectMessaging/plus.png"}
           alt=""
           className="add"
           onClick={() => setAddMode((prev) => !prev)}
         />
         <img
-          src={addModeGroup ? "./minus.png" : "./plus.png"}
+          src={addModeGroup ? "../../../../public/DirectMessaging/minus.png" : "../../../../public/DirectMessaging/plus.png"}
           alt=""
           className="add"
           onClick={() => setAddModeGroup((prev) => !prev)}
@@ -108,8 +103,8 @@ const ChatList = () => {
           <img
             src={
               chat.user.blocked.includes(currentUser.id)
-                ? "./avatar.png"
-                : chat.user.avatar || "./avatar.png"
+                ? "../../../../public/DirectMessaging/avatar.png"
+                : chat.user.avatar || "../../../../public/DirectMessaging/avatar.png"
             }
             alt=""
           />
@@ -127,6 +122,7 @@ const ChatList = () => {
       {addMode && <AddUser />}
     </div>
   );
+  console.log("ChatList is being rendered!");
 };
 
 export default ChatList;

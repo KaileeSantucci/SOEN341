@@ -115,3 +115,19 @@ h2 {
   background-color: #d4b0cd;
 }
 
+/* Hides sidebar and header when needed */
+.no-sidebar-main-content {
+  align-items: center;
+  display: flex;
+  padding-left: 5%;
+  padding-top: 1%;
+  height: 100vh;  /* Full height of the viewport */
+  width: 100vw;   /* Full width of the viewport */
+  position: relative; /* Makes the container fixed in place */
+  box-sizing: border-box; /* Include padding and border in the total width/height */
+
+}
+
+
+
+

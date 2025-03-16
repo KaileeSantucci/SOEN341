@@ -3,6 +3,7 @@ import "./list.css"
 import UserInfo from "./userInfo/Userinfo"
 
 const List = () => {
+    console.log("List is being rendered!")
     return (
         <div className = 'list'>
             
@@ -13,5 +14,4 @@ const List = () => {
         </div>
     )
 }
-
 export default List
