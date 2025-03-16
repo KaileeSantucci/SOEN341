@@ -90,7 +90,7 @@ h2 {
     padding-left: 150px;
     padding-top: 40px;
     width: calc(100% ); /* Ensure content doesn't overflow */
-    background-color: #f9c6d1cd; /* Pastel pink background */
+    background-color: transparent; 
     height: calc(100vh-10px); /* Ensure content area takes full height */
     position: relative; /* Ensure the content is positioned correctly */
     box-sizing: border-box; 
