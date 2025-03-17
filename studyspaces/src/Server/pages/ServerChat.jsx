@@ -1,11 +1,12 @@
 import React from "react";
 import { useChatStore } from "../DirectMessaging/lib/chatStore";
 import { useState } from "react";
+import { db, collection, addDoc, serverTimestamp } from "../DirectMessaging/lib/firebase";
 
 
 const ServerChat = ({selectedServer}) => {
     const [messageText, setMessageText] = useState("");
-    const {currentUser} = useChatStore();
+    const {setCurrentUser} = useUserStore();
 
     const sendMessage = async (e) => {
         e.preventDefault();
@@ -26,7 +27,7 @@ const ServerChat = ({selectedServer}) => {
     };
 
     return (
-        <form onSubmit={sendSubmit}>
+        <form onSubmit={sendMessage}>
             <input
                 type="text"
                 value={messageTest}

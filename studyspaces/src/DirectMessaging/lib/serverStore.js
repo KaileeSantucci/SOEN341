@@ -4,7 +4,10 @@ import { db, collection, getDocs } from "./firebase";
 export const useServerStore = create((set) => ({
     servers:[], //holds all servers
     selectedServer: null, //holds the CURRENTLY selected server
-    setSelectedServer: (server)=> set({selectedServer: server}), //sets the selected server
+    setSelectedServer: (server) => {
+        console.log("🟢 Zustand setSelectedServer Called:", server);
+        set({ selectedServer: server });
+    },
 
     fetchServers: async () => {
         try {

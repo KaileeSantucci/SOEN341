@@ -9,11 +9,7 @@ import { format } from "date-fns";
 
 
 const Chat = () => {
-  if(!currentUser){
-    console.warn("currentUser is null or undefined, skipping chat component.");
-    return <p>Loading chat... No active user selected.</p>;
-  }
-
+  
   const [chat, setChat] = useState();
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -22,7 +18,8 @@ const Chat = () => {
     url: "",
   });
 
-  const { currentUser } = useUserStore();
+  const { currentUser } = useUserStore((state)=>state.currentUser);
+  
   const { chatId, user, isCurrentUserBlocked, isReceiverBlocked } = useChatStore();
   console.log("Chat ID in Chat.jsx:", chatId); // Debugging log
   console.log("User in Chat.jsx:", user);
@@ -33,6 +30,9 @@ const Chat = () => {
     if (chat?.messages) {
       endRef.current?.scrollIntoView({ behavior: "smooth" });
     }
+    const unsubscribe = onSnapshot(doc(db, "chats", chatId), (res) => {
+      setChat(res.data());
+    });
   }, [chat]); 
   
 
@@ -41,12 +41,12 @@ const Chat = () => {
       console.warn("Chat ID is null in Chat.jsx, skipping snapshot.");
       return;
     }
-    const unSub = onSnapshot(doc(db, "chats", chatId), (res) => {
+    const unsubscribe = onSnapshot(doc(db, "chats", chatId), (res) => {
       setChat(res.data());
     });
 
     return () => {
-      unSub();
+      unsubscribescribe();
     };
   }, [chatId]);
 

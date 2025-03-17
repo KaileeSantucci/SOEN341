@@ -11,6 +11,7 @@ export const useChatStore = create((set) => ({
 
   startChat: async (receiverId) => {
     const {currentUser} = useUserStore.getState();
+    console.log("Starting chat with receiverId:", receiverId);
     if(!currentUser || !currentUser.id){
       console.error("User not logged in.");
       return;

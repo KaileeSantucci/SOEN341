@@ -2,26 +2,35 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../DirectMessaging/lib/firebase";
 import { useUserStore } from "../DirectMessaging/lib/userStore";
-import { useChatStore } from "../DirectMessaging/lib/chatStore";
 import { useServerStore } from "../DirectMessaging/lib/serverStore";
 import ServerRoom from "./pages/serverRoom";
 import ServerList from "./pages/serverList";
+import { set } from "date-fns";
 
 const ServerApp = () => {
-    const {setCurrentUser} = useUserStore();
-    const { selectedServer } = useServerStore();
+    const { setCurrentUser, fetchUserInfo } = useUserStore();
+    const { selectedServer, setSelectedServer } = useServerStore();
+    
+    console.log("🟢 ServerApp - Current Selected Server:", selectedServer);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            setCurrentUser(user ? { id: user.uid, email: user.email } : null);
+            console.log("✅ User authentication state changed:", user);
+
+            if (user) {
+                setCurrentUser({ id: user.uid, email: user.email });
+                fetchUserInfo(user.uid); // Ensure this is called!
+            } else {
+                setCurrentUser(null);
+            }
         });
+
         return () => unsubscribe();
     }, []);
     
     return (
         <div className="server-layout">
-            <h1>Servers stuff</h1>
-        <ServerList />
+        <ServerList onSelectServer={setSelectedServer}/>
         <ServerRoom selectedServer={selectedServer} />
         </div>
     ); 

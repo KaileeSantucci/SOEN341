@@ -1,20 +1,19 @@
 .server-layout {
     display: flex;
-    flex-direction: column;
-    height: 100vh;
+    height: 80vh;
 }
 
 .serverlist {
-    width: 240pxs;
+    width: 250px;
     background: #d4b0cd;
+    min-width: 200px;
+    max-width: 400px;
     color: white;
     padding: 20px;
     overflow-y: auto;
+    border-right:2px solid #e0a0a0
 }
 
-.noSelectedServer {
-    
-}
 .server-item {
     display: block;
     font-size: 20px;
@@ -35,8 +34,9 @@
 .ServerChatRoomContainer {
     flex-grow: 1;
     padding: 20px;
-    background: #f4f4f4;
+    background: #ffffff;
     overflow-y: auto;
+    color:#000000
 }
 
 .message-item {

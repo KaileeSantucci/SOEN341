@@ -2,6 +2,7 @@ import "./addUser.css";
 import { db } from "../../../../lib/firebase";
 import { arrayUnion, collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where,} from "firebase/firestore";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../../../lib/userStore";
 import { useChatStore } from "../../../../lib/chatStore";
 import { auth } from "../../../../lib/firebase";
@@ -18,9 +19,7 @@ const AddUser = () => {
   
       try {
         const userRef = collection(db, "users");
-  
         const q = query(userRef, where("username", "==", username));
-  
         const querySnapShot = await getDocs(q);
   
         if (!querySnapShot.empty) {
@@ -31,7 +30,7 @@ const AddUser = () => {
       }
     };
   
-    const { startChat } = useChatStore();
+    const { startChat } = useChatStore(); //allows the side bar with userdetails to be displayed
     const handleAdd = async () => {
       if (!currentUser || !currentUser.id) {
         console.log("User not found");
@@ -44,8 +43,8 @@ const AddUser = () => {
       try {
         console.log(`Adding user: ${user.username}`);
         await startChat(user.id); // Start the chat globally
-    
         console.log("User added successfully!");
+        navigate("/home/direct-messaging");
       } catch (error) {
         console.error("Error adding user:", error);
       }
@@ -78,6 +77,7 @@ const AddUser = () => {
           }),
         });
         console.log("User added successfully");
+        navigate("/home/direct-messaging");
       } catch (err) {
         console.log("Error adding user", err);
       }

@@ -6,7 +6,7 @@ import "../styles/ServerLayout.css";
 
 const ServerList = ({onSelectServer}) => {
     {/* Displays all public forums available on the server, only user admin can create a server*/}
-    const { servers, fetchServers, setSelectedServer } = useServerStore();
+    const { servers, fetchServers } = useServerStore();
     
     useEffect(() => {
         fetchServers();
@@ -23,7 +23,9 @@ const ServerList = ({onSelectServer}) => {
             </div>
         ) : (
             servers.map((server) => (
-                <button key={server.id} className="server-item" onClick={() => onSelectServer(server)}>
+                <button key={server.id} className="server-item" onClick={() => {
+                    console.log("Selecting Server: ", server);
+                    onSelectServer(server);}}>
                     {server.name}
                 </button>
             ))
