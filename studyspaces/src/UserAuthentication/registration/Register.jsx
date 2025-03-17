@@ -10,7 +10,7 @@ import "./registrationStyle.css";
 
 const Register = () => {
     const navigate = useNavigate();
-    const [formData, setFormData] = useState({ firstName: "", lastName: "", userName: "", email: "", password: "" });
+    const [formData, setFormData] = useState({ firstName: "", lastName: "", username: "", email: "", password: "" });
     const [loading, setLoading] = useState(false); //loading state for buttons
 
     const handleChange = (e) => {
@@ -27,7 +27,7 @@ const Register = () => {
           await setDoc(doc(db, "users", res.user.uid), {
             firstName: formData.firstName,
             lastName: formData.lastName,
-            username: formData.userName,
+            username: formData.username,
             email: formData.email,
             id: res.user.uid,
             createdAt: new Date(),

@@ -9,8 +9,7 @@ import { format } from "date-fns";
 
 
 const Chat = () => {
-  
-  const [chat, setChat] = useState();
+  const [chat, setChat] = useState(null);
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
   const [img, setImg] = useState({
@@ -18,35 +17,33 @@ const Chat = () => {
     url: "",
   });
 
-  const { currentUser } = useUserStore((state)=>state.currentUser);
-  
+  const currentUser = useUserStore((state)=>state.currentUser); //fetches Zustand state
   const { chatId, user, isCurrentUserBlocked, isReceiverBlocked } = useChatStore();
   console.log("Chat ID in Chat.jsx:", chatId); // Debugging log
-  console.log("User in Chat.jsx:", user);
-  
+  console.log("User in Chat.jsx:", user); // Debugging log
   const endRef = useRef(null);
 
+  //console log when chatId or user is changed
   useEffect(() => {
-    if (chat?.messages) {
-      endRef.current?.scrollIntoView({ behavior: "smooth" });
-    }
-    const unsubscribe = onSnapshot(doc(db, "chats", chatId), (res) => {
-      setChat(res.data());
-    });
-  }, [chat]); 
-  
+    console.log("Chat ID changed: ", chatId);
+    console.log("User updated: ", user);
+  }, [chatId, user]);
 
+  //preventing infinite loop
   useEffect(() => {
     if (!chatId) {
       console.warn("Chat ID is null in Chat.jsx, skipping snapshot.");
       return;
     }
+
+    const chatRef = doc(db, "chats", chatId);
     const unsubscribe = onSnapshot(doc(db, "chats", chatId), (res) => {
       setChat(res.data());
+      endRef.current?.scrollIntoView({ behavior: "smooth" });
     });
 
     return () => {
-      unsubscribescribe();
+      unsubscribe();
     };
   }, [chatId]);
 
@@ -113,7 +110,6 @@ const Chat = () => {
       file: null,
       url: "",
     });
-
     setText("");
     }
   };

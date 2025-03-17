@@ -13,22 +13,19 @@ const ChatList = () => {
   const [addModeGroup, setAddModeGroup] = useState(false);
   const [input, setInput] = useState("");
 
-  const { currentUser } = useUserStore();
+  const { currentUser, isLoading } = useUserStore();
   const { chatId, changeChat } = useChatStore();
+
+  if (isLoading) return <p>Loading...</p>;
+  if(!currentUser) return <p>Error: No user found.</p>;
 
   useEffect(() => {
     if (!currentUser || !currentUser.id){
       console.warn("currentUser is null or undefined, skipping snpashot.");
       return;
     }
-
-    if (!chatId) {
-      console.warn("Chat ID is not available");
-      return <p>No active chat selected.</p>;
-    }
     
     console.log("Fetching chats for user:", currentUser.id);
-
     const userChatsRef = doc(db, "userchats", currentUser.id);
 
     const unSub = onSnapshot( userChatsRef, async (res) => {
@@ -39,9 +36,13 @@ const ChatList = () => {
           return;
         }
 
+        const chatData = await Promise.all(res.data().chats.map(async (item) => {
+          const userDocRef = await getDoc(doc(db, "users", item.receiverId));
+          return userDocSnap.exists() ? { ...item, user: userDocSnap.data() } : null;
+        }));
+        /*
         const items = res.data().chats || [];
         console.log("Chats found for user:", items);
-
         const promises = items.map(async (item) => {
           const userDocRef = doc(db, "users", item.receiverId);
           const userDocSnap = await getDoc(userDocRef);
@@ -58,6 +59,7 @@ const ChatList = () => {
 
         const chatData = await Promise.all(promises);
         console.log("Final chat list after processing:", chatData);
+        */
 
         setChats(chatData.filter(chat => chat !== null).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0)));
       }
@@ -73,6 +75,13 @@ const ChatList = () => {
     console.log("Selected Chat ID:", chat.chatId);  // Log chat ID
     console.log("Selected User:", chat.user);  // Log selected user
 
+    if (chatId.chatId === useChatStore.getState().chatId) {
+      console.log("Chat already selected, skipping update.");
+      return;
+    }
+
+    console.log("Selected Chat Id: ", chat.chatId);
+    
      try {
         await updateDoc(doc(db, "userchats", currentUser.id), {
             chats: chats.map((item) =>
@@ -117,33 +126,20 @@ const ChatList = () => {
         />
       </div>
       {addModeGroup && <CreateGroup />}
-      {filteredChats.map((chat) => (
-        <div
-          className="item"
-          key={chat.chatId}
-          onClick={() => handleSelect(chat)}
-          style={{
-            backgroundColor: chat?.isSeen ? "transparent" : "#5183fe",
-          }}
-        >
-          <img
-            src={
-              chat.user.blocked.includes(currentUser.id)
-                ? "../../../../public/DirectMessaging/avatar.png"
-                : chat.user.avatar || "../../../../public/DirectMessaging/avatar.png"
-            }
-            alt=""
-          />
-          <div className="texts">
-            <span>
-              {chat.user.blocked.includes(currentUser.id)
-                ? "User"
-                : chat.user.username}
-            </span>
-            <p>{chat.lastMessage}</p>
+      {filteredChats.length > 0 ?(
+        filteredChats.map((chat) => (
+          <div className="item" key={chat.chatId} onClick={() => handleSelect(chat)} style={{ backgroundColor: chat?.isSeen ? "transparent" : "#5183fe", }} >
+            <img src={ chat.user.blocked.includes(currentUser.id) ? "../../../../public/DirectMessaging/avatar.png": chat.user.avatar || "../../../../public/DirectMessaging/avatar.png"} alt="" />
+            <div className="texts">
+              <span> {chat.user.blocked.includes(currentUser.id)? "User": chat.user.username} </span>
+              <p>{chat.lastMessage}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+          <p>No chats found. Add a user to start messaging!</p>
+        )
+      }
 
       {addMode && <AddUser />}
     </div>

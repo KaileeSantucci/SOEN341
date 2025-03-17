@@ -24,8 +24,10 @@ const DirectMessagingApp = () => {
   console.log("Chat ID:", chatId);
 
   useEffect(() => {
-    const unSub = onAuthStateChanged(auth, (user) => {
-      fetchUserInfo(user?.uid);
+    const unSub = onAuthStateChanged(auth, async (user) => {
+      if (user){
+       await fetchUserInfo(user?.uid);
+      }
     });
 
     return () => {

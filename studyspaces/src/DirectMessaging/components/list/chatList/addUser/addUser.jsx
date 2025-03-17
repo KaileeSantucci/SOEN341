@@ -9,7 +9,7 @@ import { auth } from "../../../../lib/firebase";
 
 const AddUser = () => {
     const [user, setUser] = useState(null);
-  
+    const navigate = useNavigate();
     const { currentUser } = useUserStore();
   
     const handleSearch = async (e) => {
@@ -44,6 +44,7 @@ const AddUser = () => {
         console.log(`Adding user: ${user.username}`);
         await startChat(user.id); // Start the chat globally
         console.log("User added successfully!");
+
         navigate("/home/direct-messaging");
       } catch (error) {
         console.error("Error adding user:", error);
