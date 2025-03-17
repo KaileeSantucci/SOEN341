@@ -17,35 +17,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const firstName = document.querySelector('#firstName').value.trim();
       const lastName = document.querySelector('#lastName').value.trim();
-      const userName = document.querySelector('#userName').value.trim();
+      const username = document.querySelector('#username').value.trim();
       const email = document.querySelector('#email').value.trim();
       const password = document.querySelector('#password').value;
 
       signupBtn.disabled = true;
       signupBtn.textContent = "Signing up...";
 
-      auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          return firestore.collection('users').doc(user.uid).set({
-            firstname: firstName,
-            lastname: lastName,
-            username: userName,
-            email: email,
-            createdAt: new Date() 
-          });
-        })
-        .then(() => {
-          alert("Signup successful! You can now log in.");
-          window.location.href = "index.html"; // Redirect to login
-        })
-        .catch((error) => {
-          alert("Error signing up: " + error.message);
-        })
-        .finally(() => {
-            signupBtn.disabled = false;
-            signupBtn.textContent = "Register Now!";
-          });
+      try{
+        const userCredential = auth.createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+
+         firestore.collection('users').doc(user.uid).set({
+          firstName: firstName,
+          lastName: lastName,
+          username: userName,
+          email: email,
+          createdAt: new Date(),
+          admin: false,
+          id: user.uid,
+          blocked: [],
+        }); 
+
+        alert("Account created! You can now log in!");
+        window.location.href='index.html'; // Redirect to login page
+      } catch (error) {
+        alert("Error signing up: " + error.message);
+      }finally{
+        signupBtn.disabled = false;
+        signupBtn.textContent = "Sign Up";
+      }
     });
   } else {
     console.error("❌ Signup form or button not found. Check your HTML.");

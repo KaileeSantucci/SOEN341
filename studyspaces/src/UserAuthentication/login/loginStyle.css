@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Habibi&display=swap');
+
+/*centering the body*/
+body.login-page{
+  display: flex !important;
+  justify-content: center !important;
+  padding: 100px !important;
+  margin: 0 !important;
+  background-color: #ffffff !important;
+}
+
+/*centering the main box*/
+.MainBox{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 700px !important;
+  width: 1000px !important;
+  border-radius: 30px !important;
+  background-color: #f37e9a !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
+}
+
+.parent {
+  display: grid !important;
+  grid-template-columns: repeat(10, 1fr) !important;
+  grid-template-rows: repeat(10, 1fr) !important;
+  grid-column-gap: 5px !important;
+  grid-row-gap: 5px !important;
+  padding: 2px !important;
+  width: 100% !important;
+  height:100% !important;
+  }
+  
+.div1 { 
+  grid-area: 2 / 1 / 5 / 7 !important; 
+  display: flex !important;
+  text-align: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  color:#ffffff !important; 
+  font-family: "Bungee Shade", "Silkscreen", Times !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: 40px !important;
+}
+/* Styling for h1 */
+.div1 h1 {
+  margin-bottom: 5px !important; /* Reduce spacing below the heading */
+  line-height: 1.1 !important; /* Adjust line height to reduce space */
+}
+
+/* Styling for the text below h1 */
+.div1 p {
+  font-size: 1.5vw !important; /* Adjust text size */
+  margin-top: 0 !important; /* Remove extra space above the text */
+  padding: 0 !important; /* Ensure no padding is causing extra space */
+  line-height: 1 !important; /* Reduce space inside text */
+}
+
+.div2 { 
+  grid-area: 6 / 1 / 10 / 7 !important; 
+  display: flex !important;
+  text-align: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+.div3 { 
+  border-radius: 30px !important;
+  padding-right: 15px !important;
+  grid-area: 1 / 7 / 7 / 11 !important; 
+  display: flex !important;
+  text-align: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+.div4 { 
+  grid-area: 7 / 7 / 10 / 11 !important; 
+  display: flex !important;
+  text-align: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  font-family: "Bungee Shade", "Silkscreen", Times !important;
+  color:#ffffff !important; 
+}
+
+/*styling the registration button*/
+.registration-btn {
+  padding: 17px 40px !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  border: 0 !important;
+  color: #ffffff !important;
+  background-color: #f37e9a !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  font-size: 15px !important;
+  transition: all 0.5s ease !important;
+}
+
+.registration-btn:hover {
+  letter-spacing: 3px !important;
+  background-color: #ffffff !important;
+  color: #f37e9a !important;
+  box-shadow: #ffffff 0px 7px 29px 0px !important;
+}
+
+.registration-btn:active {
+  letter-spacing: 3px !important;
+  background-color: #ffffff !important;
+  color: #f37e9a !important;
+  box-shadow: #ffffff 0px 0px 0px 0px !important;
+  transform: translateY(10px) !important;
+  transition: 100ms !important;
+}
+
+#loginBtn {
+  padding: 17px 40px !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  border: 0 !important;
+  color: #ffffff !important;
+  background-color: #f37e9a !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  font-size: 15px !important;
+  transition: all 0.5s ease !important;
+}
+
+#loginBtn:hover {
+  letter-spacing: 3px !important;
+  background-color: #ffffff !important;
+  color: #f37e9a !important;
+  box-shadow: #ffffff 0px 7px 29px 0px !important;
+}
+
+#loginBtn:active {
+  letter-spacing: 3px !important;
+  background-color: #ffffff !important;
+  color: #f37e9a !important;
+  box-shadow: #ffffff 0px 0px 0px 0px !important;
+  transform: translateY(10px) !important;
+  transition: 100ms !important;
+}
+
+
+
+/*styling the login inputs*/ 
+.input-group {
+  position: relative !important;
+}
+ 
+.input {
+  width: 400px !important;
+  border: solid 1.5px #ffffff !important;
+  border-radius: 1rem !important;
+  background: none !important;
+  padding: 1rem !important;
+  font-size: 1rem !important;
+  color: #000000 !important;
+  transition: border 150ms cubic-bezier(0.4,0,0.2,1) !important;
+}
+ 
+.user-label {
+  position: absolute !important;
+  left: 15px !important;
+  color: #ffe4f0 !important;
+  pointer-events: none !important;
+  transform: translateY(1rem) !important;
+  transition: 150ms cubic-bezier(0.4,0,0.2,1) !important;
+}
+ 
+.input:focus, input:valid {
+  outline: none !important;
+  border: 1.5px solid #000000 !important;
+  background-color: #ffdae8 !important;
+}
+ 
+.input:focus ~ label, input:valid ~ label {
+  transform: translateY(-50%) scale(0.8) !important;
+  background-color: #000000 !important;
+  border-radius: 15px !important;
+  padding: 0 .5em !important;
+  color: #ffffff !important;
+}
+
+/*styling the form inputs*/ 
+.input-group {
+  position: relative !important;
+}
+ 
+.input {
+  width: 400px !important;
+  border: solid 1.5px #ffffff !important;
+  border-radius: 1rem !important;
+  background: none !important;
+  padding: 1rem !important;
+  font-size: 1rem !important;
+  color: #000000 !important;
+  transition: border 150ms cubic-bezier(0.4,0,0.2,1) !important;
+}
+ 
+.user-label {
+  position: absolute !important;
+  left: 15px !important;
+  color: #ffe4f0 !important;
+  pointer-events: none !important;
+  transform: translateY(1rem) !important;
+  transition: 150ms cubic-bezier(0.4,0,0.2,1) !important;
+}
+ 
+.input:focus, input:valid {
+  outline: none !important;
+  border: 1.5px solid #000000 !important;
+  background-color: #ffdae8 !important;
+}
+ 
+.input:focus ~ label, input:valid ~ label {
+  transform: translateY(-50%) scale(0.8) !important;
+  background-color: #000000 !important;
+  border-radius: 15px !important;
+  padding: 0 .5em !important;
+  color: #ffffff !important;
+}

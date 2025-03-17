@@ -31,3 +31,21 @@ body{
   border-radius: 10px;
   background-color: rgba(44, 87, 96, 0.9);
 }
+
+.back-home-btn {
+  position: absolute;
+  top: 85px;
+  left: 20px;
+  background-color: #000000;
+  color: white;
+  padding: 9px 13px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.back-home-btn:hover {
+  background-color: #cc0000;
+}

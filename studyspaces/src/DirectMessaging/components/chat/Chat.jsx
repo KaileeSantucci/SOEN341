@@ -9,6 +9,11 @@ import { format } from "date-fns";
 
 
 const Chat = () => {
+  if(!currentUser){
+    console.warn("currentUser is null or undefined, skipping chat component.");
+    return <p>Loading chat... No active user selected.</p>;
+  }
+
   const [chat, setChat] = useState();
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -18,7 +23,6 @@ const Chat = () => {
   });
 
   const { currentUser } = useUserStore();
-  const chatStore = useChatStore();
   const { chatId, user, isCurrentUserBlocked, isReceiverBlocked } = useChatStore();
   console.log("Chat ID in Chat.jsx:", chatId); // Debugging log
   console.log("User in Chat.jsx:", user);
@@ -33,6 +37,10 @@ const Chat = () => {
   
 
   useEffect(() => {
+    if (!chatId) {
+      console.warn("Chat ID is null in Chat.jsx, skipping snapshot.");
+      return;
+    }
     const unSub = onSnapshot(doc(db, "chats", chatId), (res) => {
       setChat(res.data());
     });
@@ -127,20 +135,18 @@ const Chat = () => {
         </div>
       </div>
       <div className="center">
-        {chat?.messages?.map((message) => (
+        {chat?.messages?.map((message, index) => (
           <div
-            className={
-              message.senderId === currentUser?.id ? "message own" : "message"
-            }
-            key={message?.createAt}
+            key={message?.createdAt?.seconds || index}
+            className={message.senderId === currentUser?.id ? "message own" : "message"}
           >
             <div className="texts">
               {message.img && <img src={message.img} alt="" />}
               <p>{message.text}</p>
               <span>
   {message.createdAt
-    ? new Date(message.createdAt.seconds * 1000).toLocaleString()
-    : "Just now"}
+? format(new Date(message.createdAt.seconds * 1000), "MMM dd, yyyy HH:mm")
+: "Just now"}
 </span>
             </div>
           </div>

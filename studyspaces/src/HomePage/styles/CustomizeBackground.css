@@ -64,7 +64,7 @@ h2 {
 .apply-background-btn {
   padding: 10px 20px;
   background-color: #d4b0cd;
-  color: white;
+  color: rgb(255, 255, 255);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -90,7 +90,7 @@ h2 {
     padding-left: 150px;
     padding-top: 40px;
     width: calc(100% ); /* Ensure content doesn't overflow */
-    background-color: transparent; 
+    background-color: #FDCFD9; 
     height: calc(100vh-10px); /* Ensure content area takes full height */
     position: relative; /* Ensure the content is positioned correctly */
     box-sizing: border-box; 

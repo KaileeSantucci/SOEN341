@@ -1,6 +1,6 @@
 
 import React from 'react';
-import '../../App.css';
+import '../src/HomeApp.css';
 
 const AddFriends = () => {
   return (

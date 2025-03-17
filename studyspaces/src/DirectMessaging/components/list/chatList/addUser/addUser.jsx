@@ -3,6 +3,7 @@ import { db } from "../../../../lib/firebase";
 import { arrayUnion, collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where,} from "firebase/firestore";
 import { useState } from "react";
 import { useUserStore } from "../../../../lib/userStore";
+import { useChatStore } from "../../../../lib/chatStore";
 import { auth } from "../../../../lib/firebase";
 
 const AddUser = () => {
@@ -30,13 +31,30 @@ const AddUser = () => {
       }
     };
   
+    const { startChat } = useChatStore();
     const handleAdd = async () => {
+      if (!currentUser || !currentUser.id) {
+        console.log("User not found");
+        return;
+      } 
+      if (!startChat){
+        console.error("startChat function is undefined.");
+        return;
+      }
+      try {
+        console.log(`Adding user: ${user.username}`);
+        await startChat(user.id); // Start the chat globally
+    
+        console.log("User added successfully!");
+      } catch (error) {
+        console.error("Error adding user:", error);
+      }
+
       const chatRef = collection(db, "chats");
       const userChatsRef = collection(db, "userchats");
   
       try {
         const newChatRef = doc(chatRef);
-  
         await setDoc(newChatRef, {
           createdAt: serverTimestamp(),
           messages: [],
@@ -59,8 +77,9 @@ const AddUser = () => {
             updatedAt: Date.now(),
           }),
         });
+        console.log("User added successfully");
       } catch (err) {
-        console.log(err);
+        console.log("Error adding user", err);
       }
     };
   
@@ -69,7 +88,6 @@ const AddUser = () => {
         <form onSubmit={handleSearch}>
           <input type="text" placeholder="Username" name="username" />
           <button>Search</button>
-          <button className="logout" onClick={()=> auth.signOut()}>Logut</button>
         </form>
         {user && (
           <div className="user">

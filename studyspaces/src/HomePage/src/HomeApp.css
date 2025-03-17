@@ -16,7 +16,7 @@
   position: fixed;
   height: calc(100vh - 250px); 
   top: 150px;
-  z-index: 1;
+  z-index: 10;
   box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
   border-radius: 40px;
   font-family: 'Baloo 2', sans-serif;
@@ -70,15 +70,11 @@ h1 {
   font-family: 'Baloo 2', sans-serif;
   font-weight: bold;
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-  color: #f5f0f2; 
+  color: #ffffff; 
   margin: 0;
   margin-left: 20px; /* Adjust margin to the left of the logo */
   display: inline-block;  /* Align the title to the left of the logo */
   line-height: 1;  /* Ensure the title is vertically centered with the logo */
- 
-  
-  
-  
 }
 
 h2 {
@@ -128,6 +124,21 @@ h2 {
 
 }
 
+.logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+  margin-left: 10px;
+}
+
+.logout-btn:hover {
+  background-color: #cc0000;
+}
 
 
 

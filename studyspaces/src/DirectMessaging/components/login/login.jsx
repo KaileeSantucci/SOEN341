@@ -4,6 +4,7 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import { auth, db } from "../../lib/firebase";
 import { doc, setDoc } from "firebase/firestore";
+import { create } from "zustand";
 
 
 
@@ -14,15 +15,19 @@ const Login = () => {
         e.preventDefault()
         const formData = new FormData(e.target)
 
-        const {username,email,password} = Object.fromEntries(formData);
+        const { firstName, lastName, username, email, password} = Object.fromEntries(formData);
         
         try{
             const res = await createUserWithEmailAndPassword(auth, email, password);
 
             await setDoc(doc(db, "users", res.user.uid), {
+                firstName: firstName,
+                lastName: lastName,
                 username: username,
-                email,
+                email: email,
+                createdAt: new Date(),
                 id : res.user.uid,
+                admin: false,
                 blocked: [],
             });
             toast.success("Account created! You can now log in!")
@@ -42,7 +47,6 @@ const Login = () => {
         setLoading(true);
 
         const formData = new FormData(e.target)
-
         const {email,password} = Object.fromEntries(formData);
 
         try{

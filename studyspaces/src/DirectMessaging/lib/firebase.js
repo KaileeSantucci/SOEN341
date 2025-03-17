@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-
+import { collection, addDoc, getDocs, setDoc, doc, serverTimestamp, onSnapshot, orderBy, query } from "firebase/firestore";
 
 
 
@@ -22,4 +22,5 @@ const analytics = getAnalytics(app);
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+export { collection, addDoc, getDocs, setDoc, doc, serverTimestamp, onSnapshot, orderBy, query };
 console.log("Firebase Loaded");

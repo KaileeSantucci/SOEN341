@@ -17,48 +17,74 @@ const ChatList = () => {
   const { chatId, changeChat } = useChatStore();
 
   useEffect(() => {
-    const unSub = onSnapshot(
-      doc(db, "userchats", currentUser.id),
-      async (res) => {
-        const items = res.data().chats;
+    if (!currentUser || !currentUser.id){
+      console.warn("currentUser is null or undefined, skipping snpashot.");
+      return;
+    }
+
+    if (!chatId) {
+      console.warn("Chat ID is not available");
+      return <p>No active chat selected.</p>;
+    }
+    
+    console.log("Fetching chats for user:", currentUser.id);
+
+    const userChatsRef = doc(db, "userchats", currentUser.id);
+
+    const unSub = onSnapshot( userChatsRef, async (res) => {
+        if(!res.exists()){
+          console.warn("No userchats document found for user: ", currentUser.id);
+          await setDoc(userChatsRef, { chats: [] }); // Create userchats document if not found
+          setChats([]);
+          return;
+        }
+
+        const items = res.data().chats || [];
+        console.log("Chats found for user:", items);
 
         const promises = items.map(async (item) => {
           const userDocRef = doc(db, "users", item.receiverId);
           const userDocSnap = await getDoc(userDocRef);
 
+          if (!userDocSnap.exists()){
+            return null //Skip if user does not exist in firestore database
+          }
+
           const user = userDocSnap.data();
+          console.log("User found for chat:", user);
 
           return { ...item, user };
         });
 
         const chatData = await Promise.all(promises);
+        console.log("Final chat list after processing:", chatData);
 
-        setChats(chatData.sort((a, b) => b.updatedAt - a.updatedAt));
+        setChats(chatData.filter(chat => chat !== null).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0)));
       }
     );
 
     return () => {
       unSub();
     };
-  }, [currentUser.id]);
+  }, [currentUser?.id]);
 
   const handleSelect = async (chat) => {
     console.log("Selected Chat:", chat);  // Log selected chat object
     console.log("Selected Chat ID:", chat.chatId);  // Log chat ID
     console.log("Selected User:", chat.user);  // Log selected user
 
-    try {
-      await updateDoc(doc(db, "userchats", currentUser.id), {
-          chats: chats.map((item) =>
-              item.chatId === chat.chatId ? { ...item, isSeen: true } : item
-          ),
-      });
+     try {
+        await updateDoc(doc(db, "userchats", currentUser.id), {
+            chats: chats.map((item) =>
+                item.chatId === chat.chatId ? { ...item, isSeen: true } : item
+            ),
+        });
 
-      useChatStore.getState().changeChat(chat.chatId, chat.user);
-      console.log("Chat updated in Zustand store");
-  } catch (err) {
-      console.error("Error updating chat:", err);
-  }
+        useChatStore.getState().changeChat(chat.chatId, chat.user);
+        console.log("Chat updated in Zustand store");
+    } catch (err) {
+        console.error("Error updating chat:", err);
+    }
   };
 
   const filteredChats = chats.filter((c) =>
