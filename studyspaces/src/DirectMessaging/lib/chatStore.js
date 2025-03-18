@@ -3,6 +3,7 @@ import { db } from "./firebase";
 import { doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { useUserStore } from "./userStore";
 
+
 export const useChatStore = create((set) => ({
   chatId: null,
   user: null,
@@ -43,36 +44,48 @@ export const useChatStore = create((set) => ({
         await setDoc(receiverChatsRef, { chats: [] });
       }
 
-      await updateDoc(senderChatsRef, {
-        chats: arrayUnion({
-          chatId,
-          receiverId,
-          lastMessage: "",
-          isSeen: false,
-          updatedAt: Date.now(),
-        }),
-      });
+      const senderChatsData = senderSnap.exists() ? senderSnap.data().chats : [];
+      if (!senderChatsData.some(chat => chat.chatId === chatId)) {
+        await updateDoc(senderChatsRef, {
+          chats: arrayUnion({
+            chatId,
+            receiverId,
+            lastMessage: "",
+            isSeen: false,
+            updatedAt: Date.now(),
+          }),
+        });
+      }
 
-      await updateDoc(receiverChatsRef, {
-        chats: arrayUnion({
-          chatId,
-          receiverId: currentUser.id,
-          lastMessage: "",
-          isSeen: false,
-          updatedAt: Date.now(),
-      }), });
+      const receiverChatsData = receiverSnap.exists() ? receiverSnap.data().chats : [];
+      if (!receiverChatsData.some(chat => chat.chatId === chatId)) {
+        await updateDoc(receiverChatsRef, {
+          chats: arrayUnion({
+            chatId,
+            receiverId: currentUser.id,
+            lastMessage: "",
+            isSeen: false,
+            updatedAt: Date.now(),
+          }),
+        });
+      }
+
       set({ chatId, user:{id: receiverId} });
 
     } catch (error) {
       console.error("Error starting chat:", error);
     }
+
   },
+
   changeChat: async (chatId, userId) => {
     console.log("Changing chat ID:", chatId);
 
     const currentUser = useUserStore.getState().currentUser;
-
-    if (!user|| !currentUser) {return;}
+    if (!currentUser || !currentUser.id) {
+      console.error("No user found.");
+      return;
+    }
 
     try{
       const userRef = doc(db, "users", userId);
@@ -126,6 +139,7 @@ export const useChatStore = create((set) => ({
   changeBlock: () => {
     set((state) => ({ ...state, isReceiverBlocked: !state.isReceiverBlocked }));
   },
+
   resetChat: () => {
     console.log("Resetting chat...");
     set({

@@ -30,14 +30,14 @@ const ChatList = () => {
     const unSub = onSnapshot( userChatsRef, async (res) => {
         if(!res.exists()){
           console.warn("No userchats document found for user: ", currentUser.id);
-          //await setDoc(userChatsRef, { chats: [] }); // Create userchats document if not found
+          await setDoc(userChatsRef, { chats: [] }); // Create userchats document if not found
           setChats([]);
           return;
         }
 
         const chatArray = res.data().chats || []; // ✅ Ensure `chats` exists
         console.log("Chats found for user:", chatArray);
-
+{/*changes */}
         const chatData = await Promise.all(
           chatArray.map(async (chatItem) => {
             if (!chatItem.receiverId) return null; // ✅ Check for `receiverId`
@@ -70,7 +70,7 @@ const ChatList = () => {
 
   const handleSelect = async (chat) => {
     console.log("Selected Chat:", chat);  // Log selected chat object
-    if (chatId.chatId){
+    if (chat.chatId){
       changeChat(chat.chatId, chat.user.id)
     }
   };
