@@ -76,7 +76,6 @@ const Detail = () => {
                     </div>
                 </div>
                 <button>Block User</button>
-                <button className="logout" onClick={()=> auth.signOut()}>Logut</button>
             </div>
             
         </div>
