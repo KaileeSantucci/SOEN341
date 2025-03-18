@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import { useUserStore } from "../lib/userStore";
 import { useChatStore } from "../lib/chatStore";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Chat from "../components/chat/Chat";
 import Detail from "../components/detail/Detail";
 import List from "../components/list/List";
@@ -15,8 +15,6 @@ const DirectMessagingApp = () => {
   console.log("DirectMessagingApp is rendering...");
   console.log("Current Path: ", window.location.pathname);
   
-  const navigate = useNavigate();
-
   const {currentUser, isLoading, fetchUserInfo} = useUserStore();
   const {chatId} = useChatStore();
   console.log("Current User:", currentUser);
