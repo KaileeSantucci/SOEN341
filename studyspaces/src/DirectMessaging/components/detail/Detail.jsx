@@ -1,7 +1,9 @@
 import { auth } from "../../lib/firebase"
+import { useNavigate } from "react-router-dom"
 import "./detail.css"
 
 const Detail = () => {
+    const navigate = useNavigate()
     return (
         <div className = 'detail'>
             <div className="user">
@@ -76,6 +78,10 @@ const Detail = () => {
                     </div>
                 </div>
                 <button>Block User</button>
+                {/* ✅ Back to Home Button */}
+                <button onClick={() => navigate("/home")} className="back-home-btn">
+                    ⬅ Back to Home
+                </button>
             </div>
             
         </div>

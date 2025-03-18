@@ -45,10 +45,6 @@ const DirectMessagingApp = () => {
   <div className='container'>
     {console.log("Rendering DirectMessagingApp...")}
     {console.log("Current chatId:", chatId)}
-    {/* ✅ Back to Home Button */}
-    <button onClick={() => navigate("/home")} className="back-home-btn">
-      ⬅ Back to Home
-    </button>
 
     {currentUser ? (
         <>

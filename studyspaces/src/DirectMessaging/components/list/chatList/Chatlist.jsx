@@ -37,26 +37,33 @@ const ChatList = () => {
 
         const chatArray = res.data().chats || []; // ✅ Ensure `chats` exists
         console.log("Chats found for user:", chatArray);
-{/*changes */}
+
+        const uniqueChats = {};
+        chatArray.forEach((chat) => {
+          if (!uniqueChats[chat.receiverId] || chat.updatedAt > uniqueChats[chat.receiverId].updatedAt) {
+            uniqueChats[chat.receiverId] = chat;
+          }
+        });
+
         const chatData = await Promise.all(
-          chatArray.map(async (chatItem) => {
-            if (!chatItem.receiverId) return null; // ✅ Check for `receiverId`
+            Object.values(uniqueChats).map(async (chatItem) => {
+                if (!chatItem.receiverId) return null;
 
-            try {
-                const userDocRef = doc(db, "users", chatItem.receiverId);
-                const userDocSnap = await getDoc(userDocRef);
+                try {
+                    const userDocRef = doc(db, "users", chatItem.receiverId);
+                    const userDocSnap = await getDoc(userDocRef);
 
-                if (userDocSnap.exists()) {
-                    return { ...chatItem, user: userDocSnap.data() };
-                } else {
-                    console.warn("User document not found for receiverId:", chatItem.receiverId);
+                    if (userDocSnap.exists()) {
+                        return { ...chatItem, user: userDocSnap.data() };
+                    } else {
+                        console.warn("User document not found for receiverId:", chatItem.receiverId);
+                        return null;
+                    }
+                } catch (error) {
+                    console.error("Error fetching user document:", error);
                     return null;
                 }
-            } catch (error) {
-                console.error("Error fetching user document:", error);
-                return null;
-            }
-          })
+            })
         );
         
         setChats(chatData.filter(chat => chat !== null).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0)));
@@ -108,11 +115,11 @@ const ChatList = () => {
       {chats.length === 0 ? (
                 <p>No chats found. Add a user to start messaging!</p>
             ) : (
-                chats.map((chat) => (
-                    <div key={chat.chatId} className="item" onClick={() => handleSelect(chat)}>
+                chats.map((chat, index) => (
+                  <div key={`${chat.chatId}_${index}`} className="item" onClick={() => handleSelect(chat)}>
                         <img src={chat.user?.avatar || "../../../../public/DirectMessaging/avatar.png"} alt="" />
                         <div className="texts">
-                            <span>{chat.user?.username || "Unknown User"}</span>
+                            <span>{chat.user?.username || chat.user?.email || "Unknown User"}</span>
                             <p>{chat.lastMessage || "No messages yet"}</p>
                         </div>
                     </div>
