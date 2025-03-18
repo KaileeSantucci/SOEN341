@@ -13,10 +13,9 @@ const ChatList = () => {
   const [addModeGroup, setAddModeGroup] = useState(false);
   const [input, setInput] = useState("");
 
-  const { currentUser, isLoading } = useUserStore();
+  const currentUser = useUserStore((state) => state.currentUser);
   const { chatId, changeChat } = useChatStore();
 
-  if (isLoading) return <p>Loading...</p>;
   if(!currentUser) return <p>Error: No user found.</p>;
 
   useEffect(() => {
@@ -31,36 +30,35 @@ const ChatList = () => {
     const unSub = onSnapshot( userChatsRef, async (res) => {
         if(!res.exists()){
           console.warn("No userchats document found for user: ", currentUser.id);
-          await setDoc(userChatsRef, { chats: [] }); // Create userchats document if not found
+          //await setDoc(userChatsRef, { chats: [] }); // Create userchats document if not found
           setChats([]);
           return;
         }
 
-        const chatData = await Promise.all(res.data().chats.map(async (item) => {
-          const userDocRef = await getDoc(doc(db, "users", item.receiverId));
-          return userDocSnap.exists() ? { ...item, user: userDocSnap.data() } : null;
-        }));
-        /*
-        const items = res.data().chats || [];
-        console.log("Chats found for user:", items);
-        const promises = items.map(async (item) => {
-          const userDocRef = doc(db, "users", item.receiverId);
-          const userDocSnap = await getDoc(userDocRef);
+        const chatArray = res.data().chats || []; // ✅ Ensure `chats` exists
+        console.log("Chats found for user:", chatArray);
 
-          if (!userDocSnap.exists()){
-            return null //Skip if user does not exist in firestore database
-          }
+        const chatData = await Promise.all(
+          chatArray.map(async (chatItem) => {
+            if (!chatItem.receiverId) return null; // ✅ Check for `receiverId`
 
-          const user = userDocSnap.data();
-          console.log("User found for chat:", user);
+            try {
+                const userDocRef = doc(db, "users", chatItem.receiverId);
+                const userDocSnap = await getDoc(userDocRef);
 
-          return { ...item, user };
-        });
-
-        const chatData = await Promise.all(promises);
-        console.log("Final chat list after processing:", chatData);
-        */
-
+                if (userDocSnap.exists()) {
+                    return { ...chatItem, user: userDocSnap.data() };
+                } else {
+                    console.warn("User document not found for receiverId:", chatItem.receiverId);
+                    return null;
+                }
+            } catch (error) {
+                console.error("Error fetching user document:", error);
+                return null;
+            }
+          })
+        );
+        
         setChats(chatData.filter(chat => chat !== null).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0)));
       }
     );
@@ -72,27 +70,8 @@ const ChatList = () => {
 
   const handleSelect = async (chat) => {
     console.log("Selected Chat:", chat);  // Log selected chat object
-    console.log("Selected Chat ID:", chat.chatId);  // Log chat ID
-    console.log("Selected User:", chat.user);  // Log selected user
-
-    if (chatId.chatId === useChatStore.getState().chatId) {
-      console.log("Chat already selected, skipping update.");
-      return;
-    }
-
-    console.log("Selected Chat Id: ", chat.chatId);
-    
-     try {
-        await updateDoc(doc(db, "userchats", currentUser.id), {
-            chats: chats.map((item) =>
-                item.chatId === chat.chatId ? { ...item, isSeen: true } : item
-            ),
-        });
-
-        useChatStore.getState().changeChat(chat.chatId, chat.user);
-        console.log("Chat updated in Zustand store");
-    } catch (err) {
-        console.error("Error updating chat:", err);
+    if (chatId.chatId){
+      changeChat(chat.chatId, chat.user.id)
     }
   };
 
@@ -126,25 +105,22 @@ const ChatList = () => {
         />
       </div>
       {addModeGroup && <CreateGroup />}
-      {filteredChats.length > 0 ?(
-        filteredChats.map((chat) => (
-          <div className="item" key={chat.chatId} onClick={() => handleSelect(chat)} style={{ backgroundColor: chat?.isSeen ? "transparent" : "#5183fe", }} >
-            <img src={ chat.user.blocked.includes(currentUser.id) ? "../../../../public/DirectMessaging/avatar.png": chat.user.avatar || "../../../../public/DirectMessaging/avatar.png"} alt="" />
-            <div className="texts">
-              <span> {chat.user.blocked.includes(currentUser.id)? "User": chat.user.username} </span>
-              <p>{chat.lastMessage}</p>
-            </div>
-          </div>
-        ))
-      ) : (
-          <p>No chats found. Add a user to start messaging!</p>
-        )
-      }
-
+      {chats.length === 0 ? (
+                <p>No chats found. Add a user to start messaging!</p>
+            ) : (
+                chats.map((chat) => (
+                    <div key={chat.chatId} className="item" onClick={() => handleSelect(chat)}>
+                        <img src={chat.user?.avatar || "../../../../public/DirectMessaging/avatar.png"} alt="" />
+                        <div className="texts">
+                            <span>{chat.user?.username || "Unknown User"}</span>
+                            <p>{chat.lastMessage || "No messages yet"}</p>
+                        </div>
+                    </div>
+                ))
+            )}
       {addMode && <AddUser />}
     </div>
   );
-  console.log("ChatList is being rendered!");
 };
 
 export default ChatList;

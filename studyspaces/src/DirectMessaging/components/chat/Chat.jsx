@@ -121,7 +121,7 @@ const Chat = () => {
           <img src={user?.avatar || "../../../../public/DirectMessaging/avatar.png"} alt="" />
           <div className="texts">
             <span>{user?.username}</span>
-            <p>Lorem ipsum dolor, sit amet.</p>
+            <p>ReceiverId</p>
           </div>
         </div>
         <div className="icons">

@@ -67,14 +67,32 @@ export const useChatStore = create((set) => ({
       console.error("Error starting chat:", error);
     }
   },
-  changeChat: (chatId, user) => {
+  changeChat: async (chatId, userId) => {
     console.log("Changing chat ID:", chatId);
-    console.log("User being set:", user);
 
     const currentUser = useUserStore.getState().currentUser;
 
     if (!user|| !currentUser) {return;}
 
+    try{
+      const userRef = doc(db, "users", userId);
+      const userSnap = await getDoc(userRef);
+
+      if(userSnap.exists()){
+        const userData = userSnap.data();
+        console.log("User data loaded in chat:", userData);
+        
+        set({
+          chatId,
+          user: userData,
+          isCurrentUserBlocked: userData.blocked.includes(currentUser.id),
+          isReceiverBlocked: currentUser.blocked.includes(userData.id),
+        });
+      }
+    } catch (error) {
+      console.error("Error fetchinf user data for chat: ", error);
+    }
+    
     // CHECK IF CURRENT USER IS BLOCKED
     if (user.blocked.includes(currentUser.id)) {
       return set({
