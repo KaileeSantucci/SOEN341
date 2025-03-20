@@ -9,7 +9,7 @@ import { format } from "date-fns";
 
 
 const Chat = () => {
-  const [chat, setChat] = useState();
+  const [chat, setChat] = useState(null);
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
   const [img, setImg] = useState({
@@ -17,28 +17,33 @@ const Chat = () => {
     url: "",
   });
 
-  const { currentUser } = useUserStore();
-  const chatStore = useChatStore();
+  const currentUser = useUserStore((state)=>state.currentUser); //fetches Zustand state
   const { chatId, user, isCurrentUserBlocked, isReceiverBlocked } = useChatStore();
   console.log("Chat ID in Chat.jsx:", chatId); // Debugging log
-  console.log("User in Chat.jsx:", user);
-  
+  console.log("User in Chat.jsx:", user); // Debugging log
   const endRef = useRef(null);
 
+  //console log when chatId or user is changed
   useEffect(() => {
-    if (chat?.messages) {
-      endRef.current?.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [chat]); 
-  
+    console.log("Chat ID changed: ", chatId);
+    console.log("User updated: ", user);
+  }, [chatId, user]);
 
+  //preventing infinite loop
   useEffect(() => {
-    const unSub = onSnapshot(doc(db, "chats", chatId), (res) => {
+    if (!chatId) {
+      console.warn("Chat ID is null in Chat.jsx, skipping snapshot.");
+      return;
+    }
+
+    const chatRef = doc(db, "chats", chatId);
+    const unsubscribe = onSnapshot(doc(db, "chats", chatId), (res) => {
       setChat(res.data());
+      endRef.current?.scrollIntoView({ behavior: "smooth" });
     });
 
     return () => {
-      unSub();
+      unsubscribe();
     };
   }, [chatId]);
 
@@ -105,7 +110,6 @@ const Chat = () => {
       file: null,
       url: "",
     });
-
     setText("");
     }
   };
@@ -117,7 +121,7 @@ const Chat = () => {
           <img src={user?.avatar || "../../../../public/DirectMessaging/avatar.png"} alt="" />
           <div className="texts">
             <span>{user?.username}</span>
-            <p>Lorem ipsum dolor, sit amet.</p>
+            <p>ReceiverId</p>
           </div>
         </div>
         <div className="icons">
@@ -127,20 +131,18 @@ const Chat = () => {
         </div>
       </div>
       <div className="center">
-        {chat?.messages?.map((message) => (
+        {chat?.messages?.map((message, index) => (
           <div
-            className={
-              message.senderId === currentUser?.id ? "message own" : "message"
-            }
-            key={message?.createAt}
+            key={message?.createdAt?.seconds || index}
+            className={message.senderId === currentUser?.id ? "message own" : "message"}
           >
             <div className="texts">
               {message.img && <img src={message.img} alt="" />}
               <p>{message.text}</p>
               <span>
   {message.createdAt
-    ? new Date(message.createdAt.seconds * 1000).toLocaleString()
-    : "Just now"}
+? format(new Date(message.createdAt.seconds * 1000), "MMM dd, yyyy HH:mm")
+: "Just now"}
 </span>
             </div>
           </div>

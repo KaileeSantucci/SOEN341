@@ -93,5 +93,21 @@
                 background-color:  rgb(47, 108, 252, 0.7);
             }
         }
+        
+        .back-home-btn {
+            background-color: #000000;
+            color: white;
+            padding: 15px;            
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+  
+        .back-home-btn:hover {
+            background-color: rgba(255, 93, 166, 0.31);;
+        }
+  
     }
+
 }

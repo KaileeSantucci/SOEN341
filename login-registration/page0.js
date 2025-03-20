@@ -64,7 +64,7 @@ signupForm.addEventListener('submit', (e) => {
 
   const firstName = document.querySelector('#firstName').value.trim();
   const lastName = document.querySelector('#lastName').value.trim();
-  const userName = document.querySelector('#userName').value.trim();
+  const username = document.querySelector('#username').value.trim();
   const email = document.querySelector('#email').value.trim();
   const password = document.querySelector('#password').value;
 
@@ -77,9 +77,10 @@ signupForm.addEventListener('submit', (e) => {
       return firestore.collection('users').doc(user.uid).set({
         firstname: firstName,
         lastname: lastName,
-        username: userName,
+        username: username,
         email: email,
-        createdAt: new Date()
+        createdAt: new Date(),
+        admin: false,
       });
     })
     .then(() => {

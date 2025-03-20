@@ -3,13 +3,16 @@ import {useUserStore} from "../../../lib/userStore"
 
 const UserInfo = () => {
 
-    const {currentUser, isLoading, fetchUserInfo} = useUserStore();
+    const {currentUser, isLoading} = useUserStore();
+    
+    if(isLoading) return <p>Loading...</p>
+    if(!currentUser) return <p>Error: No user found.</p>
 
     return (
         <div className = 'userInfo'>
             <div className="user">
                 <img src={currentUser.avatar || "../../../../public/DirectMessaging/avatar.png"} alt=""/>
-                <h2>{currentUser.username}</h2>
+                <h2>{currentUser?.username || "Unknown User"}</h2>
             </div>
             <div className="icons">
                 <img src="../../../../public/DirectMessaging/more.png" alt=""/>

@@ -3,6 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import { useUserStore } from "../lib/userStore";
 import { useChatStore } from "../lib/chatStore";
+import { Navigate } from "react-router-dom";
 import Chat from "../components/chat/Chat";
 import Detail from "../components/detail/Detail";
 import List from "../components/list/List";
@@ -21,8 +22,10 @@ const DirectMessagingApp = () => {
   console.log("Chat ID:", chatId);
 
   useEffect(() => {
-    const unSub = onAuthStateChanged(auth, (user) => {
-      fetchUserInfo(user?.uid);
+    const unSub = onAuthStateChanged(auth, async (user) => {
+      if (user){
+       await fetchUserInfo(user?.uid);
+      }
     });
 
     return () => {
@@ -33,6 +36,8 @@ const DirectMessagingApp = () => {
   console.log(currentUser);
 
   if (isLoading) return <div className="loading">Loading...</div>;
+  if (!currentUser) return <Navigate to="/login" replace />; // Redirect if no user
+
 
   return (
   <div className='container'>
@@ -51,8 +56,6 @@ const DirectMessagingApp = () => {
       <Notification/>
   </div>
   );
-  console.log("Rendering DirectMessagingApp...");
-console.log("chatId before rendering Chat.jsx:", chatId);
 };
 
 export default DirectMessagingApp;

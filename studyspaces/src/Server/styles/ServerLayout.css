@@ -1,0 +1,52 @@
+.server-layout {
+    display: flex;
+    height: 80vh;
+}
+
+.serverlist {
+    width: 250px;
+    background: #d4b0cd;
+    min-width: 200px;
+    max-width: 400px;
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+    border-right:2px solid #e0a0a0
+}
+
+.server-item {
+    display: block;
+    font-size: 20px;
+    width: 100%;
+    height: 4pc;
+    padding: 10px;
+    margin: 5px 0;
+    background: rgb(243, 218, 230);
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.server-item:hover {
+    background: #444;
+}
+
+.ServerChatRoomContainer {
+    flex-grow: 1;
+    padding: 20px;
+    background: #ffffff;
+    overflow-y: auto;
+    color:#000000
+}
+
+.message-item {
+    padding: 10px;
+    margin: 10px 0;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message-item:hover {
+    background: #ddd;
+}

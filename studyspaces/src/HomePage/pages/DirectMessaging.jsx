@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../App.css';
+import '../src/HomeApp.css';
 
 const DirectMessaging = () => {
   useEffect(() => {
