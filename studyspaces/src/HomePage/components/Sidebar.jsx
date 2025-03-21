@@ -65,7 +65,7 @@ const Sidebar = () => {
         {/* 🔐 Admin-Only Option */}
         {!isLoading && userData?.admin && (
           <li className={getActiveClass('/home/manage-server')}>
-            <Link to="/home/create-server">
+            <Link to="/home/manage-server">
               <FaServer className="sidebar-icon" /> <span>Manage Servers</span>
             </Link>
           </li>

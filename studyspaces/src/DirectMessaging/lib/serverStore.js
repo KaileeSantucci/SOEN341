@@ -25,4 +25,5 @@ export const useServerStore = create((set) => ({
             console.error("Error fetching servers", error);
         }
     }
+
 }));

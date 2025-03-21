@@ -1,0 +1,62 @@
+/* CreateServer.css */
+.create-server-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .create-server-container h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .create-server-container p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .create-server-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .create-server-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .create-server-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .create-server-form button {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .create-server-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .create-server-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

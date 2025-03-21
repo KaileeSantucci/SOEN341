@@ -17,6 +17,7 @@ import './HomeApp.css';
 import DirectMessagingApp from '../../DirectMessaging/src/DirectMessagingApp';
 import ServerApp from '../../Server/ServerApp';
 import { useAuthentication } from '../../UserAuthentication/userauthentication';
+import CreateServer from '../../Server/pages/ManageServers';
 
 
 function HomeApp() {
@@ -77,6 +78,7 @@ function MainLayout(){
           <Route path="/about-us" element={<AboutUs />} />     
           <Route path="/direct-messaging/*" element={<DirectMessagingApp />} />
           <Route path="/server/*" element={<ServerApp />} />
+          <Route path="/manage-server/" element={<CreateServer />} />
         </Routes>
       </div>
     </div>
