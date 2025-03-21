@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../DirectMessaging/lib/firebase';
 import { Link, useLocation } from 'react-router-dom'; // Import useLocation
-import { FaUser, FaHome, FaEnvelope, FaBell, FaUsers, FaPlus, FaCheckCircle, FaClipboardList } from 'react-icons/fa';
+import { FaUser, FaHome, FaEnvelope, FaBell, FaUsers, FaPlus, FaCheckCircle, FaClipboardList, FaServer} from 'react-icons/fa';
 import '../styles/Sidebar.css'; // Import sidebar-specific styles
+import { useAuthentication } from '../../UserAuthentication/userauthentication'; // Import the authentication hook
 
 const Sidebar = () => {
   const location = useLocation(); // Get the current location (URL path)
+  const { user, userData, isLoading } = useAuthentication(); // ✅ Use authentication hook
+
+  console.log("🧠 Firebase Auth User:", user);
+  console.log("🧠 Firestore User Data:", userData);
 
   // Function to dynamically set the active page based on the current pathname
   const getActiveClass = (path) => {
@@ -54,6 +61,16 @@ const Sidebar = () => {
             <FaClipboardList className="sidebar-icon" /> <span>To-Do List</span>
           </Link>
         </li>
+
+        {/* 🔐 Admin-Only Option */}
+        {!isLoading && userData?.admin && (
+          <li className={getActiveClass('/home/manage-server')}>
+            <Link to="/home/create-server">
+              <FaServer className="sidebar-icon" /> <span>Manage Servers</span>
+            </Link>
+          </li>
+        )}
+
       </ul>
     </div>
   );
