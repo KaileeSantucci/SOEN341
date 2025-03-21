@@ -107,14 +107,14 @@ const ManageServers = () => {
               <button type="submit" disabled={loading}>
                 {loading ? "Creating..." : "Create Server"}
               </button>
-            </form>
+            </form><br />
     
             {/* ✅ Manage Servers Section (Now Properly Outside the Form) */}
             <div className="manage-server-container">
               <h2>🛠 Manage Servers</h2>
     
-              <label>Select a server to delete:</label>
-              <select value={selectedServer} onChange={(e) => setSelectedServer(e.target.value)}>
+              <label className="select-server-delete-text">Select a server to delete:</label>
+              <select className="manage-server-container" value={selectedServer} onChange={(e) => setSelectedServer(e.target.value)}>
                 <option value="">-- Select a server --</option>
                 {servers.map((server) => (
                   <option key={server.id} value={server.id}>
@@ -123,7 +123,7 @@ const ManageServers = () => {
                 ))}
               </select>
     
-              <button onClick={handleDeleteServer} disabled={!selectedServer || loading}>
+              <button className="delete-server-button" onClick={handleDeleteServer} disabled={!selectedServer || loading}>
                 {loading ? "Deleting..." : "🗑 Delete Server"}
               </button>
             </div>

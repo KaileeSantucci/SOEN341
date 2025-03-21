@@ -1,8 +1,9 @@
 /* CreateServer.css */
 .create-server-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
+    width: 600px;
+    height: 500px;
+    margin: 10px auto;
+    padding: 30px;
     background: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -60,3 +61,24 @@
     cursor: not-allowed;
   }
   
+  .select-server-delete-text {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .delete-server-button{
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .manage-server-container select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
