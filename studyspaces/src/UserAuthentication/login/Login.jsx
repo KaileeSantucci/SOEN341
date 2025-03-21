@@ -72,7 +72,7 @@ return (
             </div>
 
             <div className="div3"> 
-                <img src="../studyspaces/public/DirectMessaging/StudySpace.png" alt="StudySpace Logo" style={{maxWidth: "100%", height: "auto"}}/>
+                <img src="../../../public/DirectMessaging/StudySpace.png" alt="StudySpace Logo" style={{maxWidth: "100%", height: "auto"}}/>
             </div>
 
             <div className="div4"> 

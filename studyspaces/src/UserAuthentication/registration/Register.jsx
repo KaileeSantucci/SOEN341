@@ -54,7 +54,7 @@ const Register = () => {
           <div className="parent">
             {/* Logo div */}
             <div className="div1">
-              <img src="../StudySpace (1).png" alt="StudySpace Logo" style={{ maxWidth: "100%", height: "auto" }} />
+              <img src="../../../public/DirectMessaging/StudySpace.png" alt="StudySpace Logo" style={{ maxWidth: "100%", height: "auto" }} />
             </div>
     
             {/* Header Message */}

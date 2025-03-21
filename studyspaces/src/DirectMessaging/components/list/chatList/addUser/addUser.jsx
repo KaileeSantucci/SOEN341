@@ -19,8 +19,16 @@ const AddUser = ({ setAddMode }) => {
             return;
         }
 
-        const userRef = doc(db, "users", input);
-        const userSnap = await getDoc(userRef);
+        const usersRef = collection(db, "users");
+        const q = query(usersRef, where("username", "==", input)); // 🔍 Search by username
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+            setSearchedUser(querySnapshot.docs[0].data()); // ✅ Set first matching user
+        } else {
+            toast.error("User not found.");
+            setSearchedUser(null);
+        }
 
         if (userSnap.exists()) {
             setSearchedUser(userSnap.data());
@@ -59,7 +67,6 @@ const AddUser = ({ setAddMode }) => {
             // ✅ Create new chat
             await startChat(receiverId);
             toast.success("User added successfully!");
-            setAddMode(false); // ✅ Close modal after adding user
         } catch (error) {
             console.error("Error adding user:", error);
             toast.error("Failed to add user.");
