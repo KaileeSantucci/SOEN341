@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import "./RobinProfileV2.css";
 
+
 const AccountSettings = () => {
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     return (
         <div className="container">
             <h2>Account Settings</h2>
@@ -23,11 +27,53 @@ const AccountSettings = () => {
                 <input type="email" id="email" name="email" placeholder="email" required />
                 
                 
+                {/* New Password */}
                 <label htmlFor="password">New Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter new password" />
-                
+                <div style={{ position: "relative", display: "inline-block" }}>
+                    <input 
+                        type={showPassword ? "text" : "password"} 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter new password" 
+                        style={{ paddingRight: "30px" }}
+                    />
+                    <span
+                        onClick={() => setShowPassword(!showPassword)}
+                        style={{
+                            position: "absolute",
+                            right: "10px",
+                            top: "50%",
+                            transform: "translateY(-50%)",
+                            cursor: "pointer",
+                        }}
+                    >
+                        {showPassword ? <VscEye /> : <VscEyeClosed />} {/* Needed to disconnect the toggle of the eye icon*/}
+                    </span>
+                </div>
+
+                {/* Confirm Password */}
                 <label htmlFor="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password" />
+                <div style={{ position: "relative", display: "inline-block" }}>
+                    <input 
+                        type={showConfirmPassword ? "text" : "password"} 
+                        id="confirm-password" 
+                        name="confirm-password" 
+                        placeholder="Confirm new password" 
+                        style={{ paddingRight: "30px" }}
+                    />
+                    <span
+                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        style={{
+                            position: "absolute",
+                            right: "10px",
+                            top: "50%",
+                            transform: "translateY(-50%)",
+                            cursor: "pointer",
+                        }}
+                    >
+                        {showConfirmPassword ? <VscEye /> : <VscEyeClosed />}
+                    </span>
+                </div>
                 
                 <button type="submit">Save</button>
             </form>
