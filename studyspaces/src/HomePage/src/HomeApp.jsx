@@ -33,7 +33,8 @@ function MainLayout(){
   const { logout }=useAuthentication();
 
   const isDirectMessaging = location.pathname === "/home/direct-messaging"  //check's if the current path is direct messaging
-  const hideSidebarAndHeader = isDirectMessaging; //if the current path is direct messaging, hide the sidebar and header
+  const isLandingPage = location.pathname === "/home/about-us"
+  const hideSidebarAndHeader = isDirectMessaging || isLandingPage; //if the current path is direct messaging, hide the sidebar and header
   
   const handleLogout = async () => {
     try{

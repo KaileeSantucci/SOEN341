@@ -1,0 +1,33 @@
+
+  .LandingPage {
+    
+
+  }
+  
+  /* Background animation */
+  .backgroundLottie {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right:0;
+    z-index: -1;
+    
+  }
+  
+  /* Mascot aligned to the left */
+  .LandingPageMascot {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .LandingPage h1 {
+    position: relative;
+    z-index: 2; /* Make sure it's on top */
+    color: rgb(0, 0, 0); /* Change based on your background */
+    font-size: 30px;
+    padding: 20px;
+  }
+  
