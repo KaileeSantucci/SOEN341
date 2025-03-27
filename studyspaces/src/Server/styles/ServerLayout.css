@@ -5,13 +5,14 @@
 
 .serverlist {
     width: 250px;
-    background: #d4b0cd;
+    background: rgba(255, 255, 255, 0.821);
     min-width: 200px;
     max-width: 400px;
-    color: white;
+    color: black;
     padding: 20px;
     overflow-y: auto;
-    border-right:2px solid #e0a0a0
+    border-right:2px solid black;
+    border-radius: 20px;
 }
 
 .server-item {
@@ -21,8 +22,8 @@
     height: 4pc;
     padding: 10px;
     margin: 5px 0;
-    background: rgb(243, 218, 230);
-    color: rgb(0, 0, 0);
+    background: #007bff;;
+    color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
 }
@@ -36,7 +37,8 @@
     padding: 20px;
     background: #ffffff;
     overflow-y: auto;
-    color:#000000
+    color:#000000;
+    border-radius: 20px;
 }
 
 .message-item {

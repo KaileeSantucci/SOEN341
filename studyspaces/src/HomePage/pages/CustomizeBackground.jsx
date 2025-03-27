@@ -6,10 +6,10 @@ const CustomizeBackground = () => {
   
   // Predefined images (you can add more if needed)
   const preexistingImages = [
-    { id: 1, src: 'src/HomePage/assets/darkacademia.jpg', label: 'Background 1' },
-    { id: 2, src: 'src/HomePage/assets/fourthwing.jpg', label: 'Background 2' },
-    { id: 3, src: 'src/HomePage/assets/harrypotter.avif', label: 'Background 3' },
-    { id: 4, src: 'src/HomePage/assets/lofi.jpg', label: 'Background 4' },
+    { id: 1, src: '/src/HomePage/assets/darkacademia.jpg', label: 'Background 1' },
+    { id: 2, src: '/src/HomePage/assets/fourthwing.jpg', label: 'Background 2' },
+    { id: 3, src: '/src/HomePage/assets/harrypotter.avif', label: 'Background 3' },
+    { id: 4, src: '/src/HomePage/assets/lofi.jpg', label: 'Background 4' },
   ]; 
   
   // Handle image selection (either preexisting or uploaded)
@@ -48,7 +48,7 @@ const CustomizeBackground = () => {
 
       {/* Section for selecting a preexisting image */}
       <div className="preexisting-images">
-        <h3>Select a Preexisting Image</h3>
+        <h3>Select a Preexisting Image</h3><br />
         <div className="image-options">
           {preexistingImages.map((image) => (
             <div
@@ -65,7 +65,7 @@ const CustomizeBackground = () => {
 
       {/* Section for uploading a new image */}
       <div className="upload-image">
-        <h3>Or Upload Your Own Image</h3>
+        <h3>Or Upload Your Own Image</h3> <br />
         <input
           type="file"
           accept="image/*"

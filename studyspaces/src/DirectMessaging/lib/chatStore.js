@@ -75,66 +75,68 @@ export const useChatStore = create((set) => ({
     } catch (error) {
       console.error("Error starting chat:", error);
     }
-
   },
 
-  changeChat: async (chatId, userId) => {
+  changeChat: async (chatId, user) => {
     console.log("Changing chat ID:", chatId);
-
+  
+    if (!user || !user.id) {
+      console.error("❌ User object is undefined or missing an ID:", user);
+      return;
+    }
+  
     const currentUser = useUserStore.getState().currentUser;
     if (!currentUser || !currentUser.id) {
       console.error("No user found.");
       return;
     }
-
-    try{
-      const userRef = doc(db, "users", userId);
+  
+    try {
+      const userRef = doc(db, "users", user.id);
       const userSnap = await getDoc(userRef);
-
-      if(userSnap.exists()){
-        const userData = userSnap.data();
-        console.log("User data loaded in chat:", userData);
-        
-        set({
+  
+      if (!userSnap.exists()) {
+        console.error("User document not found in Firestore.");
+        return;
+      }
+  
+      const userData = userSnap.data();
+      const userBlocked = userData?.blocked || [];
+      const currentUserBlocked = currentUser?.blocked || [];
+  
+      // CHECK IF CURRENT USER IS BLOCKED
+      if (userBlocked.includes(currentUser.id)) {
+        console.log("current user is blocked.");
+        return set({
+          chatId,
+          user: null,
+          isCurrentUserBlocked: true,
+          isReceiverBlocked: false,
+        });
+      } 
+  
+      // CHECK IF RECEIVER IS BLOCKED
+      if (currentUserBlocked.includes(userData.id)) {
+        console.log("Receiver is blocked.");
+        return set({
           chatId,
           user: userData,
-          isCurrentUserBlocked: userData.blocked.includes(currentUser.id),
-          isReceiverBlocked: currentUser.blocked.includes(userData.id),
+          isCurrentUserBlocked: false,
+          isReceiverBlocked: true,
         });
       }
+  
+      set({
+        chatId,
+        user: userData,
+        isCurrentUserBlocked: false,
+        isReceiverBlocked: false,
+      });
+  
     } catch (error) {
-      console.error("Error fetchinf user data for chat: ", error);
+      console.error("❌ Error fetching user data for chat:", error);
     }
-    
-    // CHECK IF CURRENT USER IS BLOCKED
-    if (user.blocked.includes(currentUser.id)) {
-      return set({
-        chatId,
-        user: null,
-        isCurrentUserBlocked: true,
-        isReceiverBlocked: false,
-      });
-    }
-
-    // CHECK IF RECEIVER IS BLOCKED
-    else if (currentUser.blocked.includes(user.id)) {
-      console.log("Receiver is blocked.");
-      return set({
-        chatId,
-        user: user,
-        isCurrentUserBlocked: false,
-        isReceiverBlocked: true,
-      });
-    } else {
-
-      return set({
-        chatId,
-        user,
-        isCurrentUserBlocked: false,
-        isReceiverBlocked: false,
-      });
-    }
-  },
+  },  
 
   changeBlock: () => {
     set((state) => ({ ...state, isReceiverBlocked: !state.isReceiverBlocked }));

@@ -16,7 +16,7 @@ const ServerList = ({onSelectServer}) => {
 
     return (
     <div className="serverlist">
-        <h2>Server List</h2>
+        <h2 style={{color:"black"}}>Server List</h2>
         {servers.length === 0 ? (
             <div> {/* ✅ Wrap elements in a div */}
                 <p>No servers found.</p> 

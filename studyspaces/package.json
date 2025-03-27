@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.13.2",
     "date-fns": "^4.1.0",
     "emoji-picker-react": "^4.12.2",
     "express": "^4.21.2",
     "firebase": "^11.5.0",
+    "lottie-react": "^2.4.1",
     "react": "^19.0.0",
     "react-calendar": "^5.1.0",
     "react-dom": "^19.0.0",

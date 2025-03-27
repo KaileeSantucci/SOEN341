@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useAuthentication } from '../../UserAuthentication/userauthentication'; // ✅ Use authentication hook
+
 import Calendar from 'react-calendar';
 import '../styles/Calendar.css'; // Calendar CSS
 import '../styles/Timer.css'; // Timer CSS
@@ -136,6 +138,7 @@ const PomodoroTimer = () => {
 
 const HomePage = () => {
   const [date, setDate] = useState(new Date());
+  const { user, userData, isLoading } = useAuthentication(); // ✅ Use authentication hook
 
   const onDateChange = (newDate) => {
     setDate(newDate);
@@ -143,7 +146,7 @@ const HomePage = () => {
 
   return (
     <div className="home-page-container">
-      <h2>Welcome to the Home Page!</h2>
+      <h2>Welcome to your Home Page {userData?.username} !</h2>
       <p>This is the main page where users can view the overview of the app.</p>
 
       {/* Calendar */}

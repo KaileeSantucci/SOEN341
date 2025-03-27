@@ -1,0 +1,318 @@
+body, #root {
+  display: block !important;
+  padding:10px;
+}
+
+  .LandingPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 20px 40px;
+  min-height: 100vh;
+  overflow: hidden;
+  }
+  .FAQcontainerOther{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 100px 50px;
+  min-height: 100vh;
+  overflow: hidden;
+  }
+
+  .faq-item{
+    margin:7px;
+  }
+  
+  /* Background animation */
+  .backgroundLottie {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right:0;
+    z-index: -3;
+  }
+
+.backgroundLottie::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.75); /* Optional overlay */
+  z-index: 1;
+}
+  
+  /* Mascot aligned to the left */
+  .LandingPageMascot {
+    position: absolute;
+    top: 60%;
+    right: 2%;
+    transform: translateY(-50%);
+    z-index: 0;
+    
+  }
+
+  .LandingHeaderText {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;           /* ✅ aligns horizontally with InfoSectionsContainer */
+    text-align: center;
+    padding: 0 20px;          /* ✅ optional: same horizontal padding */
+    z-index: 2;
+  }
+  
+  
+  .LandingHeaderText h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #222;
+    z-index: 2;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .LandingHeaderText h2 {
+    font-size: 1.25rem;
+    justify-content: center;
+    text-shadow: none;
+    color: #444;
+    max-width: 600px;
+    text-align: center;
+    margin-top: 10px;
+    z-index: 2;
+  }
+
+  .LandingHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    z-index: 3;
+    height: 120px
+  }
+
+  .CompanyName{
+    text-shadow:none;
+  }
+
+  .LandingLogo {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px; /* Add spacing between the logo and title */
+    margin-top: 10px;
+    border-radius: 50%;
+  }
+
+  .KeyFeaturesLanding {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
+    padding: 30px;
+    margin-top: 50px;
+    max-width: 600px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    color: black;
+  }
+  
+  .KeyFeaturesLanding h3 {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .KeyFeaturesLanding ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .KeyFeaturesLanding li {
+    font-size: 1.1rem;
+    padding: 10px 0;
+    border-bottom: 1px solid #000000;
+    transition: color 0.3s ease;
+  }
+  .FeaturesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .FeaturesList li {
+    font-size: 1.1rem;
+    padding: 16px 20px;
+    background-color: #f9e9f2;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(240, 216, 226, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .FeaturesList li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(233, 191, 219, 0.1);
+    color: #3f51b5;
+  }
+  
+  
+  .KeyFeaturesLanding li:hover {
+    color: #3f51b5;
+    cursor: default;
+  }
+  
+  .HeaderButtons {
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+  }
+  
+  .HeaderButton {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  /* Filled button */
+  .HeaderButton.filled {
+    background-color: #F37E9A;
+    color: white;
+    border: none;
+  }
+  
+  .HeaderButton.filled:hover {
+    background-color: #F37E9A;
+  }
+  
+  /* Outline button color: #3f51b5; */
+  .HeaderButton.outline {
+    background: transparent;
+    border: 2px solid #F37E9A;
+    color: #F37E9A;
+  }
+  
+  .HeaderButton.outline:hover {
+    background-color: #ffe3ef;
+  }
+  
+  .InfoSectionsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* ✅ centers the boxes */
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 50px;
+    max-width: 1100px;        /* ✅ keeps layout tidy */
+    width: 100%;
+    z-index: 2;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .KeyFeaturesLanding, .ContactBox {
+    margin-top: 0;
+  }
+
+  
+  /* Reuse KeyFeaturesLanding styles */
+   .ContactBox {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 500px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    color: black;
+  }
+  
+  .ContactBox h3 {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .ContactBox p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #444;
+  }
+  
+  .ContactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .ContactForm input,
+  .ContactForm textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  
+  .ContactForm button {
+    padding: 12px;
+    background-color: #F37E9A;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .ContactForm button:hover {
+    background-color: #F37E9A;
+  }
+  
+  .ContentAligner {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1400px;
+    box-sizing: border-box;
+    padding-right: 360px;
+    margin: 0 auto;
+  }
+  
+  .SurpriseButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+    width: 150px;
+  }
+  
+  .SurpriseButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #a6c1ee 0%, #fbc2eb 100%);
+  }
+  

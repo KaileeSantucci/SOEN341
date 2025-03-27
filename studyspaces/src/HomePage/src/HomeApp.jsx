@@ -14,9 +14,11 @@ import AboutUs from '../pages/AboutUs';
 import Logo from '../assets/logo.png';
 import './HomeApp.css';
 
+
 import DirectMessagingApp from '../../DirectMessaging/src/DirectMessagingApp';
 import ServerApp from '../../Server/ServerApp';
 import { useAuthentication } from '../../UserAuthentication/userauthentication';
+import CreateServer from '../../Server/pages/ManageServers';
 
 
 function HomeApp() {
@@ -32,7 +34,8 @@ function MainLayout(){
   const { logout }=useAuthentication();
 
   const isDirectMessaging = location.pathname === "/home/direct-messaging"  //check's if the current path is direct messaging
-  const hideSidebarAndHeader = isDirectMessaging; //if the current path is direct messaging, hide the sidebar and header
+  const isLandingPage = location.pathname === "/about-us"
+  const hideSidebarAndHeader = isDirectMessaging || isLandingPage; //if the current path is direct messaging, hide the sidebar and header
   
   const handleLogout = async () => {
     try{
@@ -59,7 +62,7 @@ function MainLayout(){
           <div className="header-buttons">
             <button onClick={handleLogout} className="header-button logout-btn">Sign Out</button>
             <Link to="/home/faq" className="header-button">FAQ</Link>
-            <Link to="/home/about-us" className="header-button">About Us</Link>
+            <Link to="/about-us" className="header-button">About Us</Link>
           </div>
         </div>
       )}
@@ -77,6 +80,7 @@ function MainLayout(){
           <Route path="/about-us" element={<AboutUs />} />     
           <Route path="/direct-messaging/*" element={<DirectMessagingApp />} />
           <Route path="/server/*" element={<ServerApp />} />
+          <Route path="/manage-server/" element={<CreateServer />} />
         </Routes>
       </div>
     </div>
