@@ -1,26 +1,12 @@
 import React from 'react';
 import Lottie from 'lottie-react';
-import '../styles/Landing.css';
-import animationBackground from '../assets/Animation.json';
 import animationMascot from '../assets/MascotAnimation.json';
-import Logo from '../assets/logo.png';
+import '../styles/Landing.css';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuthentication } from '../../UserAuthentication/userauthentication';
-
+import LandingLayout from '../../UserAuthentication/LandingLayout'
 
 
 const AboutUs = () => {
-  const navigate = useNavigate(); 
-  const { currentUser } = useAuthentication();
-
-  const handleOpenStudySpace = () => {
-    if (currentUser) {
-      navigate('/home');
-    } else {
-      navigate('/login');
-    }
-  };
 
   useEffect(()=> {
     document.body.style.overflow = 'hidden';
@@ -28,39 +14,22 @@ const AboutUs = () => {
 
   return (
     <div className="LandingPage">
-      <div className="backgroundLottie">
-        <Lottie 
-          animationData={animationBackground} 
-          loop 
-          autoplay 
-        />
-      </div>   
-      
       <div className="LandingPageMascot">
-        <Lottie 
-          animationData={animationMascot} 
-          loop 
-          autoplay 
-          style={{ width: '600px', height: '600px' }}
+        <Lottie
+          animationData={animationMascot}
+          loop
+          autoplay
+          style={{ width: '70vh', height: '70vh' }}
         />
       </div>
-
-      <div className="LandingHeader">
-        <img src={Logo} alt="StudySpaces Logo" className="logo" />
-        <div className="CompanyName">
-            <h1 style={{ textDecoration: 'none', color: '#F37E9A', paddingBottom:'20px', textShadow:'none'}}>StudySpace</h1>
-          </div>
-        <div className="HeaderButtons">
-          <button className="HeaderButton outline" onClick={ () => navigate('/faq')}>FAQ</button>
-          <button className="HeaderButton filled" onClick={handleOpenStudySpace}>Open StudySpace</button>
-        </div>
-
-      </div>
     
-    <h1>Your Ultimate Study Space </h1>
-    <h2>Stay focused, get organized, and connect with other students - all in one asethetic customizable workspace. </h2>
-    
-    <div className="InfoSectionsContainer">  
+    <div className="LandingHeaderText">
+      <h1>Your Ultimate Study Space </h1>
+      <h2>Stay focused, get organized, and connect with other students - all in one asethetic customizable workspace. </h2>
+    </div>
+
+    <div className="ContentAligner" style={{marginLeft:'0px'}}>
+      <div className='InfoSectionsContainer'>
       <div className="KeyFeaturesLanding">
         <h3>Key Features</h3>
         <ul className="FeaturesList">
@@ -83,7 +52,12 @@ const AboutUs = () => {
           <button type="submit">Send Message</button>
         </form>
       </div>
+      </div>
     </div>
+
+    <button className="SurpriseButton" onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}>
+            Suprise!
+        </button>
 
     </div>
   );

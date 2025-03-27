@@ -5,7 +5,7 @@ import Register from "./UserAuthentication/registration/Register";
 import Home from "./HomePage/src/HomeApp"
 import { useAuthentication } from "./UserAuthentication/userauthentication"
 import AboutUs from "./HomePage/pages/AboutUs";
-import FAQ from "./HomePage/pages/FAQ";
+import FAQOther from "./HomePage/pages/FAQOther";
 import LandingLayout from "./UserAuthentication/LandingLayout";
 
 const PrivateRoute = ({ children }) => {
@@ -23,14 +23,17 @@ function App(){
   return (
     <Routes>
       {/* Default Route: Redirect to login page if user is not authenticated */}
-      <Route path="/" element={user ? <Navigate to="/home" replace /> : <Navigate to="/login" replace />} />
+      <Route path="/" element={user ? <Navigate to="/home" replace /> : <Navigate to="/about-us" replace />} />
 
       {/* Public Routes */}
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path='/faq' element={<FAQ />} />
-      <Route path='/about-us' element={<AboutUs />} />
 
+      <Route element={<LandingLayout />}>
+        <Route path='/faqother' element={<FAQOther />} />
+        <Route path='/about-us' element={<AboutUs />} />
+      </Route>
+      
       {/* Protected Route */}
       <Route path="/home/*" element={<PrivateRoute><Home /></PrivateRoute>} />
 

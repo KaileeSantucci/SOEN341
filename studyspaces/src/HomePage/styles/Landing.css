@@ -1,12 +1,27 @@
+body, #root {
+  display: block !important;
+  padding:10px;
+}
 
   .LandingPage {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   padding: 100px 20px 40px;
   min-height: 100vh;
   overflow: hidden;
+  }
+  .FAQcontainerOther{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 100px 50px;
+  min-height: 100vh;
+  overflow: hidden;
+  }
+
+  .faq-item{
+    margin:7px;
   }
   
   /* Background animation */
@@ -16,7 +31,6 @@
     left: 0;
     right:0;
     z-index: -3;
-    
   }
 
 .backgroundLottie::after {
@@ -33,13 +47,24 @@
   /* Mascot aligned to the left */
   .LandingPageMascot {
     position: absolute;
-    top: 50%;
+    top: 60%;
     right: 2%;
     transform: translateY(-50%);
     z-index: 0;
+    
   }
 
-  .LandingPage h1 {
+  .LandingHeaderText {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;           /* ✅ aligns horizontally with InfoSectionsContainer */
+    text-align: center;
+    padding: 0 20px;          /* ✅ optional: same horizontal padding */
+    z-index: 2;
+  }
+  
+  
+  .LandingHeaderText h1 {
     font-size: 4rem;
     font-weight: bold;
     color: #222;
@@ -48,8 +73,9 @@
     margin-top: 30px;
   }
 
-  .LandingPage h2 {
+  .LandingHeaderText h2 {
     font-size: 1.25rem;
+    justify-content: center;
     text-shadow: none;
     color: #444;
     max-width: 600px;
@@ -83,6 +109,7 @@
     margin-top: 10px;
     border-radius: 50%;
   }
+
   .KeyFeaturesLanding {
     background: rgba(255, 255, 255, 0.85);
     border-radius: 16px;
@@ -182,13 +209,23 @@
   }
   
   .InfoSectionsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 50px;
-  z-index: 2;
-}
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* ✅ centers the boxes */
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 50px;
+    max-width: 1100px;        /* ✅ keeps layout tidy */
+    width: 100%;
+    z-index: 2;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .KeyFeaturesLanding, .ContactBox {
+    margin-top: 0;
+  }
 
   
   /* Reuse KeyFeaturesLanding styles */
@@ -196,9 +233,10 @@
     background: rgba(255, 255, 255, 0.85);
     border-radius: 16px;
     padding: 30px;
-    width: 100%;
     max-width: 500px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    color: black;
   }
   
   .ContactBox h3 {
@@ -242,5 +280,39 @@
   
   .ContactForm button:hover {
     background-color: #F37E9A;
+  }
+  
+  .ContentAligner {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1400px;
+    box-sizing: border-box;
+    padding-right: 360px;
+    margin: 0 auto;
+  }
+  
+  .SurpriseButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+    width: 150px;
+  }
+  
+  .SurpriseButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #a6c1ee 0%, #fbc2eb 100%);
   }
   

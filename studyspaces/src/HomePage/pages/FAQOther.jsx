@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import '../styles/FAQ.css';
+import '../styles/Landing.css'
 
 const faqs = [
   {
@@ -33,7 +34,7 @@ const faqs = [
   }
 ];
 
-const FAQ = () => {
+const FAQOther = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -41,7 +42,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="FAQcontainer">
+    <div className="FAQcontainerOther">
       {faqs.map((faq, index) => (
         <div className={`faq-item ${openIndex === index ? "open" : ""}`} key={index}>
           <div className="faq-question" onClick={() => toggleFAQ(index)}>
@@ -55,4 +56,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default FAQOther;
