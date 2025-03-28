@@ -10,24 +10,24 @@ const AccountSettings = () => {
         <div className="container">
             <h2>Account Settings</h2>
             <form>
-                <label htmlFor="usertype">Type of User: <strong>Admin</strong></label>
+                <label htmlFor="usertype">Type of User: <strong>Admin</strong></label> {/* Needs to be dealt with on the backend to add admin or user details */}
                 
-                <label htmlFor="profile-pic">Profile Picture</label>
+                <label htmlFor="profile-pic">Profile Picture</label> {/* Will not be storing this anymore in the backend but will be adding this in future iterations */}
                 <input type="file" id="profile-pic" name="profile-pic" accept="image/*" />
                 
-                <label htmlFor="Username">Username: <strong>Robin123</strong></label>
+                <label htmlFor="Username">Username: <strong>Robin123</strong></label> {/* Currently hardcoded but needs to have the username populated from the backend */}
                 
-                <label htmlFor="firstname">First Name</label>
-                <input type="text" id="firstname" name="firstname" placeholder="First name" required />
+                <label htmlFor="firstname">First Name</label>{/*Should be populated from backend */}
+                <input type="text" id="firstname" name="firstname" placeholder="First name" required />{/*Should be populated from backend */}
                 
                 <label htmlFor="lastname">Last Name</label>
-                <input type="text" id="lastname" name="lastname" placeholder="Last name" required />
+                <input type="text" id="lastname" name="lastname" placeholder="Last name" required />{/*Should be populated from backend */}
                 
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="email" required />
+                <input type="email" id="email" name="email" placeholder="email" required />{/*Should be populated from backend */}
                 
                 
-                {/* New Password */}
+                {/* To enter a new password */}
                 <label htmlFor="password">New Password</label>
                 <div style={{ position: "relative", display: "inline-block" }}>
                     <input 
@@ -51,7 +51,7 @@ const AccountSettings = () => {
                     </span>
                 </div>
 
-                {/* Confirm Password */}
+                {/*To confirm the new password, would be added in the future when security protocoles would be integrated */}
                 <label htmlFor="confirm-password">Confirm Password</label>
                 <div style={{ position: "relative", display: "inline-block" }}>
                     <input 
