@@ -1,0 +1,44 @@
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+    <link rel="stylesheet" href="./RobinProfileV2.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Account Settings</h2>
+        <form>
+            <label for="usertype">Type of User: Admin </label> <!Add the type of user, should be automatic>
+
+            <label for="profile-pic">Profile Picture</label> <!Add a visual icon of the photo with a little edit button>
+            <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+
+            <label for="Username">Username: Robin123</label>
+            
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" placeholder="First name" required>
+
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Last name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="email" required>
+        
+
+            <label for="password">New Password</label> <! Do you want to add these changes to a subpage its a bit odd to keep it here>
+            <input type="password" id="password" name="password" placeholder="Enter new password">
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password">
+
+            <button type="Change Password">Save</button>
+
+
+        </form>
+    </div>
+</body>
+</html>
