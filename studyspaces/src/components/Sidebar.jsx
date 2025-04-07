@@ -49,11 +49,7 @@ const Sidebar = () => {
             <FaCheckCircle className="sidebar-icon" /> <span>Customize Background</span>
           </Link>
         </li>
-        <li className={getActiveClass('/to-do-list')}>
-          <Link to="/to-do-list">
-            <FaClipboardList className="sidebar-icon" /> <span>To-Do List</span>
-          </Link>
-        </li>
+        
       </ul>
     </div>
   );

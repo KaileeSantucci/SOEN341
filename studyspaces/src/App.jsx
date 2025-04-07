@@ -8,7 +8,6 @@ import Activity from './pages/Activity';
 import GroupMessaging from './pages/GroupMessaging';
 import AddFriends from './pages/AddFriends';
 import CustomizeBackground from './pages/CustomizeBackground';
-import ToDoList from './pages/AdminFlags';
 import FAQ from './pages/FAQ';  
 import AboutUs from './pages/AboutUs'; 
 import Logo from './assets/logo.png';
@@ -48,7 +47,6 @@ function App() {
             <Route path="/group-messaging" element={<GroupMessaging />} />
             <Route path="/add-friends" element={<AddFriends />} />
             <Route path="/customize-background" element={<CustomizeBackground />} />
-            <Route path="/to-do-list" element={<ToDoList />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/about-us" element={<AboutUs />} />
           </Routes>
