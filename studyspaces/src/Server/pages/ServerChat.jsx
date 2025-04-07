@@ -37,6 +37,7 @@ const ServerChat = ({selectedServer}) => {
             <button type="submit">Send</button>
         </form>
     )
+
 };
 
 export default ServerChat;

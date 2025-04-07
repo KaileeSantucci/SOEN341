@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../../DirectMessaging/lib/firebase";
 import { collection, doc, getDocs, setDoc, deleteDoc } from "firebase/firestore";
 import '../styles/CreateServer.css';
-import ServerList from "./serverList";
 
 const ManageServers = () => {
     const { userData } = useAuthentication();

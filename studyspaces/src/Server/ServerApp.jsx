@@ -4,8 +4,7 @@ import { auth } from "../DirectMessaging/lib/firebase";
 import { useUserStore } from "../DirectMessaging/lib/userStore";
 import { useServerStore } from "../DirectMessaging/lib/serverStore";
 import ServerRoom from "./pages/serverRoom";
-import ServerList from "./pages/serverList";
-import { set } from "date-fns";
+import ServerList from "./pages/ServerList";
 
 const ServerApp = () => {
     const { setCurrentUser, fetchUserInfo } = useUserStore();

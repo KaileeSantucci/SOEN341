@@ -111,8 +111,9 @@ const ServerRoom = ({ selectedServer }) => {
 
     return (
         <div className="ServerChatRoomContainer">
-            <h2 style={{ color: "black" }}>{selectedServer.name}</h2>
-
+            <div className="ChatRoomHeader">
+                <h2 style={{ color: "black" }}>{selectedServer.name}</h2>
+            </div>
             {/* Show if messages are loading */}
             {messages.length === 0 && (
                 <p style={{ color: "red" }}>❌ No messages found.</p>
@@ -122,15 +123,15 @@ const ServerRoom = ({ selectedServer }) => {
             <ul className="messages-list">
                 {messages.map(msg => (
                     <li key={msg.id} className="message-item">
-                        <strong>{msg.username || "Unknown User"}:</strong> {msg.text}
-                        <br />
-                        <small>{msg.timestamp ? new Date(msg.timestamp.seconds * 1000).toLocaleString() : "❌ No Timestamp"}</small>
+                        <div className="message-username">{msg.username || "Unknown User"}:</div>
+                        <div className="message-bubble">{msg.text}</div> 
+                        <div className="message-timestamp">{msg.timestamp ? new Date(msg.timestamp.seconds * 1000).toLocaleString() : "❌ No Timestamp"}</div>
                     </li>
                 ))}
             </ul>
 
             {/* Message Input */}
-            <form onSubmit={sendMessage} className="message-input-form">
+            <form className="ChatRoomFooter" onSubmit={sendMessage} className="message-input-form">
                 <input
                     type="text"
                     value={messageText}
