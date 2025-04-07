@@ -1,4 +1,12 @@
 /* App container to hold Sidebar and main content */
+
+.home-page-container {
+  display: flex;
+  justify-content: space-between; /* Spread out content horizontally */
+  align-items: flex-start; /* Align items at the top */
+  flex-wrap: wrap; /* Ensure responsiveness */
+  padding: 50px;
+}
 .app-container {
   display: flex;
   height: 100vh;  /* Full height of the viewport */
