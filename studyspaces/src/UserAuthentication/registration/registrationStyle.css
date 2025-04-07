@@ -2,25 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 
 /*centering the body*/
+
+body{
+  justify-content: center;
+}
+
 body.register-page {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
   min-height: 100vh !important;
   margin: 0 !important;
-  padding: 0 !important;
   background-color: #ffffff !important;
 }
   
 /*centering the main box*/
-.MainBox{  display: flex !important;
+.MainBox{    
+  width: 1000px !important;
+  display: flex !important;
+  flex-direction: column;
   justify-content: center !important;
   align-items: center !important;
   height: 700px !important;
-  width: 1000px !important;
   border-radius: 30px !important;
   background-color: #f37e9a !important;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
+  margin: 0 auto;
 }
 
 .parent {
