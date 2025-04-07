@@ -33,6 +33,15 @@ const LandingLayout = () => {
             animationData={animationBackground} 
             loop 
             autoplay 
+            style={{
+              position: "fixed",
+              top: "0",
+              left: "0",
+              width: "150%",
+              display: "flex",
+              objectFit: "cover",
+              zIndex: "-1",
+            }}
             />
         </div>   
 

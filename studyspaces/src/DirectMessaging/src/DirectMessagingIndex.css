@@ -10,7 +10,6 @@ body{
   background-image: url("/public/StudySpaceBackground.png");
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 100vh;
   color: white;
 }
