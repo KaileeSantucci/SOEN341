@@ -19,6 +19,7 @@ import DirectMessagingApp from '../../DirectMessaging/src/DirectMessagingApp';
 import ServerApp from '../../Server/ServerApp';
 import { useAuthentication } from '../../UserAuthentication/userauthentication';
 import CreateServer from '../../Server/pages/ManageServers';
+import { useEffect } from 'react';
 
 
 function HomeApp() {
@@ -33,6 +34,19 @@ function MainLayout(){
   const navigate = useNavigate();
   const { logout }=useAuthentication();
 
+  useEffect(() => {
+    const savedImage = localStorage.getItem("customBackground");
+    const appContainer = document.querySelector(".app-container");
+  
+    if (savedImage && appContainer) {
+      appContainer.style.backgroundImage = `url(${savedImage})`;
+      appContainer.style.backgroundSize = "cover";
+      appContainer.style.backgroundPosition = "center";
+      appContainer.style.backgroundRepeat = "no-repeat";
+      appContainer.style.backgroundAttachment = "fixed"; // optional: keeps it from scrolling
+    }
+  }, []);
+  
   const isDirectMessaging = location.pathname === "/home/direct-messaging"  //check's if the current path is direct messaging
   const isLandingPage = location.pathname === "/about-us"
   const hideSidebarAndHeader = isDirectMessaging || isLandingPage; //if the current path is direct messaging, hide the sidebar and header

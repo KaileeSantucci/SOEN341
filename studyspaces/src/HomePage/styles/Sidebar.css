@@ -4,7 +4,7 @@
   background-color: #d4b0cd;
   padding: 15px;
   position: fixed;
-  height: calc(100vh - 250px); 
+  height: calc(100vh - 500px); 
   top: 150px;
   z-index: 1;
   box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
@@ -29,6 +29,7 @@
 
 /* Sidebar items */
 .sidebar li {
+  list-style: none;
   margin-top: 5px;
   display: flex;
   padding: 12px;

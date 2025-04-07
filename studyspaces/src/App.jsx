@@ -7,6 +7,7 @@ import { useAuthentication } from "./UserAuthentication/userauthentication"
 import AboutUs from "./HomePage/pages/AboutUs";
 import FAQOther from "./HomePage/pages/FAQOther";
 import LandingLayout from "./UserAuthentication/LandingLayout";
+import BackgroundWrapper from "./HomePage/pages/BackgroundWrapper";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuthentication();
@@ -35,7 +36,7 @@ function App(){
       </Route>
       
       {/* Protected Route */}
-      <Route path="/home/*" element={<PrivateRoute><Home /></PrivateRoute>} />
+      <Route path="/home/*" element={<PrivateRoute> <BackgroundWrapper> <Home /> </BackgroundWrapper> </PrivateRoute>} />
 
       {/* Catch-all: Redirect unknown routes to the login page */}
       <Route path="*" element={<Navigate to="/login" replace />} />

@@ -23,42 +23,42 @@ const Sidebar = () => {
       <ul>
         <li className={getActiveClass('/home/account')}>
           <Link to="/home/account">
-            <FaUser className="sidebar-icon" /> <span>My Account</span>
+            <FaUser className="sidebar-icon" /><span>My Account</span>
           </Link>
         </li>
         <li className={getActiveClass('/home')}>
           <Link to="/home">
-            <FaHome className="sidebar-icon" /> <span>Home Page</span>
+            <FaHome className="sidebar-icon" /><span>Home Page</span>
           </Link>
         </li>
         <li className={getActiveClass('/home/direct-messaging')}>
         <Link to="/home/direct-messaging">
-        <FaEnvelope className="sidebar-icon" /> <span>Direct Messaging</span>
+        <FaEnvelope className="sidebar-icon" /><span>Direct Messaging</span>
           </Link>
         </li>
         <li className={getActiveClass('/home/activity-notifications')}>
           <Link to="/home/activity-notifications">
-            <FaBell className="sidebar-icon" /> <span>Activity/Notifications</span>
+            <FaBell className="sidebar-icon" /><span>Notifications</span>
           </Link>
         </li>
         <li className={getActiveClass('/home/server')}>
           <Link to="/home/server">
-            <FaUsers className="sidebar-icon" /> <span>Servers</span>
+            <FaUsers className="sidebar-icon" /><span>Servers</span>
           </Link>
         </li>
         <li className={getActiveClass('/home/add-friends')}>
           <Link to="/home/add-friends">
-            <FaPlus className="sidebar-icon" /> <span>Add Friends</span>
+            <FaPlus className="sidebar-icon" /><span>Add Friends</span>
           </Link>
         </li>
         <li className={getActiveClass('/home/customize-background')}>
           <Link to="/home/customize-background">
-            <FaCheckCircle className="sidebar-icon" /> <span>Customize Background</span>
+            <FaCheckCircle className="sidebar-icon" /><span>Customize Background</span>
           </Link>
         </li>
         <li className={getActiveClass('/home/to-do-list')}>
           <Link to="/home/to-do-list">
-            <FaClipboardList className="sidebar-icon" /> <span>To-Do List</span>
+            <FaClipboardList className="sidebar-icon" /><span>To-Do List</span>
           </Link>
         </li>
 
@@ -66,7 +66,7 @@ const Sidebar = () => {
         {!isLoading && userData?.admin && (
           <li className={getActiveClass('/home/manage-server')}>
             <Link to="/home/manage-server">
-              <FaServer className="sidebar-icon" /> <span>Manage Servers</span>
+              <FaServer className="sidebar-icon" /><span>Manage Servers</span>
             </Link>
           </li>
         )}
