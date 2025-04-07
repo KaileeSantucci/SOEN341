@@ -1,33 +1,131 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useUserStore } from "../../DirectMessaging/lib/userStore"; // This line imports the actual component
+import { auth } from "../../DirectMessaging/lib/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
-import "./RobinProfileV2.css";
-
+import "./MyAccount.css"; // Import your CSS file
 
 const AccountSettings = () => {
+    const { fetchUserInfo } = useUserStore();
+    const currentUser = useUserStore((state) => state.currentUser);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    const[ FormData, setFormData] = useState({
+        admin: "",
+        username: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+    });
+
+    useEffect(() => {
+        const unSub = onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                await fetchUserInfo(user.uid);
+            }
+        });
+        return () => unSub();
+    }, [fetchUserInfo]);
+
+    useEffect(() => {
+        if (currentUser) {
+            setFormData({
+                admin: currentUser.admin || false,
+                username: currentUser.username || "",
+                firstName: currentUser.firstName || "",
+                lastName: currentUser.lastName || "",
+                email: currentUser.email || "",
+                password: "",
+                confirmPassword: "",
+            });
+        }
+    }, [currentUser]);
+
+
     return (
-        <div className="container">
-            <h2>Account Settings</h2>
-            <form>
-                <label htmlFor="usertype">Type of User: <strong>Admin</strong></label> {/* Needs to be dealt with on the backend to add admin or user details */}
+        <div className="SettingsContainer">        
+            <h2 style={{fontSize:"45px"}}>Account Settings</h2>
+            <p><currentUser className="id"></currentUser></p>
+            <form className="SettingsForm">
+                <div className='formGroup'>
+                    <div className='userId'>
+                    <div className='userType'>
+                        <label htmlFor="usertype">User Type: </label>
+                        <input
+                            type="text"
+                            id="isadmin"
+                            name="isadmin"
+                            value={FormData.admin ? "Admin" : "Basic User"}
+                        />
+                    </div>
+                </div>
+
+                <div className="formGroup">
+                    <div className='profilePic'>
+                        <label htmlFor="profile-pic">Profile Picture: </label> {/* Will not be storing this anymore in the backend but will be adding this in future iterations */}
+                        <input type="file" id="profile-pic" name="profile-pic" accept="image/*" />
+                    </div>
+                </div>
+
+                <div className="formGroup">
+                    <div className='userNameSettings'>
+                        <label htmlFor="Username">Username: </label>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            name="Username" 
+                            value={FormData.username}
+                        />{/*Should be populated from backend */}
+                    </div>
+                </div>
+
+                <div className="formGroup">
+                    <div className='firstNameSettings'>
+                        <label htmlFor="firstname">First Name: </label>{/*Should be populated from backend */}
+                        <input 
+                            type="text" 
+                            id="firstname" 
+                            name="firstName" 
+                            value={FormData.firstName} 
+                            onChange={(e) => setFormData({ ...FormData, firstName: e.target.value })}
+                            placeholder="First name" 
+                        />{/*Should be populated from backend */}
+                    </div>
+                </div>
                 
-                <label htmlFor="profile-pic">Profile Picture</label> {/* Will not be storing this anymore in the backend but will be adding this in future iterations */}
-                <input type="file" id="profile-pic" name="profile-pic" accept="image/*" />
-                
-                <label htmlFor="Username">Username: <strong>Robin123</strong></label> {/* Currently hardcoded but needs to have the username populated from the backend */}
-                
-                <label htmlFor="firstname">First Name</label>{/*Should be populated from backend */}
-                <input type="text" id="firstname" name="firstname" placeholder="First name" required />{/*Should be populated from backend */}
-                
-                <label htmlFor="lastname">Last Name</label>
-                <input type="text" id="lastname" name="lastname" placeholder="Last name" required />{/*Should be populated from backend */}
-                
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="email" required />{/*Should be populated from backend */}
-                
-                
+                <div className="formGroup">
+                    <div className='lastNameSettings'>
+                        <label htmlFor="lastname">Last Name: </label>
+                        <input
+                            type="text" 
+                            id="lastname" 
+                            name="lastName" 
+                            value={FormData.lastName} 
+                            onChange={(e) => setFormData({ ...FormData, lastName: e.target.value })}
+                        />
+                    </div>
+                </div>
+
+                <div className="formGroup">
+                    <div className='emailSettings'>
+                        <label htmlFor="email">Email: </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email"
+                            value={FormData.email} 
+                            />{/*Should be populated from backend */}
+                    </div> 
+                </div>
+
+                <br />
+                </div>
                 {/* To enter a new password */}
+                {
+                /* 
                 <label htmlFor="password">New Password</label>
                 <div style={{ position: "relative", display: "inline-block" }}>
                     <input 
@@ -47,11 +145,11 @@ const AccountSettings = () => {
                             cursor: "pointer",
                         }}
                     >
-                        {showPassword ? <VscEye /> : <VscEyeClosed />} {/* Needed to disconnect the toggle of the eye icon*/}
+                        {showPassword ? <VscEye /> : <VscEyeClosed />} 
                     </span>
                 </div>
 
-                {/*To confirm the new password, would be added in the future when security protocoles would be integrated */}
+                
                 <label htmlFor="confirm-password">Confirm Password</label>
                 <div style={{ position: "relative", display: "inline-block" }}>
                     <input 
@@ -74,7 +172,7 @@ const AccountSettings = () => {
                         {showConfirmPassword ? <VscEye /> : <VscEyeClosed />}
                     </span>
                 </div>
-                
+                */}
                 <button type="submit">Save</button>
             </form>
         </div>

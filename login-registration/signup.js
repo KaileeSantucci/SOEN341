@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const firstName = document.querySelector('#firstName').value.trim();
       const lastName = document.querySelector('#lastName').value.trim();
-      const username = document.querySelector('#username').value.trim();
+      const userName = document.querySelector('#userName').value.trim();
       const email = document.querySelector('#email').value.trim();
       const password = document.querySelector('#password').value;
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
          firestore.collection('users').doc(user.uid).set({
           firstName: firstName,
           lastName: lastName,
-          username: userName,
+          userName: userName,
           email: email,
           createdAt: new Date(),
           admin: false,

@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../src/HomeApp.css';
 
 const MyAccount = () => {
-  return (
-    <div>
-      <h2>My Account</h2>
-      <p>Welcome to your account page!</p>
-      {/* You can add more content here, such as user profile info */}
-    </div>
-  );
+  useEffect(() => {
+    window.location.href = '/accountsettings/index.html';
+  }, [navigate]);
+
+  return null;
 };
 
 export default MyAccount;

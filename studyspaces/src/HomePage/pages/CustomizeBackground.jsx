@@ -28,6 +28,7 @@ const CustomizeBackground = () => {
     { id: 4, src: '/src/HomePage/assets/lofi.jpg', label: 'Background 4' },
     { id: 5, src: '/src/HomePage/assets/OracleRacing.jpg', label: 'Background 5' },
     { id: 5, src: '/src/HomePage/assets/PrettyItaly.jpg', label: 'Background 5' },
+    { id: 6, src: '/src/HomePage/assets/AOT.jpg', label: 'Background 6' },
   ]; 
   
   // Handle image selection (either preexisting or uploaded)

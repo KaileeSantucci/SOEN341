@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 //imports required for hompage functionality
 import Sidebar from '../components/Sidebar'; // Import Sidebar
-import MyAccount from '../pages/MyAccount';
+import MyAccountApp from '../../accountsettings/src/MyAccountApp';
 import HomePage from '../pages/HomePage';
 import Activity from '../pages/Activity';
 import AddFriends from '../pages/AddFriends';
@@ -85,7 +85,7 @@ function MainLayout(){
       <div className={hideSidebarAndHeader ? "no-sidebar-main-content" : "main-content"}>
       <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/account" element={<MyAccount />} />
+          <Route path="/account" element={<MyAccountApp />} />
           <Route path="/activity-notifications" element={<Activity />} />
           <Route path="/add-friends" element={<AddFriends />} />
           <Route path="/customize-background" element={<CustomizeBackground />} />
