@@ -12,6 +12,12 @@ const AboutUs = () => {
     document.body.style.overflow = 'hidden';
   })
 
+  const clear = () => {
+    const form = document.querySelector('.ContactForm');
+    form.reset();
+    alert('Message sent! We will get back to you soon.');
+  }
+
   return (
     <div className="LandingPage">
       <div className="LandingPageMascot">
@@ -49,7 +55,7 @@ const AboutUs = () => {
           <input type="text" placeholder="Your Name" required />
           <input type="email" placeholder="Your Email" required />
           <textarea placeholder="Your Message" rows="5" required></textarea>
-          <button type="submit">Send Message</button>
+          <button type="submit" onClick={clear}>Send Message</button>
         </form>
       </div>
       </div>

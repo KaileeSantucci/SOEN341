@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 import { auth, db } from "../../DirectMessaging/lib/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
@@ -47,18 +47,25 @@ const Register = () => {
         }finally {
           setLoading(false);
         }
-    };
+
+    useEffect (() => {
+      document.body.classList.add("register-page");  
+      return () => {
+          document.body.classList.remove("register-page");
+      }
+    });
+  }
 
     return (
         <div className="MainBox">
           <div className="parent">
             {/* Logo div */}
-            <div className="div1">
+            <div className="div10">
               <img src="../../../public/DirectMessaging/StudySpace.png" alt="StudySpace Logo" style={{ maxWidth: "100%", height: "auto" }} />
             </div>
     
             {/* Header Message */}
-            <div className="div2">
+            <div className="div20">
               <h1>
                 First time?
                 <br />
@@ -68,46 +75,49 @@ const Register = () => {
             </div>
     
             {/* Registration Form */}
-            <div className="div3">
+            <div className="div30">
               <form className="registration-form" onSubmit={handleRegister}>
+              <input type="username" name="dummy_username" autoComplete="off" style={{ display: 'none' }} />
+              <input type="password" name="dummy_password" autoComplete="new-password" style={{ display: 'none' }} />
+
                 <div className="input-group">
-                  <input type="text" name="firstName" className="input" id="firstName" placeholder="First Name" required onChange={handleChange} />
+                  <input type="text" name="firstName" className="input" id="firstName" required onChange={handleChange} />
                   <label className="user-label" htmlFor="firstName">First Name</label>
                 </div>
                 <br />
     
                 <div className="input-group">
-                  <input type="text" name="lastName" className="input" id="lastName" placeholder="Last Name" required onChange={handleChange} />
+                  <input type="text" name="lastName" className="input" id="lastName" required onChange={handleChange} />
                   <label className="user-label" htmlFor="lastName">Last Name</label>
                 </div>
                 <br />
     
                 <div className="input-group">
-                  <input type="text" name="username" className="input" id="username" placeholder="Username" required onChange={handleChange} />
+                  <input type="text" name="username" autoComplete="off" className="input" id="username" required onChange={handleChange} />
                   <label className="user-label" htmlFor="username">User Name</label>
                 </div>
                 <br />
     
                 <div className="input-group">
-                  <input type="email" name="email" className="input" id="email" placeholder="Email" required onChange={handleChange} />
+                  <input type="email" name="email" className="input" id="email" required onChange={handleChange} />
                   <label className="user-label" htmlFor="email">Email</label>
                 </div>
                 <br />
     
                 <div className="input-group">
-                  <input type="password" name="password" className="input" id="password" placeholder="Password" required onChange={handleChange} />
+                  <input type="password" name="password" className="input" id="password" required onChange={handleChange} />
                   <label className="user-label" htmlFor="password">Password</label>
                 </div>
                 <br />
     
-                <span className="div4">
+                <span className="div40">
                   <button type="submit" id="registration-btn" className="signupbtn">Register Now!</button>
                 </span>
               </form>
             </div>
     
             {/* Login Link */}
-            <div className="div4">
+            <div className="div40">
               Already have an account? <a href="/login">Sign in</a>
             </div>
     

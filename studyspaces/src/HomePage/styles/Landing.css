@@ -1,7 +1,7 @@
-body, #root {
+/*body, #root {
   display: block !important;
   padding:10px;
-}
+}*/
 
   .LandingPage {
   display: flex;

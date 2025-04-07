@@ -25,7 +25,7 @@ const Login = () => {
     return () => {
         document.body.classList.remove("login-page");
     }
-});
+    });
 
     const handleChange = (e) => {   //handles input changes
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,28 +46,86 @@ const Login = () => {
 
 
 return (
-    <div className="MainBox">
-        <div className="parent">
-            <div className="div1"> 
-                <h1>Welcome Back!</h1>
-                <p style={{ fontFamily: "Habibi" }}>(we missed you)</p>
-            </div>
+        <div className="MainBox">
+            <div className="parent">
+                <div className="div1"> 
+                    <h1 style={{fontSize:"90px", fontFamily:"Bungee Shade"}}>Welcome Back!</h1>
+                    <p>(we missed you)</p>
+                </div>
 
-            <div className="div2"> 
-                <form className="login-form" onSubmit={handleLogin}>
+                <div className="div2">
+                
+                <style>
+                    {`
+                    .input-group {
+                        position: relative;
+                    }
+                    .input {
+                        width: 400px;
+                        border: solid 1.5px #ffffff ;
+                        border-radius: 1rem ;
+                        background: none ;
+                        padding: 1rem ;
+                        font-size: 1rem ;
+                        transition: border 150ms cubic-bezier(0.4,0,0.2,1) ;
+                    }
+                    .user-label {
+                        position: absolute;
+                        left: 15px;
+                        color: #ffe4f0;
+                        pointer-events: none;
+                        transform: translateY(1rem);
+                        transition: 150ms cubic-bezier(0.4,0,0.2,1);
+                    }
+                    .input:focus, input:valid {
+                        outline: none;
+                        border: 1.5px solid #000000;
+                        background-color: #ffdae8;
+                    }
+                    .input:focus ~ label, input:valid ~ label {
+                        transform: translateY(-50%) scale(0.8);
+                        background-color: #000000;
+                        border-radius: 15px;
+                        padding: 0 .5em;
+                        color: #ffffff;
+                    }
+                    `}
+                </style>
+
+                <form className="login-form" onSubmit={handleLogin} autoComplete="off">
+                <input type="text" name="dummy_email" autoComplete="off" style={{ display: 'none' }} />
+                <input type="password" name="dummy_password" autoComplete="new-password" style={{ display: 'none' }} />
+
                     <div className="input-group">
-                        <input type="email" name="email" placeholder="Email" required onChange={handleChange} value={formData.email} />
+                        <input
+                            className="input"
+                            type="email" 
+                            name="email" 
+                            autoComplete="off" 
+                            required onChange={handleChange} 
+                            value={formData.email} 
+                         />
                         <label className="user-label">Email</label>
-                    </div>
+                    </div> <br />
+
                     <div className="input-group">
-                        <input type="password" name="password" placeholder="Password" required onChange={handleChange} value={formData.password} />
+                        <input 
+                            className="input"
+                            type="password" 
+                            name="password" 
+                            autoComplete="off"
+                            required onChange={handleChange} 
+                            value={formData.password} 
+                        />
                         <label className="user-label">Password</label>
                     </div> <br />
+
                     <span>
                         <button type="submit" id="loginBtn" className="loginbtn" disabled={loading}>
                             {loading ? "Logging in..." : "Sign In"}
                         </button>
                     </span>
+
                 </form>
             </div>
 
