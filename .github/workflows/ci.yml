@@ -22,6 +22,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: studyspaces/package-lock.json  # 👈 add this
+
 
       - name: 📦 Install dependencies
         run: npm ci
