@@ -105,7 +105,7 @@ return (
                             required onChange={handleChange} 
                             value={formData.email} 
                          />
-                        <label className="user-label">Email</label>
+                        <label htmlFor="email" className="user-label">Email</label>
                     </div> <br />
 
                     <div className="input-group">
@@ -117,7 +117,7 @@ return (
                             required onChange={handleChange} 
                             value={formData.password} 
                         />
-                        <label className="user-label">Password</label>
+                        <label htmlFor="password" className="user-label">Password</label>
                     </div> <br />
 
                     <span>
