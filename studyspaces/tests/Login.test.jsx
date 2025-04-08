@@ -8,7 +8,12 @@ vi.mock('firebase/auth', () => ({
     signInWithEmailAndPassword: vi.fn(() =>
       Promise.resolve({ user: { uid: '123' } })
     ),
-  }));  
+    onAuthStateChanged: vi.fn((auth, callback) => {
+        // Simulate a user being logged out initially
+        callback(null)
+        return () => {}; // mock unsubscribe function
+      }),
+}));  
 
 // Mock Firebase setup
 vi.mock('../../../DirectMessaging/lib/firebase.js', () => ({
