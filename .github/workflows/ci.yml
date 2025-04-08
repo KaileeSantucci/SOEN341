@@ -2,9 +2,9 @@ name: StudySpaces CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "Testing" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "Testing" ]
   workflow_dispatch: # 👈 enables manual run via GitHub UI
 
 jobs:
