@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import Chat from "../Chat";
+import Chat from "../src/DirectMessaging/components/chat/Chat";
 import { format } from "date-fns";
 
 // Mock Zustand stores
