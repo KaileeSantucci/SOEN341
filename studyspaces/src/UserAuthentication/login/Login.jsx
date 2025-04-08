@@ -98,6 +98,7 @@ return (
 
                     <div className="input-group">
                         <input
+                            id="email"
                             className="input"
                             type="email" 
                             name="email" 
@@ -110,6 +111,7 @@ return (
 
                     <div className="input-group">
                         <input 
+                            id="password"
                             className="input"
                             type="password" 
                             name="password" 
