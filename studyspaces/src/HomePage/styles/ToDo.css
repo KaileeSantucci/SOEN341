@@ -1,0 +1,91 @@
+/* To-Do List styling */
+.todo-container {
+    background-color: #d4b0cd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    position: absolute;
+    max-height: 500px;
+    overflow-y: auto;
+
+  }
+
+  .todo-wrapper {
+    display: flex;
+    flex: 1;
+    margin-left: 10px; 
+    max-width: 400px; /* Limit the width of the to-do list */
+    
+  }
+  
+  .todo-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .todo-input textarea {
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: azure;
+    color: black;
+    resize: vertical; /* Allow vertical resizing of the textarea */
+  }
+
+  
+  .todo-input button {
+    padding: 10px;
+    background-color: #f37e9a;
+    color: f37e9a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .todo-input button:hover {
+    background-color: #d4b0cd;
+  }
+  
+  .todo-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .todo-list li {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap when content is too long */
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f37e9a;
+    word-wrap: break-word; /* Ensures long words are broken to avoid overflow */
+    white-space: normal; /* Allow text to wrap within the box */
+    width: 100%; /* Ensure it takes up the full width of the box */
+
+  }
+  
+  .todo-list li.completed {
+    text-decoration: line-through;
+    background-color: #e0e0e0;
+  }
+  
+  .todo-list li button {
+    background-color: transparent;
+    border: none;
+    background-color: white;
+    color: #f37e9a;
+    cursor: pointer;
+  }
+  
+  .todo-list li button:hover {
+    text-decoration: underline;
+  }
