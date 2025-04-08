@@ -5,6 +5,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch: # 👈 enables manual run via GitHub UI
 
 jobs:
   build:
@@ -15,9 +16,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: 📁 Change to studyspaces folder
-        run: cd studyspaces
 
       - name: 🔧 Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -37,6 +35,6 @@ jobs:
         run: npm run build
         working-directory: studyspaces
 
-      - name: 🧪 Run tests
+      - name: 🧪 Run tests with coverage
         run: npm run test -- --coverage
         working-directory: studyspaces
