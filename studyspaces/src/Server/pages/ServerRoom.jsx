@@ -107,7 +107,14 @@ const ServerRoom = ({ selectedServer }) => {
     
 
     // 🟡 If No Server is Selected
-    if (!selectedServer) return <p className="noSelectedServer">Select a server to view posts</p>;
+    if (!selectedServer) {
+        return (
+          <div className="no-selected-server-message">
+            <p>Select a server to view chats!</p>
+          </div>
+        );
+      }
+      
 
     return (
         <div className="ServerChatRoomContainer">
@@ -131,7 +138,7 @@ const ServerRoom = ({ selectedServer }) => {
             </ul>
 
             {/* Message Input */}
-            <form className="ChatRoomFooter" onSubmit={sendMessage} className="message-input-form">
+            <form className="ChatRoomFooter message-input-form" onSubmit={sendMessage} >
                 <input
                     type="text"
                     value={messageText}

@@ -43,7 +43,7 @@ const Sidebar = () => {
         </li> */}
         <li className={getActiveClass('/home/server')}>
           <Link to="/home/server">
-            <FaUsers className="sidebar-icon" /><span>Servers</span>
+            <FaUsers className="sidebar-icon" /><span>Group Messaging</span>
           </Link>
         </li>
         {/* <li className={getActiveClass('/home/add-friends')}>

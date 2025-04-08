@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    
 }
 
 body{
@@ -14,18 +15,23 @@ body{
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  
 
 }
 
 .container{
-  margin-top: 200px; /* leave space for the fixed header */
-  width: 90vw;
-  min-height: 80vh; /* 🔁 let it grow with content */
+
+  width: 85vw;
+  height: calc(100vh - 110px);; 
+  overflow: auto;
   background-color: rgba(85, 168, 184, 0.75);
   backdrop-filter: blur(19px) saturate(180%);
   border-radius: 12px;
   border: 1px solid rgba(238, 130, 238, 0.125);
   display: flex;
+
+  
+  
   
 }
 
@@ -34,4 +40,5 @@ body{
   font-size: 36px;
   border-radius: 10px;
   background-color: rgba(44, 87, 96, 0.9);
+
 }

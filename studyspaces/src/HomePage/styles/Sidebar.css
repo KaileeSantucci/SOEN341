@@ -1,18 +1,24 @@
 /* Sidebar container */
 .sidebar {
-  width: 50px; 
-  background-color: #d4b0cd;
-  padding: 15px;
   position: fixed;
-  height: calc(100vh - 400px); 
   top: 150px;
-  z-index: 1;
+  left: 0;
+  background-color: #e0cfe9;
+  margin-left: 10px;
+  padding: 15px;
+  width: 80px;
+  z-index: 10;
   box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
   border-radius: 40px;
   font-family: 'Baloo 2', sans-serif;
   font-weight: bold;
   text-shadow: 1px 3px 5px rgba(126, 112, 112, 0.3);
-  transition: width 0.3s ease; /* Add smooth transition when expanding the sidebar */
+  transition: width 0.3s ease;
+  
+  /* Make height adjust to content */
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto; 
 
 }
 
@@ -36,17 +42,20 @@
   align-items: center;
   opacity: 1;
   transition: opacity 0.5s ease, background-color 0.3s ease;
+  color:#eee1e6;
 }
 
 /* Sidebar icon styling */
 .sidebar .sidebar-icon {
   font-size: 24px;
   margin-right: 15px;
+  color: white;
 }
 
 /* Hide the text by default */
 .sidebar li a span {
   display: none;
+  color: white;
 }
 
 /* Show the text when sidebar is expanded */
@@ -75,6 +84,7 @@
 /* Sidebar hover transition */
 .sidebar li {
   animation: fadeInOut 1s ease;
+  
 }
 
 /* Define keyframes for fade in/out effect */

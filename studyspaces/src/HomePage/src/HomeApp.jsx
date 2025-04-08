@@ -5,10 +5,7 @@ import { useLocation } from 'react-router-dom';
 import Sidebar from '../components/Sidebar'; // Import Sidebar
 import MyAccountApp from '../../accountsettings/src/MyAccountApp';
 import HomePage from '../pages/HomePage';
-import Activity from '../pages/Activity';
-import AddFriends from '../pages/AddFriends';
 import CustomizeBackground from '../pages/CustomizeBackground';
-import ToDoList from '../pages/ToDoList';
 import FAQ from '../pages/FAQ';  
 import AboutUs from '../pages/AboutUs'; 
 import Logo from '../assets/logo.png';
@@ -47,9 +44,9 @@ function MainLayout(){
     }
   }, []);
   
-  const isDirectMessaging = location.pathname === "/home/direct-messaging"  //check's if the current path is direct messaging
+ 
   const isLandingPage = location.pathname === "/about-us"
-  const hideSidebarAndHeader = isDirectMessaging || isLandingPage; //if the current path is direct messaging, hide the sidebar and header
+  const hideSidebarAndHeader =  isLandingPage; //if the current path is direct messaging, hide the sidebar and header
   
   const handleLogout = async () => {
     try{
@@ -86,10 +83,7 @@ function MainLayout(){
       <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/account" element={<MyAccountApp />} />
-          {/* <Route path="/activity-notifications" element={<Activity />} /> */}
-          {/* <Route path="/add-friends" element={<AddFriends />} /> */}
           <Route path="/customize-background" element={<CustomizeBackground />} />
-          {/* <Route path="/to-do-list" element={<ToDoList />} /> */}
           <Route path="/faq" element={<FAQ />} />
           <Route path="/about-us" element={<AboutUs />} />     
           <Route path="/direct-messaging/*" element={<DirectMessagingApp />} />
