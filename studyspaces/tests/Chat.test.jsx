@@ -4,7 +4,7 @@ import Chat from "../Chat";
 import { format } from "date-fns";
 
 // Mock Zustand stores
-jest.mock("../../lib/chatStore", () => ({
+vi.mock("../../lib/chatStore", () => ({
   useChatStore: () => ({
     chatId: "chat123",
     user: {
@@ -17,7 +17,7 @@ jest.mock("../../lib/chatStore", () => ({
   }),
 }));
 
-jest.mock("../../lib/userStore", () => ({
+vi.mock("../../lib/userStore", () => ({
   useUserStore: () => ({
     id: "user123",
     username: "Current User",
@@ -25,7 +25,7 @@ jest.mock("../../lib/userStore", () => ({
 }));
 
 // Mock Firebase
-jest.mock("firebase/firestore", () => ({
+vi.mock("firebase/firestore", () => ({
   doc: jest.fn(),
   getDoc: jest.fn().mockResolvedValue({
     exists: () => true,
@@ -52,7 +52,7 @@ jest.mock("firebase/firestore", () => ({
 }));
 
 // Mock EmojiPicker
-jest.mock("emoji-picker-react", () => () => <div data-testid="emoji-picker">[Emoji Picker]</div>);
+vi.mock("emoji-picker-react", () => () => <div data-testid="emoji-picker">[Emoji Picker]</div>);
 
 describe("Chat Component", () => {
   test("renders chat messages", async () => {
