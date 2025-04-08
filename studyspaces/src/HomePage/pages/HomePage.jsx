@@ -9,13 +9,29 @@ const ToDoList = () => {
   const [tasks, setTasks] = useState([]);
   const [task, setTask] = useState("");
 
+  // Load saved tasks from localStorage on component mount
+  useEffect(() => {
+    const savedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if (savedTasks) {
+      setTasks(savedTasks); // Set the saved tasks to state
+    }
+  }, []);
+
+  // Save tasks to localStorage whenever tasks change
+  useEffect(() => {
+    if (tasks.length > 0) {
+      localStorage.setItem('tasks', JSON.stringify(tasks)); // Store tasks in localStorage
+    }
+  }, [tasks]);
+
   // Handle task input change
   const handleChange = (e) => setTask(e.target.value);
 
   // Add task to the list
   const addTask = () => {
     if (task.trim()) {
-      setTasks([...tasks, { text: task, completed: false }]);
+      const newTask = { text: task, completed: false };
+      setTasks([...tasks, newTask]);
       setTask(""); // Clear the input field after adding task
     }
   };
@@ -61,6 +77,8 @@ const ToDoList = () => {
     </div>
   );
 };
+
+
 
 const PomodoroTimer = () => {
   const [workTime, setWorkTime] = useState(25 * 60); // Default work time 25 minutes
