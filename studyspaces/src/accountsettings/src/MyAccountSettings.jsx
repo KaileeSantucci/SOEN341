@@ -53,7 +53,7 @@ const AccountSettings = () => {
                 <div className='formGroup'>
                     <div className='userId'>
                     <div className='userType'>
-                        <label htmlFor="usertype">User Type: </label>
+                        <label htmlFor="isadmin">User Type: </label>
                         <input
                             type="text"
                             id="isadmin"
@@ -72,11 +72,11 @@ const AccountSettings = () => {
 
                 <div className="formGroup">
                     <div className='userNameSettings'>
-                        <label htmlFor="Username">Username: </label>
+                        <label htmlFor="username">Username: </label>
                         <input 
                             type="text" 
                             id="username" 
-                            name="Username" 
+                            name="username" 
                             value={FormData.username}
                         />{/*Should be populated from backend */}
                     </div>

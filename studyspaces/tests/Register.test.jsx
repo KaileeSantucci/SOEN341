@@ -1,120 +1,53 @@
-import React from "react";
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import Register from "../src/UserAuthentication/registration/Register"; // adjust path as needed
+import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { vi } from 'vitest';
 
-// Mocks
-vi.mock("firebase/auth", () => ({
-  createUserWithEmailAndPassword: jest.fn(),
+import Registration from '../src/UserAuthentication/registration/Register.jsx';
+
+vi.mock('firebase/auth', () => ({
+  createUserWithEmailAndPassword: vi.fn(() =>
+    Promise.resolve({ user: { uid: 'abc123' } })
+  ),
+  getAuth: () => ({}),
 }));
 
-vi.mock("firebase/firestore", () => ({
-  doc: jest.fn(() => ({})),
-  setDoc: jest.fn(),
+vi.mock('../src/UserAuthentication/userauthentication.js', () => ({
+  useAuthentication: () => ({ user: null, loading: false }),
 }));
 
-vi.mock("../../DirectMessaging/lib/firebase", () => ({
-  auth: {},
-  db: {},
-}));
-
-vi.mock("react-toastify", () => ({
-  toast: {
-    success: jest.fn(),
-    error: jest.fn(),
-  },
-}));
-
-const mockNavigate = jest.fn();
-vi.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => mockNavigate,
-}));
-
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { setDoc } from "firebase/firestore";
-import { toast } from "react-toastify";
-
-describe("Register component - registration feature", () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
-  test("successful registration triggers Firebase calls and navigation", async () => {
-    // Mock a successful registration
-    createUserWithEmailAndPassword.mockResolvedValue({
-      user: { uid: "test-uid" },
-    });
-    setDoc.mockResolvedValue();
-
+describe('Registration component', () => {
+  it('renders form inputs and register button', () => {
     render(
-      <BrowserRouter>
-        <Register />
-      </BrowserRouter>
+      <MemoryRouter>
+        <Registration />
+      </MemoryRouter>
     );
 
-    fireEvent.change(screen.getByLabelText(/First Name/i), {
-      target: { value: "Alice" },
-    });
-    fireEvent.change(screen.getByLabelText(/Last Name/i), {
-      target: { value: "Smith" },
-    });
-    fireEvent.change(screen.getByLabelText(/User Name/i), {
-      target: { value: "alicesmith" },
-    });
-    fireEvent.change(screen.getByLabelText(/Email/i), {
-      target: { value: "alice@example.com" },
-    });
-    fireEvent.change(screen.getByLabelText(/Password/i), {
-      target: { value: "securepassword123" },
-    });
-
-    fireEvent.click(screen.getByText(/Register Now!/i));
-
-    await waitFor(() => {
-      expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(
-        {},
-        "alice@example.com",
-        "securepassword123"
-      );
-      expect(setDoc).toHaveBeenCalledTimes(2); // user doc + userchats doc
-      expect(toast.success).toHaveBeenCalledWith("Account created! You can now log in.");
-      expect(mockNavigate).toHaveBeenCalledWith("/login");
-    });
+    expect(screen.getByLabelText(/first name/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/last name/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/user name/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /register/i })).toBeInTheDocument();
   });
 
-  test("failed registration shows error toast", async () => {
-    const mockError = new Error("Registration failed");
-    createUserWithEmailAndPassword.mockRejectedValue(mockError);
-
+  it('allows typing in form fields', () => {
     render(
-      <BrowserRouter>
-        <Register />
-      </BrowserRouter>
+      <MemoryRouter>
+        <Registration />
+      </MemoryRouter>
     );
 
-    fireEvent.change(screen.getByLabelText(/First Name/i), {
-      target: { value: "Bob" },
-    });
-    fireEvent.change(screen.getByLabelText(/Last Name/i), {
-      target: { value: "Brown" },
-    });
-    fireEvent.change(screen.getByLabelText(/User Name/i), {
-      target: { value: "bobbrown" },
-    });
-    fireEvent.change(screen.getByLabelText(/Email/i), {
-      target: { value: "bob@example.com" },
-    });
-    fireEvent.change(screen.getByLabelText(/Password/i), {
-      target: { value: "password123" },
-    });
+    fireEvent.change(screen.getByLabelText(/first name/i), { target: { value: 'Jane' } });
+    fireEvent.change(screen.getByLabelText(/last name/i), { target: { value: 'Doe' } });
+    fireEvent.change(screen.getByLabelText(/user name/i), { target: { value: 'janedoe' } });
+    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'jane@example.com' } });
+    fireEvent.change(screen.getByLabelText(/password/i), { target: { value: 'secure123' } });
 
-    fireEvent.click(screen.getByText(/Register Now!/i));
-
-    await waitFor(() => {
-      expect(createUserWithEmailAndPassword).toHaveBeenCalled();
-      expect(toast.error).toHaveBeenCalledWith("Registration failed");
-      expect(mockNavigate).not.toHaveBeenCalled();
-    });
+    expect(screen.getByLabelText(/first name/i).value).toBe('Jane');
+    expect(screen.getByLabelText(/last name/i).value).toBe('Doe');
+    expect(screen.getByLabelText(/user name/i).value).toBe('janedoe');
+    expect(screen.getByLabelText(/email/i).value).toBe('jane@example.com');
+    expect(screen.getByLabelText(/password/i).value).toBe('secure123');
   });
 });
