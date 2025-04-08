@@ -4,21 +4,21 @@ import { BrowserRouter } from "react-router-dom";
 import Register from "../src/UserAuthentication/registration/Register"; // adjust path as needed
 
 // Mocks
-jest.mock("firebase/auth", () => ({
+vi.mock("firebase/auth", () => ({
   createUserWithEmailAndPassword: jest.fn(),
 }));
 
-jest.mock("firebase/firestore", () => ({
+vi.mock("firebase/firestore", () => ({
   doc: jest.fn(() => ({})),
   setDoc: jest.fn(),
 }));
 
-jest.mock("../../DirectMessaging/lib/firebase", () => ({
+vi.mock("../../DirectMessaging/lib/firebase", () => ({
   auth: {},
   db: {},
 }));
 
-jest.mock("react-toastify", () => ({
+vi.mock("react-toastify", () => ({
   toast: {
     success: jest.fn(),
     error: jest.fn(),
@@ -26,7 +26,7 @@ jest.mock("react-toastify", () => ({
 }));
 
 const mockNavigate = jest.fn();
-jest.mock("react-router-dom", () => ({
+vi.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useNavigate: () => mockNavigate,
 }));

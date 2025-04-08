@@ -4,10 +4,10 @@ import { BrowserRouter } from "react-router-dom";
 import AccountSettings from "../src/accountsettings/src/MyAccountSettings";
 
 // Mocks
-jest.mock("firebase/auth", () => ({
+vi.mock("firebase/auth", () => ({
   onAuthStateChanged: jest.fn(),
 }));
-jest.mock("../../DirectMessaging/lib/firebase", () => ({
+vi.mock("../../DirectMessaging/lib/firebase", () => ({
   auth: {},
 }));
 
@@ -21,7 +21,7 @@ const mockUser = {
   email: "jane@example.com",
 };
 
-jest.mock("../../DirectMessaging/lib/userStore", () => ({
+vi.mock("../../DirectMessaging/lib/userStore", () => ({
   useUserStore: (selector) => {
     return selector
       ? selector({ currentUser: mockUser, fetchUserInfo: mockFetchUserInfo })
