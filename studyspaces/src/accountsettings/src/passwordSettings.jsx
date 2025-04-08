@@ -1,4 +1,4 @@
-import { useState } from "react";
+/* import { useState } from "react";
 import { VscEye, VscEyeClosed } from "vscode-icons-react";
 
 const PasswordInput = () => {
@@ -22,4 +22,5 @@ const PasswordInput = () => {
   );
 };
 
-export default PasswordInput;
+export default PasswordInput; 
+*/
