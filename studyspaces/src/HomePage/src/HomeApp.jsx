@@ -86,10 +86,10 @@ function MainLayout(){
       <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/account" element={<MyAccountApp />} />
-          <Route path="/activity-notifications" element={<Activity />} />
-          <Route path="/add-friends" element={<AddFriends />} />
+          {/* <Route path="/activity-notifications" element={<Activity />} /> */}
+          {/* <Route path="/add-friends" element={<AddFriends />} /> */}
           <Route path="/customize-background" element={<CustomizeBackground />} />
-          <Route path="/to-do-list" element={<ToDoList />} />
+          {/* <Route path="/to-do-list" element={<ToDoList />} /> */}
           <Route path="/faq" element={<FAQ />} />
           <Route path="/about-us" element={<AboutUs />} />     
           <Route path="/direct-messaging/*" element={<DirectMessagingApp />} />

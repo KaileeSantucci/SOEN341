@@ -10,18 +10,23 @@ body{
   background-image: url("/public/StudySpaceBackground.png");
   display: flex;
   align-items: center;
-  height: 100vh;
   color: white;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
 }
 
 .container{
+  margin-top: 200px; /* leave space for the fixed header */
   width: 90vw;
-  height: 90vh;
+  min-height: 80vh; /* 🔁 let it grow with content */
   background-color: rgba(85, 168, 184, 0.75);
   backdrop-filter: blur(19px) saturate(180%);
   border-radius: 12px;
   border: 1px solid rgba(238, 130, 238, 0.125);
   display: flex;
+  
 }
 
 .loading{

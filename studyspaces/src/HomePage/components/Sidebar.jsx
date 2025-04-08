@@ -36,31 +36,31 @@ const Sidebar = () => {
         <FaEnvelope className="sidebar-icon" /><span>Direct Messaging</span>
           </Link>
         </li>
-        <li className={getActiveClass('/home/activity-notifications')}>
+        {/* <li className={getActiveClass('/home/activity-notifications')}>
           <Link to="/home/activity-notifications">
             <FaBell className="sidebar-icon" /><span>Notifications</span>
           </Link>
-        </li>
+        </li> */}
         <li className={getActiveClass('/home/server')}>
           <Link to="/home/server">
             <FaUsers className="sidebar-icon" /><span>Servers</span>
           </Link>
         </li>
-        <li className={getActiveClass('/home/add-friends')}>
+        {/* <li className={getActiveClass('/home/add-friends')}>
           <Link to="/home/add-friends">
             <FaPlus className="sidebar-icon" /><span>Add Friends</span>
           </Link>
-        </li>
+        </li> */}
         <li className={getActiveClass('/home/customize-background')}>
           <Link to="/home/customize-background">
             <FaCheckCircle className="sidebar-icon" /><span>Customize Background</span>
           </Link>
         </li>
-        <li className={getActiveClass('/home/to-do-list')}>
+        {/* <li className={getActiveClass('/home/to-do-list')}>
           <Link to="/home/to-do-list">
             <FaClipboardList className="sidebar-icon" /><span>To-Do List</span>
           </Link>
-        </li>
+        </li> */}
 
         {/* 🔐 Admin-Only Option */}
         {!isLoading && userData?.admin && (
