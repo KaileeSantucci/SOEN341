@@ -4,12 +4,15 @@
 }*/
 
 .LandingPage {
-  position: fixed; /* 🔒 stick to screen edge */
+  position: relative; /* 🔒 stick to screen edge */
   left: 5%;
-  bottom: 0;
-  z-index: 0;
-  height: 80vh;
-  width: auto;
+  padding-top: 120px;
+  padding-bottom: 20px;
+  z-index: 0; 
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 
@@ -18,7 +21,7 @@
   flex-direction: row;
   justify-content: flex-start;   /* ⬅️ align content to the left */
   align-items: flex-start;
-  gap: 40px;
+  gap: 30px;
   width: 100%;
   padding-right: 320px; /* room for mascot */
   box-sizing: border-box;
@@ -86,8 +89,7 @@
     padding: 16px 32px;
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    background: transparent;
     z-index: 3;
     height: 120px;
   }
@@ -167,7 +169,12 @@
   .HeaderButtons {
     margin-left: auto;
     display: flex;
-    gap: 12px;
+    gap: 0px;
+    color: white;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    border-radius: 20px;
+    padding: 10px 10px;
+ 
   }
   
   .HeaderButton {
@@ -177,6 +184,8 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
+    color: white;
+ 
   }
   
   /* Filled button */

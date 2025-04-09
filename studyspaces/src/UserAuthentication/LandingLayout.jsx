@@ -49,7 +49,7 @@ const LandingLayout = () => {
             <img src={Logo} alt="StudySpaces Logo" className="logo" />
 
             <div className="CompanyName">
-                <h1 style={{ textDecoration: 'none', color: '#F37E9A', paddingBottom:'0px', textShadow:'none', fontSize:'70px'}}>StudySpace</h1>
+                <h1 style={{ textDecoration: 'none', color: '#f5f0f2', paddingBottom:'0px', textShadow:'none', fontSize:'70px'}}>StudySpace</h1>
             </div>
 
             <div className="HeaderButtons">

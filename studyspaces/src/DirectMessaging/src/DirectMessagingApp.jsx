@@ -10,7 +10,7 @@ import List from "../components/list/List";
 import Login from "../components/login/login";
 import Notification from "../components/notification/notification";
 import "./DirectMessagingIndex.css"
-import Header from "../components/header/Header";
+// import Header from "../components/header/Header";
 
 
 
@@ -43,8 +43,8 @@ const DirectMessagingApp = () => {
 
 
   return (
-    <>
-    <Header /> {/* ✅ Fixed header rendered at the top */}
+    // <>
+    // <Header /> {/* ✅ Fixed header rendered at the top */}
 
   <div className='container'>
     {console.log("Rendering DirectMessagingApp...")}
@@ -61,7 +61,7 @@ const DirectMessagingApp = () => {
       )}
       <Notification/>
   </div>
-  </>
+  // </>
   );
 };
 

@@ -18,25 +18,30 @@
 }
 
 .sidebar {
-  width: 80px; 
+  position: fixed;
+  top: 150px;
+  left: 0;
   background-color: #e0cfe9;
   margin-left: 10px;
   padding: 15px;
-  position: fixed;
-  height: calc(100vh - 400px); 
-  top: 150px;
+  width: 80px;
   z-index: 10;
   box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
   border-radius: 40px;
   font-family: 'Baloo 2', sans-serif;
   font-weight: bold;
   text-shadow: 1px 3px 5px rgba(126, 112, 112, 0.3);
-  transition: width 0.3s ease; /* Add smooth transition when expanding the sidebar */
+  transition: width 0.3s ease;
+  
+  /* Make height adjust to content */
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto; 
 
   }
 
 .main-content {
-  margin-top: 150px;
+  margin-top: 100px;
   padding-left: 100px;
   padding-right: 20px;
   width: 100%; /* Ensure content doesn't overflow */
@@ -50,6 +55,7 @@
 
 /* Header */
 .header {
+  height: 90px;
   position: fixed;
   display: flex;
   align-items: center;

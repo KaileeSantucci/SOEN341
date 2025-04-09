@@ -1,4 +1,5 @@
 .header {
+    height: 90px;
     position: absolute;
     display: flex;
     align-items: center;
