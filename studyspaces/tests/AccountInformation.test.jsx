@@ -1,36 +1,50 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import AccountSettings from "../src/accountsettings/src/MyAccountSettings";
-import { onAuthStateChanged } from "firebase/auth";
+import { vi } from "vitest";
 
-// ✅ Mock Zustand store
-const mockUser = {
+// ✅ Predefine currentUser at the top level
+const currentUser = {
   id: "user123",
-  admin: true,
+  admin: false,
   username: "johndoe",
   email: "johndoe@example.com",
   firstName: "John",
   lastName: "Doe",
 };
 
+// ✅ Mock Zustand store with fixed user
 const fetchUserInfoMock = vi.fn();
 
-vi.mock("../src/DirectMessaging/lib/userStore", () => ({
-  useUserStore: vi.fn(() => ({
-    currentUser: mockUser,
-    fetchUserInfo: fetchUserInfoMock,
-  })),
-}));
+vi.mock("../src/DirectMessaging/lib/userStore", () => {
+  const mockStore = {
+    getState: () => ({
+      currentUser,
+      fetchUserInfo: fetchUserInfoMock,
+    }),
+  };
+
+  const useUserStore = (selector) => {
+    if (typeof selector === "function") {
+      return selector(mockStore.getState());
+    }
+    return mockStore.getState();
+  };
+
+  return {
+    useUserStore,
+  };
+});
 
 // ✅ Mock Firebase Auth
 vi.mock("firebase/auth", async (importOriginal) => {
   const actual = await importOriginal();
   return {
     ...actual,
-    onAuthStateChanged: vi.fn((auth, callback) => {
-      callback({ uid: mockUser.id }); // Simulate a logged-in user
+    onAuthStateChanged: (auth, callback) => {
+      callback({ uid: "user123" });
       return () => {};
-    }),
+    },
   };
 });
 
@@ -39,15 +53,13 @@ describe("AccountSettings Component", () => {
     render(<AccountSettings />);
 
     await waitFor(() => {
-      // Check fields are filled with the correct values
-      expect(screen.getByDisplayValue("Admin")).toBeInTheDocument();
+      expect(screen.getByDisplayValue("Basic User")).toBeInTheDocument();
       expect(screen.getByDisplayValue("johndoe")).toBeInTheDocument();
       expect(screen.getByDisplayValue("johndoe@example.com")).toBeInTheDocument();
       expect(screen.getByDisplayValue("John")).toBeInTheDocument();
       expect(screen.getByDisplayValue("Doe")).toBeInTheDocument();
     });
 
-    // Make sure fetchUserInfo was called with correct UID
     expect(fetchUserInfoMock).toHaveBeenCalledWith("user123");
   });
 });
