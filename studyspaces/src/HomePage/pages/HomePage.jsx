@@ -1,9 +1,84 @@
 import React, { useState, useEffect } from 'react';
 import { useAuthentication } from '../../UserAuthentication/userauthentication'; // ✅ Use authentication hook
-
+import '../styles/ToDo.css'
 import Calendar from 'react-calendar';
 import '../styles/Calendar.css'; // Calendar CSS
 import '../styles/Timer.css'; // Timer CSS
+
+const ToDoList = () => {
+  const [tasks, setTasks] = useState([]);
+  const [task, setTask] = useState("");
+
+  // Load saved tasks from localStorage on component mount
+  useEffect(() => {
+    const savedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if (savedTasks) {
+      setTasks(savedTasks); // Set the saved tasks to state
+    }
+  }, []);
+
+  // Save tasks to localStorage whenever tasks change
+  useEffect(() => {
+    if (tasks.length > 0) {
+      localStorage.setItem('tasks', JSON.stringify(tasks)); // Store tasks in localStorage
+    }
+  }, [tasks]);
+
+  // Handle task input change
+  const handleChange = (e) => setTask(e.target.value);
+
+  // Add task to the list
+  const addTask = () => {
+    if (task.trim()) {
+      const newTask = { text: task, completed: false };
+      setTasks([...tasks, newTask]);
+      setTask(""); // Clear the input field after adding task
+    }
+  };
+
+  // Toggle task completion
+  const toggleTask = (index) => {
+    const newTasks = [...tasks];
+    newTasks[index].completed = !newTasks[index].completed;
+    setTasks(newTasks);
+  };
+
+  // Remove task from the list
+  const removeTask = (index) => {
+    const newTasks = tasks.filter((_, i) => i !== index);
+    setTasks(newTasks);
+  };
+
+  return (
+    <div className="todo-container">
+      <h3>Your To-Do List</h3>
+      <div className="todo-input">
+        <textarea
+          type="text"
+          value={task}
+          onChange={handleChange}
+          placeholder="Enter a task"
+        />
+        <button onClick={addTask}>Add Task</button>
+      </div>
+      <ul className="todo-list">
+        {tasks.map((task, index) => (
+          <li key={index} className={task.completed ? "completed" : ""}>
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => toggleTask(index)}
+            />
+            {task.text}
+            <button onClick={() => removeTask(index)}>Remove</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+
 
 const PomodoroTimer = () => {
   const [workTime, setWorkTime] = useState(25 * 60); // Default work time 25 minutes
@@ -123,22 +198,13 @@ const PomodoroTimer = () => {
           minutes
         </label>
       </div>
-
-      {/* <div className="timer">
-        <h4>{isWorking ? 'Work' : 'Break'} Time</h4>
-        <div className="time">{formatTime(timeLeft)}</div>
-        <button onClick={startPauseTimer}>
-          {isActive ? 'Pause' : 'Start'}
-        </button>
-        <button onClick={resetTimer}>Reset</button>
-      </div> */}
     </div>
   );
 };
 
 const HomePage = () => {
-  const [date, setDate] = useState(new Date());
   const { user, userData, isLoading } = useAuthentication(); // ✅ Use authentication hook
+  const [date, setDate] = useState(new Date());
 
   const onDateChange = (newDate) => {
     setDate(newDate);
@@ -147,7 +213,7 @@ const HomePage = () => {
   return (
     <div className="home-page-container">
       <h2>Welcome to your Home Page {userData?.username} !</h2>
-      <p>This is the main page where users can view the overview of the app.</p>
+      {/* <p>This is the main page where users can view the overview of the app.</p> */}
 
       {/* Calendar */}
       <div className="calendar-container">
@@ -162,6 +228,13 @@ const HomePage = () => {
       <div className="pomodoro-wrapper">
         <PomodoroTimer />
       </div>
+
+      {/* To-Do List */}
+      <div className="todo-wrapper">
+        <ToDoList />
+      </div>
+
+
     </div>
   );
 };

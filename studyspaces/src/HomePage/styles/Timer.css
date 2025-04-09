@@ -1,15 +1,15 @@
 /* Timer.css */
 .pomodoro-wrapper {
-  position: fixed;
-  display: flex;
-  justify-content: center;  /* Align horizontally at the center */
-  align-items: center;      /* Align vertically at the center */
-  height: 100vh;            /* Full height of the viewport */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
+  display: absolute;
+    justify-content: center;  /* Align horizontally at the center */
+    align-items: center;      /* Align vertically at the center */
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    flex: 1;
+    max-width: 300px; /* Optional: Limiting the size */
+    
 }
 
 .pomodoro-container {
@@ -18,7 +18,7 @@
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  width: 400px;  /* You can adjust the width based on your preference */
+  width: 300px;  /* You can adjust the width based on your preference */
   font-family: 'Baloo 2', sans-serif;
 }
 

@@ -1,4 +1,12 @@
 /* App container to hold Sidebar and main content */
+
+.home-page-container {
+  display: flex;
+  justify-content: space-between; /* Spread out content horizontally */
+  align-items: flex-start; /* Align items at the top */
+  flex-wrap: wrap; /* Ensure responsiveness */
+  padding: 50px;
+}
 .app-container {
   display: flex;
   height: 100vh;  /* Full height of the viewport */
@@ -64,6 +72,11 @@
   margin-top: 10px;
   border-radius: 50%;
 }
+.logo-title-link {
+  display: flex;
+  align-items: center; /* 🔥 This aligns the logo and text vertically */
+  text-decoration: none;
+}
 
 h1 {
   font-size: 50px;
@@ -71,7 +84,7 @@ h1 {
   font-weight: bold;
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
   color: #ffffff; 
-  margin: 0;
+  margin: 20px;
   margin-left: 20px; /* Adjust margin to the left of the logo */
   display: inline-block;  /* Align the title to the left of the logo */
   line-height: 1;  /* Ensure the title is vertically centered with the logo */
