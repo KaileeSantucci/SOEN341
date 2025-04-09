@@ -29,13 +29,6 @@ const AddUser = ({ setAddMode }) => {
             toast.error("User not found.");
             setSearchedUser(null);
         }
-
-        if (userSnap.exists()) {
-            setSearchedUser(userSnap.data());
-        } else {
-            toast.error("User not found.");
-            setSearchedUser(null);
-        }
     };
 
     const handleAdd = async () => {
