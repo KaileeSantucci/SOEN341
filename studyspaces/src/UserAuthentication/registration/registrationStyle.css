@@ -3,8 +3,8 @@
 
 /*centering the body*/
 
-body{
-  justify-content: center;
+body.register-page{
+  justify-content: center !important;
 }
 
 body.register-page {

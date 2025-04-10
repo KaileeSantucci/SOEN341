@@ -13,6 +13,13 @@ const Register = () => {
     const [formData, setFormData] = useState({ firstName: "", lastName: "", username: "", email: "", password: "" });
     const [loading, setLoading] = useState(false); //loading state for buttons
 
+    useEffect (() => {
+      document.body.classList.add("register-page");  
+      return () => {
+          document.body.classList.remove("register-page");
+      }
+    });
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -47,14 +54,7 @@ const Register = () => {
         }finally {
           setLoading(false);
         }
-
-    useEffect (() => {
-      document.body.classList.add("register-page");  
-      return () => {
-          document.body.classList.remove("register-page");
       }
-    });
-  }
 
     return (
         <div className="MainBox">

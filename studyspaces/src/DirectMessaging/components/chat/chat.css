@@ -56,7 +56,7 @@
     .center{
         padding: 20px;
         flex: 1;
-        overflow: scroll;
+        overflow-y: scroll;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -89,7 +89,7 @@
 
                 p{
                     padding: 20px;
-                    background-color: rgba(255, 93, 166, 0.31);
+                    background-color: rgba(247, 162, 202, 0.749);
                     border-radius: 10px;
                 }
 
@@ -127,10 +127,10 @@
             }
         input{
             flex: 1;
-            background-color: rgba(255, 93, 166, 0.31);
+            background-color: rgbargba(247, 162, 202, 0.749);
             border: none;
             outline: none;
-            color: black;
+            color: white;
             padding: 20px;
             border-radius: 20px;
             font-size: 16px;

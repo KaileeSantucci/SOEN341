@@ -43,7 +43,8 @@
 .main-content {
   margin-top: 100px;
   padding-left: 100px;
-  padding-right: 20px;
+  padding-right: 200px;
+  margin-bottom: 20px;
   width: 100%; /* Ensure content doesn't overflow */
   background-color: transparent; /* Make sure it starts without a pink background */
   height: calc(100vh-150px); /* Ensure content area takes full height */

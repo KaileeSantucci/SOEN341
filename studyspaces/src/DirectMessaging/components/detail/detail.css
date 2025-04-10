@@ -31,7 +31,7 @@
                 img{
                     width: 30px;
                     height: 30px;
-                    background-color: rgba(255, 93, 166, 0.31);
+                    background-color: rgba(247, 162, 202, 0.749);
                     padding: 10px;
                     border-radius: 50%;
                     cursor: pointer;
@@ -69,7 +69,7 @@
                     .icon{
                         width: 30px;
                         height: 30px;
-                        background-color: rgba(255, 93, 166, 0.31);
+                        background-color: rgba(247, 162, 202, 0.749);
                         padding: 10px;
                         border-radius: 50%;
                         cursor: pointer;

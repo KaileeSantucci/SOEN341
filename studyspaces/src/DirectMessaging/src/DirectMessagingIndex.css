@@ -9,18 +9,15 @@
 
 body{
   background-image: url("/public/StudySpaceBackground.png");
-  display: flex;
   align-items: center;
   color: white;
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  
-
 }
 
 .container{
-
+  
   width: 85vw;
   height: calc(100vh - 110px);; 
   overflow: auto;
@@ -29,10 +26,6 @@ body{
   border-radius: 12px;
   border: 1px solid rgba(238, 130, 238, 0.125);
   display: flex;
-
-  
-  
-  
 }
 
 .loading{

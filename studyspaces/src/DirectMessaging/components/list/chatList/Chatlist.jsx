@@ -99,6 +99,7 @@ const ChatList = () => {
           <img src="../../../../public/DirectMessaging/search.png" alt="Search" />
           <input
             type="text"
+            style={{ color: "white" }}
             placeholder="Search"
             onChange={(e) => setInput(e.target.value)}
           />
