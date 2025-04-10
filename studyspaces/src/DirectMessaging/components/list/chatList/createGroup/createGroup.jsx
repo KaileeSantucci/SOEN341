@@ -35,7 +35,7 @@ const CreateGroup = () => {
         <div className="item">
             <h4>Create a Group Chat</h4>
             <form onSubmit={handleRegister}>
-                <input type="chatname" placeholder="ChatNmae" name="chatname" />
+                <input type="chatname" placeholder="ChatName" name="chatname" />
                 <button>Create</button>
             </form>
         </div>

@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../DirectMessaging/lib/firebase";
 import { useUserStore } from "../DirectMessaging/lib/userStore";
 import { useServerStore } from "../DirectMessaging/lib/serverStore";
-import ServerRoom from "./pages/serverRoom";
+import ServerRoom from "./pages/ServerRoom";
 import ServerList from "./pages/ServerList";
 
 const ServerApp = () => {

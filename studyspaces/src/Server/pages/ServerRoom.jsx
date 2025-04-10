@@ -138,7 +138,7 @@ const ServerRoom = ({ selectedServer }) => {
             </ul>
 
             {/* Message Input */}
-            <form className="ChatRoomFooter message-input-form" onSubmit={sendMessage} >
+            <form id="ChatRoomFooter" onSubmit={sendMessage} className="message-input-form">
                 <input
                     type="text"
                     value={messageText}

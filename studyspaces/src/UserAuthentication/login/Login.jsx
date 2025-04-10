@@ -98,6 +98,7 @@ return (
 
                     <div className="input-group">
                         <input
+                            id="email"
                             className="input"
                             type="email" 
                             name="email" 
@@ -105,11 +106,12 @@ return (
                             required onChange={handleChange} 
                             value={formData.email} 
                          />
-                        <label className="user-label">Email</label>
+                        <label htmlFor="email" className="user-label">Email</label>
                     </div> <br />
 
                     <div className="input-group">
                         <input 
+                            id="password"
                             className="input"
                             type="password" 
                             name="password" 
@@ -117,7 +119,7 @@ return (
                             required onChange={handleChange} 
                             value={formData.password} 
                         />
-                        <label className="user-label">Password</label>
+                        <label htmlFor="password" className="user-label">Password</label>
                     </div> <br />
 
                     <span>
