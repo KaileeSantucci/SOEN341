@@ -115,19 +115,10 @@ const ChatList = () => {
           className="add"
           onClick={() => setAddMode((prev) => !prev)}
         />
-        <img
-          src={
-            addModeGroup
-              ? "../../../../public/DirectMessaging/minus.png"
-              : "../../../../public/DirectMessaging/plus.png"
-          }
-          alt=""
-          className="add"
-          onClick={() => setAddModeGroup((prev) => !prev)}
-        />
+        
       </div>
 
-      {addModeGroup && <CreateGroup />}
+      {addModeGroup}
 
       {filteredChats.length === 0 ? (
         <p>No chats found. Add a user to start messaging!</p>

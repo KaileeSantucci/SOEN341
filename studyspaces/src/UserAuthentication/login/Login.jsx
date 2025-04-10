@@ -131,9 +131,14 @@ return (
                 </form>
             </div>
 
-            <div className="div3"> 
-                <img src="../../../public/DirectMessaging/StudySpace.png" alt="StudySpace Logo" style={{maxWidth: "100%", height: "auto"}}/>
+            <div className="div3" onClick={() => navigate("/about-us")} style={{ cursor: "pointer" }}>
+                <img
+                    src="../../../public/DirectMessaging/StudySpace.png"
+                    alt="StudySpace Logo"
+                    style={{ maxWidth: "100%", height: "auto" }}
+                />
             </div>
+
 
             <div className="div4"> 
                 <h1>First time?</h1><br />

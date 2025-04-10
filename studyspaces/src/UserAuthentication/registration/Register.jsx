@@ -60,8 +60,12 @@ const Register = () => {
         <div className="MainBox">
           <div className="parent">
             {/* Logo div */}
-            <div className="div10">
-              <img src="../../../public/DirectMessaging/StudySpace.png" alt="StudySpace Logo" style={{ maxWidth: "100%", height: "auto" }} />
+            <div className="div10" onClick={() => navigate("/about-us")} style={{ cursor: "pointer" }}>
+              <img 
+              src="../../../public/DirectMessaging/StudySpace.png" 
+              alt="StudySpace Logo" 
+              style={{ maxWidth: "100%", height: "auto" }} 
+              />
             </div>
     
             {/* Header Message */}

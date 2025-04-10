@@ -7,27 +7,26 @@
     position: absolute;
     top: 0;bottom: 0;left: 0;right: 0;
     margin: auto;
+    gap: 20px;
 
-    form{
-        display: flex;
-        gap: 20px;
-
-        input{
-            padding: 20px;
-            border-radius: 10px;
-            border: none;
-            outline: none;
-        }
-
-        button{
-            padding: 20px;
-            border-radius: 10px;
-            background-color: rgb(47, 108, 252, 0.7);
-            color: aliceblue;
-            border: none;
-            cursor: pointer;
-        }
+    input{
+        padding: 15px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        gap: 15px;
     }
+
+    button{
+        padding: 15px;
+        border-radius: 10px;
+        background-color: rgb(47, 108, 252, 0.7);
+        color: aliceblue;
+        border: none;
+        cursor: pointer;
+        gap: 15px;
+    }
+    
 
     .user{
         margin-top: 50px;
