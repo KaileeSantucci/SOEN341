@@ -8,9 +8,9 @@ const Detail = () => {
         <div className = 'detail'>
             <div className="user">
                 <img src="../../../../public/DirectMessaging/avatar.png" alt="" />
-                <h2>Admin</h2>
+                <h2>Account</h2>
                 <p>
-                    BIO: Hey bros!
+                    BIO: N/A
                 </p>
             </div>
             <div className="info">
