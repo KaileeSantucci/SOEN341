@@ -112,8 +112,16 @@ const ManageServers = () => {
             <div className="manage-server-container">
               <h2>🛠 Manage Servers</h2>
     
-              <label className="select-server-delete-text">Select a server to delete:</label>
-              <select className="manage-server-container" value={selectedServer} onChange={(e) => setSelectedServer(e.target.value)}>
+              <label className="select-server-delete-text" htmlFor="serverSelect">
+                Select a server to delete:
+              </label>
+              <select
+                id="serverSelect"
+                className="manage-server-container"
+                value={selectedServer}
+                onChange={(e) => setSelectedServer(e.target.value)}
+              >
+
                 <option value="">-- Select a server --</option>
                 {servers.map((server) => (
                   <option key={server.id} value={server.id}>
