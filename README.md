@@ -35,4 +35,3 @@ Javascript (Programming langauge)
 Node.js (for WebSocket and server programming)  
 Firebase and Firestore        
 React
-# Trigger CI
