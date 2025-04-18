@@ -2,7 +2,6 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import animationBackground from '../HomePage/assets/Animation.json';
-import animationMascot from '../HomePage/assets/MascotAnimation.json';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthentication } from './userauthentication';

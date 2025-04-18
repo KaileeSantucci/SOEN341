@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { auth, db } from '../DirectMessaging/lib/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { doc, getDoc } from "firebase/firestore";
-import { create } from "zustand";
 import { useChatStore } from '../DirectMessaging/lib/chatStore';
 
 export const useAuthentication = () => {

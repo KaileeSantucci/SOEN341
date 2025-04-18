@@ -4,7 +4,6 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import { auth, db } from "../../lib/firebase";
 import { doc, setDoc } from "firebase/firestore";
-import { create } from "zustand";
 
 
 

@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../DirectMessaging/lib/firebase';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom'; // Import useLocation
-import { FaUser, FaHome, FaEnvelope, FaBell, FaUsers, FaPlus, FaCheckCircle, FaClipboardList, FaServer} from 'react-icons/fa';
+import { FaUser, FaHome, FaEnvelope, FaUsers, FaCheckCircle, FaServer} from 'react-icons/fa';
 import '../styles/Sidebar.css'; // Import sidebar-specific styles
 import { useAuthentication } from '../../UserAuthentication/userauthentication'; // Import the authentication hook
 

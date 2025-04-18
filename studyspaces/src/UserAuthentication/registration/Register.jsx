@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 import { auth, db } from "../../DirectMessaging/lib/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { create } from "zustand";
 import "./registrationStyle.css";
 
 const Register = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({ firstName: "", lastName: "", username: "", email: "", password: "" });
-    const [loading, setLoading] = useState(false); //loading state for buttons
+    const [setLoading] = useState(false); //loading state for buttons
 
     useEffect (() => {
       document.body.classList.add("register-page");  

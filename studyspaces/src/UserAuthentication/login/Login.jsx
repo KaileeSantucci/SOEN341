@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { toast } from "react-toastify";
 import { auth, db } from "../../DirectMessaging/lib/firebase.js";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useAuthentication } from "../userauthentication.js";
 import { useNavigate } from "react-router-dom";
-import { create } from "zustand";
 import "./loginStyle.css";
 
 

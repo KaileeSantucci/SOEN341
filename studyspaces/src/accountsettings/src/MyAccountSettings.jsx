@@ -2,14 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useUserStore } from "../../DirectMessaging/lib/userStore"; // This line imports the actual component
 import { auth } from "../../DirectMessaging/lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import "./MyAccount.css"; // Import your CSS file
 
 const AccountSettings = () => {
     const { fetchUserInfo } = useUserStore();
     const currentUser = useUserStore((state) => state.currentUser);
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const[ FormData, setFormData] = useState({
         admin: "",

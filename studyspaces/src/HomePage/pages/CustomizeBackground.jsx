@@ -1,4 +1,4 @@
-import React, { useState, useEffect, use } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/CustomizeBackground.css'; // Make sure you have custom styles for this page
 
 const CustomizeBackground = () => {

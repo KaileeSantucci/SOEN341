@@ -3,7 +3,6 @@ import Lottie from 'lottie-react';
 import animationMascot from '../assets/MascotAnimation.json';
 import '../styles/Landing.css';
 import { useEffect } from 'react';
-import LandingLayout from '../../UserAuthentication/LandingLayout'
 
 
 const AboutUs = () => {

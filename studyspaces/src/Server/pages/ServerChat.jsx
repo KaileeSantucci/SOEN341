@@ -1,5 +1,4 @@
 import React from "react";
-import { useChatStore } from "../DirectMessaging/lib/chatStore";
 import { useState } from "react";
 import { db, collection, addDoc, serverTimestamp } from "../DirectMessaging/lib/firebase";
 

@@ -1,6 +1,5 @@
 import "./createGroup.css"
 import { toast } from "react-toastify";
-import { useState } from "react";
 import { db } from "../../../../lib/firebase";
 import { doc, setDoc } from "firebase/firestore";
 

@@ -5,12 +5,11 @@ import { useUserStore } from "../../../lib/userStore";
 import { doc, getDoc, onSnapshot, setDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
 import { useChatStore } from "../../../lib/chatStore";
-import CreateGroup from "./createGroup/createGroup";
 
 const ChatList = () => {
   const [chats, setChats] = useState([]);
   const [addMode, setAddMode] = useState(false);
-  const [addModeGroup, setAddModeGroup] = useState(false);
+  const [addModeGroup] = useState(false);
   const [input, setInput] = useState("");
 
   const currentUser = useUserStore((state) => state.currentUser);

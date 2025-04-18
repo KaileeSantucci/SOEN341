@@ -1,12 +1,10 @@
 import "./addUser.css";
 import { db } from "../../../../lib/firebase";
-import { arrayUnion, collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where,} from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, where,} from "firebase/firestore";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useUserStore } from "../../../../lib/userStore";
 import { toast } from "react-toastify";
 import { useChatStore } from "../../../../lib/chatStore";
-import { auth } from "../../../../lib/firebase";
 const AddUser = ({ setAddMode }) => {
     const [input, setInput] = useState("");
     const [searchedUser, setSearchedUser] = useState(null);

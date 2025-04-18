@@ -1,4 +1,3 @@
-import { auth } from "../../lib/firebase"
 import { useNavigate } from "react-router-dom"
 import "./detail.css"
 

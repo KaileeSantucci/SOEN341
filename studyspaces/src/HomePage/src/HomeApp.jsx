@@ -23,7 +23,6 @@ function HomeApp() {
   return (
       <MainLayout />
   );
-  console.log("HomeApp.jsx");
 }
 
 function MainLayout(){

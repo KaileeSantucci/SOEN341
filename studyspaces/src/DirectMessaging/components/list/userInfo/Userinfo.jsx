@@ -21,7 +21,6 @@ const UserInfo = () => {
             </div>
         </div>
     )
-console.log("UserInfo is being rendered!")
 }
 
 export default UserInfo

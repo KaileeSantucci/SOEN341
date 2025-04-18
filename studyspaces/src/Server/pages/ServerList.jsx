@@ -1,6 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { db, collection, addDoc, getDocs, setDoc } from "../../DirectMessaging/lib/firebase";
+import { useEffect } from "react";
 import { useServerStore } from "../../DirectMessaging/lib/serverStore";
 import "../styles/ServerLayout.css";
 
