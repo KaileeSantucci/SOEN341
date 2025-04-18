@@ -1,0 +1,245 @@
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/App.jsx
+  1:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/DirectMessaging/components/chat/Chat.jsx
+   1:8   warning  'React' is defined but never used             no-unused-vars
+  39:11  warning  'chatRef' is assigned a value but never used  no-unused-vars
+  71:24  warning  'upload' is not defined                       no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/DirectMessaging/components/header/Header.jsx
+  1:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/DirectMessaging/components/list/chatList/Chatlist.jsx
+  20:3  warning  React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  81:6  warning  React Hook useEffect has a missing dependency: 'currentUser'. Either include it or remove the dependency array                react-hooks/exhaustive-deps
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/DirectMessaging/components/list/chatList/addUser/addUser.jsx
+  8:20  warning  'setAddMode' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/DirectMessaging/components/list/chatList/createGroup/createGroup.jsx
+  15:35  warning  'createUserWithEmailAndPassword' is not defined  no-undef
+  15:66  warning  'auth' is not defined                            no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/DirectMessaging/components/login/login.jsx
+  11:12  warning  'loading' is assigned a value but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/DirectMessaging/lib/firebase.js
+  22:5  warning  'analytics' is assigned a value but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/HomePage/components/Sidebar.jsx
+  1:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/HomePage/pages/AboutUs.jsx
+  1:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/HomePage/pages/BackgroundWrapper.jsx
+  2:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/HomePage/pages/CustomizeBackground.jsx
+  1:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/HomePage/pages/DirectMessaging.jsx
+  8:6  warning  React Hook useEffect has an unnecessary dependency: 'navigate'. Either exclude it or remove the dependency array. Outer scope values like 'navigate' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
+  8:7  warning  'navigate' is not defined                                                                                                                                                                                                             no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/HomePage/pages/FAQ.jsx
+   1:8   warning  'React' is defined but never used                                no-unused-vars
+  16:32  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  16:53  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/HomePage/pages/FAQOther.jsx
+   1:8   warning  'React' is defined but never used                                no-unused-vars
+  17:32  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  17:53  warning  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/HomePage/pages/GroupMessaging.jsx
+  2:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/HomePage/pages/HomePage.jsx
+    1:8   warning  'React' is defined but never used               no-unused-vars
+  206:11  warning  'user' is assigned a value but never used       no-unused-vars
+  206:27  warning  'isLoading' is assigned a value but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/HomePage/pages/MyAccount.jsx
+  7:6  warning  React Hook useEffect has an unnecessary dependency: 'navigate'. Either exclude it or remove the dependency array. Outer scope values like 'navigate' aren't valid dependencies because mutating them doesn't re-render the component  react-hooks/exhaustive-deps
+  7:7  warning  'navigate' is not defined                                                                                                                                                                                                             no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/Server/ServerApp.jsx
+  28:8  warning  React Hook useEffect has missing dependencies: 'fetchUserInfo' and 'setCurrentUser'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/Server/pages/ManageServers.jsx
+  1:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/Server/pages/ServerChat.jsx
+   1:8   warning  'React' is defined but never used                    no-unused-vars
+   8:12  warning  'setCurrentUser' is assigned a value but never used  no-unused-vars
+   8:30  warning  'useUserStore' is not defined                        no-undef
+  12:14  warning  'currentUser' is not defined                         no-undef
+  20:21  warning  'currentUser' is not defined                         no-undef
+  21:23  warning  'currentUser' is not defined                         no-undef
+  32:24  warning  'messageTest' is not defined                         no-undef
+  33:34  warning  'setMessageTest' is not defined                      no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/Server/pages/ServerList.jsx
+   1:8  warning  'React' is defined but never used                                                                                no-unused-vars
+  12:8  warning  React Hook useEffect has a missing dependency: 'fetchServers'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/Server/pages/ServerRoom.jsx
+   1:8  warning  'React' is defined but never used                                                                                     no-unused-vars
+  80:8  warning  React Hook useEffect has a missing dependency: 'fetchMessagesOnce'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/Server/pages/ransomserverfucntions.jsx
+   1:7   warning  'createWelcomeServer' is assigned a value but never used                                                                                                                                                                                                no-unused-vars
+   2:11  warning  'serverRef' is assigned a value but never used                                                                                                                                                                                                          no-unused-vars
+   2:23  warning  'doc' is not defined                                                                                                                                                                                                                                    no-undef
+   2:27  warning  'db' is not defined                                                                                                                                                                                                                                     no-undef
+   3:11  warning  'setDoc' is not defined                                                                                                                                                                                                                                 no-undef
+   3:18  warning  'doc' is not defined                                                                                                                                                                                                                                    no-undef
+   3:22  warning  'db' is not defined                                                                                                                                                                                                                                     no-undef
+   7:7   warning  'sendMessages' is assigned a value but never used                                                                                                                                                                                                       no-unused-vars
+   8:27  warning  React Hook "useUserStore" is called in function "sendMessages" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"  react-hooks/rules-of-hooks
+   8:27  warning  'useUserStore' is not defined                                                                                                                                                                                                                           no-undef
+  13:24  warning  'collection' is not defined                                                                                                                                                                                                                             no-undef
+  13:35  warning  'db' is not defined                                                                                                                                                                                                                                     no-undef
+  14:11  warning  'addDoc' is not defined                                                                                                                                                                                                                                 no-undef
+  18:20  warning  'serverTimestamp' is not defined                                                                                                                                                                                                                        no-undef
+  23:7   warning  'handleSelect' is assigned a value but never used                                                                                                                                                                                                       no-unused-vars
+  23:29  warning  'server' is defined but never used                                                                                                                                                                                                                      no-unused-vars
+  25:7   warning  'createServer' is assigned a value but never used                                                                                                                                                                                                       no-unused-vars
+  26:9   warning  'newServerName' is not defined                                                                                                                                                                                                                          no-undef
+  31:11  warning  'addDoc' is not defined                                                                                                                                                                                                                                 no-undef
+  31:18  warning  'collection' is not defined                                                                                                                                                                                                                             no-undef
+  31:29  warning  'db' is not defined                                                                                                                                                                                                                                     no-undef
+  32:15  warning  'newServerName' is not defined                                                                                                                                                                                                                          no-undef
+  34:17  warning  'currentUser' is not defined                                                                                                                                                                                                                            no-undef
+  37:5   warning  'setNewServerName' is not defined                                                                                                                                                                                                                       no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/UserAuthentication/LandingLayout.jsx
+  1:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/UserAuthentication/login/Login.jsx
+  1:8   warning  'React' is defined but never used  no-unused-vars
+  3:16  warning  'db' is defined but never used     no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/UserAuthentication/registration/Register.jsx
+   1:8   warning  'React' is defined but never used                                no-unused-vars
+  75:20  warning  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/UserAuthentication/userauthentication.js
+  34:6  warning  React Hook useEffect has a missing dependency: 'resetChat'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/accountsettings/src/MyAccountApp.jsx
+  1:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/accountsettings/src/MyAccountSettings.jsx
+  1:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/src/main.jsx
+  1:8  warning  'React' is defined but never used  no-unused-vars
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/tests/AccountInformation.test.jsx
+   1:8  warning  'React' is defined but never used  no-unused-vars
+  51:1  warning  'describe' is not defined          no-undef
+  52:3  warning  'test' is not defined              no-undef
+  56:7  warning  'expect' is not defined            no-undef
+  57:7  warning  'expect' is not defined            no-undef
+  58:7  warning  'expect' is not defined            no-undef
+  59:7  warning  'expect' is not defined            no-undef
+  60:7  warning  'expect' is not defined            no-undef
+  63:5  warning  'expect' is not defined            no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/tests/AddUser.test.jsx
+   1:8   warning  'React' is defined but never used  no-unused-vars
+   6:1   warning  'vi' is not defined                no-undef
+  13:23  warning  'vi' is not defined                no-undef
+  14:1   warning  'vi' is not defined                no-undef
+  21:1   warning  'vi' is not defined                no-undef
+  23:12  warning  'vi' is not defined                no-undef
+  24:14  warning  'vi' is not defined                no-undef
+  29:1   warning  'vi' is not defined                no-undef
+  34:17  warning  'vi' is not defined                no-undef
+  35:12  warning  'vi' is not defined                no-undef
+  36:12  warning  'vi' is not defined                no-undef
+  37:10  warning  'vi' is not defined                no-undef
+  38:13  warning  'vi' is not defined                no-undef
+  42:14  warning  'vi' is not defined                no-undef
+  56:1   warning  'describe' is not defined          no-undef
+  57:3   warning  'test' is not defined              no-undef
+  67:7   warning  'expect' is not defined            no-undef
+  74:7   warning  'expect' is not defined            no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/tests/Chat.test.jsx
+   1:8   warning  'React' is defined but never used  no-unused-vars
+   6:1   warning  'vi' is not defined                no-undef
+  12:1   warning  'vi' is not defined                no-undef
+  22:1   warning  'vi' is not defined                no-undef
+  25:25  warning  'vi' is not defined                no-undef
+  26:26  warning  'vi' is not defined                no-undef
+  30:10  warning  'vi' is not defined                no-undef
+  31:13  warning  'vi' is not defined                no-undef
+  46:17  warning  'vi' is not defined                no-undef
+  57:1   warning  'vi' is not defined                no-undef
+  61:1   warning  'describe' is not defined          no-undef
+  62:3   warning  'test' is not defined              no-undef
+  74:7   warning  'expect' is not defined            no-undef
+  75:7   warning  'expect' is not defined            no-undef
+  76:7   warning  'expect' is not defined            no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/tests/ChatList.test.jsx
+   1:8   warning  'React' is defined but never used  no-unused-vars
+   6:1   warning  'vi' is not defined                no-undef
+  13:1   warning  'vi' is not defined                no-undef
+  15:17  warning  'vi' is not defined                no-undef
+  18:1   warning  'vi' is not defined                no-undef
+  23:12  warning  'vi' is not defined                no-undef
+  42:15  warning  'vi' is not defined                no-undef
+  58:1   warning  'describe' is not defined          no-undef
+  59:5   warning  'test' is not defined              no-undef
+  65:9   warning  'expect' is not defined            no-undef
+  66:9   warning  'expect' is not defined            no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/tests/Login.test.jsx
+  29:1  warning  'describe' is not defined  no-undef
+  30:3  warning  'it' is not defined        no-undef
+  37:5  warning  'expect' is not defined    no-undef
+  38:5  warning  'expect' is not defined    no-undef
+  39:5  warning  'expect' is not defined    no-undef
+  42:3  warning  'it' is not defined        no-undef
+  55:5  warning  'expect' is not defined    no-undef
+  56:5  warning  'expect' is not defined    no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/tests/ManageServers.test.jsx
+   1:26  warning  'fireEvent' is defined but never used  no-unused-vars
+  43:1   warning  'describe' is not defined              no-undef
+  44:3   warning  'it' is not defined                    no-undef
+  52:5   warning  'expect' is not defined                no-undef
+  53:5   warning  'expect' is not defined                no-undef
+  54:5   warning  'expect' is not defined                no-undef
+  57:5   warning  'expect' is not defined                no-undef
+  58:5   warning  'expect' is not defined                no-undef
+  59:5   warning  'expect' is not defined                no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/tests/Register.test.jsx
+  31:1  warning  'describe' is not defined  no-undef
+  33:3  warning  'it' is not defined        no-undef
+  40:5  warning  'expect' is not defined    no-undef
+  41:5  warning  'expect' is not defined    no-undef
+  42:5  warning  'expect' is not defined    no-undef
+  43:5  warning  'expect' is not defined    no-undef
+  44:5  warning  'expect' is not defined    no-undef
+  45:5  warning  'expect' is not defined    no-undef
+  49:3  warning  'it' is not defined        no-undef
+  62:5  warning  'expect' is not defined    no-undef
+  63:5  warning  'expect' is not defined    no-undef
+  64:5  warning  'expect' is not defined    no-undef
+  65:5  warning  'expect' is not defined    no-undef
+  66:5  warning  'expect' is not defined    no-undef
+  70:3  warning  'it' is not defined        no-undef
+  89:7  warning  'expect' is not defined    no-undef
+
+/Users/kaileesantucci/Documents/GitHub/SOEN341/studyspaces/tests/ToDo.test.jsx
+  4:8  warning  'React' is defined but never used  no-unused-vars
+
+✖ 164 problems (0 errors, 164 warnings)
+
